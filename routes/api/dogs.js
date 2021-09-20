@@ -1,10 +1,9 @@
-const express = require("express");
-const router = express.Router();
-const mongoose = require("mongoose");
-const passport = require("passport");
-
-const Dog = require("../../models/Dog");
-const validateDogInput = require("../../validation/dogs");
+const express = require('express');
+const router = express.Router(); 
+const mongoose = require('mongoose');
+const passport = require('passport');
+const Dog = require('../../models/Dog');
+const validateDogInput = require('../../validation/dogs');
 
 router.get("/", (req, res) => {
   Dog.find()
@@ -28,42 +27,76 @@ router.get("/:id", (req, res) => {
     );
 });
 
-router.post(
-  "/",
-  passport.authenticate("jwt", { session: false }),
+router.post('/',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+      const { errors, isValid } = validateDogInput(req.body);
+  
+      if (!isValid) {
+        return res.status(400).json(errors);
+      }
+  
+      const newDog = new Dog({
+        name: req.body.name,
+        breed: req.body.breed,
+        gender: req.body.gender,
+        age: req.body.age,
+        user_id: req.user.id,
+        description: req.body.description
+      });
+  
+      newDog.save().then(dog => res.json(dog));
+    }
+  );
+  
+router.delete('/:id',
+passport.authenticate('jwt', { session: false }),
+(req, res) => {
+    Dog.findById(req.params.id)
+    .then(dog => {
+        if (dog.user.toHexString() !== req.user.id) {
+            res.status(404).json({ notauthorized: 'This is not your dog'})
+        } else {
+        Dog.findOneAndDelete({ _id: req.params.id })
+            .then(() => res.json("deleted"))
+            .catch(() =>
+            res.status(404).json("delete failed"))
+        }
+    })
+    .catch(() =>
+    res.status(404).json({ nodogsfound: 'No dog found' }))
+});
+
+router.patch('/:id',
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateDogInput(req.body);
+  
+      if (!isValid) {
+        return res.status(400).json(errors);
+      }
+    
+      const updatedDog = {
+        name: req.body.name,
+        gender: req.body.gender,
+        age: req.body.age,
+        breed: req.body.breed
+      }
 
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
+      Dog.findById(req.params.id)
+      .then(dog => {
+          if (dog.user.toHexString() !== req.user.id) {
+            res.status(404).json({ notauthorized: 'This is not your dog'})
+          } else {
+            Dog.findOneAndUpdate({ _id: req.params.id }, 
+              {$set:updatedDog}, {new: true})
+                .then(returnedDog => res.json(returnedDog))
+                .catch(() =>
+                  res.status(404).json("unable to update"))
+          }
+      })
+      .catch(() =>
+        res.status(404).json({ nodogfound: 'No dog found' }))  
+  })
 
-    const newDog = new Dog({
-      name: req.body.name,
-      breed: req.body.breed,
-      gender: req.body.gender,
-      age: req.body.age,
-      user_id: req.body.user_id,
-    });
-
-    newDog.save().then((dog) => res.json(dog));
-  }
-);
-
-router.delete(
-  "/:id",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    Dog.findById(req.params.id).then();
-  }
-);
-
-module.exports = router;
-
-router.get("/:id", (req, res) => {
-  Dog.findById(req.params.id)
-    .then((dog) => res.json(dog))
-    .catch((err) =>
-      res.status(404).json({ nodogfound: "No dog found with that ID" })
-    );
-});
+  module.exports = router;
