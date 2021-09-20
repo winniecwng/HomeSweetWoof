@@ -5,7 +5,7 @@ export const getUsers = () => {
 };
 
 export const getUser = userId => {
-    return axios.get(`/api//user/${userId}`)
+    return axios.get(`/api/users/${userId}`)
 };
 
 export const updateUser = (user) => {

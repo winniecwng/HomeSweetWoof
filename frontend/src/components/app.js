@@ -8,6 +8,7 @@ import Signup from "./session/signup_form_container";
 import DogIndexContainer from "../components/dog/dog_index_container";
 import DogShowContainer from "../components/dog/dog_show_container";
 import DogCreateContainer from "./dog/dog_create_container";
+import UserShowContainer from "./user/user_show_container";
 
 const App = () => (
   <div>
@@ -18,6 +19,7 @@ const App = () => (
     <Route exact path ="/dogs/:id" component={DogShowContainer}/>
     <Route exact path ="/dogs/new" component={DogCreateContainer}/>
     <Route exact path ="/" component={Splash} />
+    <Route exact path ="/users/:id" component={UserShowContainer}/>
   </div>
 );
 
