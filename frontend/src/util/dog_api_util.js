@@ -1,13 +1,17 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const getDogs = () => {
-  return axios.get('/api/dogs')
+  return axios.get("/api/dogs");
 };
 
-export const getUserDogs = id => {
-  return axios.get(`/api/dogs/user/${id}`)
+export const getDog = (id) => {
+  return axios.get(`/api/dogs/${id}`);
+}; // for dog show
+
+export const getUserDogs = (id) => {
+  return axios.get(`/api/dogs/user/${id}`);
 };
 
-export const postDog = data => {
-  return axios.post('/api/dogs/', data)
-}
+export const postDog = (data) => {
+  return axios.post("/api/dogs/", data);
+};

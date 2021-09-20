@@ -1,0 +1,17 @@
+.shelter-main {
+    @include profile-main;
+}
+
+.shelter-details-container {
+    @include profile-details;
+}
+
+.shelter-dog-container {
+    // display: inline-grid;
+    // grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+
+    .shelter-dog-name {
+        font-size: 1.2rem;
+    }
+}
