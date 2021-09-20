@@ -4,10 +4,8 @@ import UserShow from "./user_show";
 
 
 const mSTP = (state, ownProps) => {
-    debugger;
-
     return {
-        user: state.entities.user,
+        user: state.entities.users,
         ownProps
     }
 };
@@ -15,7 +13,6 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => {
     return {
         fetchUser: id => dispatch(fetchUser(id)),
-        fetchUsers: () => dispatch(fetchUsers)
     }
 };
 
