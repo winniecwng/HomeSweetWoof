@@ -1,4 +1,6 @@
 import React from "react";
+import AdopterAppointmentsContainer from "./adoption_appointments_container";
+import ShelterDogsContainer from "./shelter_dogs_container";
 
 
 class UserShow extends React.Component {
@@ -7,10 +9,14 @@ class UserShow extends React.Component {
         super(props);
     }
 
-    // componentDidMount() {
-    // }
+    componentDidMount() {
+        this.props.fetchUsers();
+        // this.props.fetchUser(this.props.ownProps.match.params.id);
+    }
 
     render() {
+        if(!this.props.user) return null;
+
         let userType;
         this.props.user.type === 'adopter' ? userType = 'adopter' : userType = 'shelter'
 
@@ -31,11 +37,11 @@ class UserShow extends React.Component {
                     <p>{this.props.user.discription}</p>
                 </div>
 
-                {userType === adopter && (
+                {userType === 'adopter' && (
                     <AdopterAppointmentsContainer />
                 )}
 
-                {userType === shelter && (
+                {userType === 'shelter' && (
                     <ShelterDogsContainer />
                 )}
 

@@ -1,16 +1,21 @@
 import { connect } from "react-redux";
-import { fetchUser } from "../../actions/user_actions";
+import { fetchUser, fetchUsers } from "../../actions/user_actions";
+import UserShow from "./user_show";
 
 
-const mSTP = state => {
+const mSTP = (state, ownProps) => {
+    debugger;
+
     return {
-        state: state
+        user: state.entities.user,
+        ownProps
     }
 };
 
 const mDTP = dispatch => {
     return {
-        fetchUser: id => dispatch(fetchUser(id))
+        fetchUser: id => dispatch(fetchUser(id)),
+        fetchUsers: () => dispatch(fetchUsers)
     }
 };
 
