@@ -1,8 +1,7 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router(); 
 const mongoose = require('mongoose');
 const passport = require('passport');
-
 const Dog = require('../../models/Dog');
 const validateDogInput = require('../../validation/dogs');
 
@@ -43,7 +42,8 @@ router.post('/',
         breed: req.body.breed,
         gender: req.body.gender,
         age: req.body.age,
-        user_id: req.body.user_id
+        user_id: req.user.id,
+        description: req.body.description
       });
   
       newDog.save().then(dog => res.json(dog));
@@ -99,7 +99,5 @@ router.patch('/:id',
       .catch(() =>
         res.status(404).json({ nodogfound: 'No dog found' }))  
   })
-
-
 
   module.exports = router;

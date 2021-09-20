@@ -21,6 +21,10 @@ const DogSchema = new Schema({
   age: {
     type: Number,
     required: true
+  },
+  description: {
+      type: String,
+      required: false
   }
 });
 

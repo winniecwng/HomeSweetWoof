@@ -1,5 +1,5 @@
-import dogs from '../../../validation/dogs';
-import { getTweets, getUserTweets, writeTweet } from '../util/tweet_api_util';
+// import dogs from '../../../validation/dogs';
+import { getDogs, getUserDogs, postDog } from '../util/dog_api_util';
 
 export const RECEIVE_DOGS = "RECEIVE_DOGS";
 export const RECEIVE_USER_DOGS = "RECEIVE_USER_DOGS";
