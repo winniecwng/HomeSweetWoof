@@ -16,7 +16,7 @@ class UserShow extends React.Component {
 
     render() {
         if(!this.props.user) return null;
-
+        debugger
         let userType;
         this.props.user.type === 'adopter' ? userType = 'adopter' : userType = 'shelter'
         return (

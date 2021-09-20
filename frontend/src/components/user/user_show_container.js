@@ -13,7 +13,6 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => {
     return {
         fetchUser: id => dispatch(fetchUser(id)),
-        // fetchUsers: () => dispatch(fetchUsers())
     }
 };
 
