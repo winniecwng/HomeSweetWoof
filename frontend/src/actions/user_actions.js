@@ -1,4 +1,5 @@
 import * as UserApil from '../util/user_util'
+import { getUser, getUsers } from '../util/user_util';
 
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const RECEIVE_USER = "RECEIVE_USER";
@@ -10,10 +11,18 @@ export const receiveUsers = users => ({
 
 
 export const receiveUser = user => ({
-    type: RECEIVE_USERS,
+    type: RECEIVE_USER,
     user
 });
 
-export const fetchUser = user => dispatch => (
-    UserApil.getUser()
-)
+export const fetchUsers = () => dispatch => (
+    getUsers()
+      .then(users => dispatch(receiveUsers(users)))
+      .catch(err => console.log(err))
+  );
+
+export const fetchUser = userId => dispatch => (
+    getUser(userId)
+    .then(user => dispatch(receiveUserDogs(user)))
+    .catch(err => console.log(err))
+);
