@@ -10,8 +10,8 @@ class UserShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUsers();
-        // this.props.fetchUser(this.props.ownProps.match.params.id);
+        // this.props.fetchUsers();
+        this.props.fetchUser(this.props.ownProps.match.params.id);
     }
 
     render() {
@@ -19,7 +19,6 @@ class UserShow extends React.Component {
 
         let userType;
         this.props.user.type === 'adopter' ? userType = 'adopter' : userType = 'shelter'
-
         return (
             <div className={`user-main ${userType}-main`}>
                 <div className={`user-details ${userType}-details`}>
