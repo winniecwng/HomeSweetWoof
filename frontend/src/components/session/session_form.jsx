@@ -40,84 +40,184 @@ class SessionForm extends React.Component {
 
     handleDemoUser(e) {
         e.preventDefault();
-        const demoUser = { username: "DemoUser", password: "demo123" }
+        const demoUser = { email: "demo@demo.demo", password: "demo123" }
         this.setState(demoUser);
-        this.props.processForm(demoUser) //.then(this.props.closeModal);
+        this.props.processForm(demoUser);
     }
 
     render() {
-        // const demoSignUp = () => {
-        //     return (
-        //         <button onClick={(e) => this.handleDemoUser(e)} className="modal-demo-button">Log In as Demo User</button>
-        //     )
-        // }
+        let submitText;
+        if(this.props.formType === 'login') {
+            submitText = 'Log In';
+        } else {
+            submitText = 'Sign Up';
+        }
+        
+        const demoSignUp = () => {
+            return (
+                <input type="submit" onClick={(e) => this.handleDemoUser(e)} value="Log In as Demo User" />
+            )
+        }
 
         const signUpForm = () => {
             return (
-                <div>
-                    <label>username:
-                        <input 
+                <div className='session-form signup-form'>
+                    <h3>Sign Up</h3>
+
+                    <div className='session-form-field'>
+                        <label for='signup-account-type'>Account Type</label>
+                        <select 
+                            id='signup-account-type'
+                            onChange={this.update('type')}>
+                            <option selected="selected" disabled>
+                                -- Select Account Type --
+                            </option>
+                            <option value="adopter">Adopter</option>
+                            <option value="shelter">Shelter</option>
+                        </select>
+                    </div>
+
+                    <div className='session-form-field'>
+                        <label for='signup-username'>Username</label>
+                        <input
+                            id='signup-username'
                             type='text'
+                            placeholder='Username'
                             value={this.state.username}
                             onChange={this.update('username')}
                         />
-                    </label>
-                    <label>password:
-                        <input 
+                    </div>
+                    
+                    <div className='session-form-field'>
+                        <label for='signup-password'>Password</label>
+                        <input
+                            id='signup-password'
                             type='text'
+                            placeholder='Password (minimum length 6 characters)'
                             value={this.state.password}
                             onChange={this.update('password')}
                         />
-                    </label>
-                    <label>confirm password:
-                        <input 
+                    </div>
+                    
+                    <div className='session-form-field'>
+                        <label for='signup-confirm-pass'>Confirm Password</label>
+                        <input
+                            for='signup-confirm-pass'
                             type='text'
+                            placeholder='Confirm Password'
                             value={this.state.password2}
                             onChange={this.update('password2')}
                         />
-                    </label>
-                    <label>email:
-                        <input 
+                    </div>
+                    
+                    <div className='session-form-field'>
+                        <label for='signup-email'>Email</label>
+                        <input
+                            for='signup-email'
                             type='text'
+                            placeholder='Email@email.com'
                             value={this.state.email}
                             onChange={this.update('email')}
                         />
-                    </label>
-                    <label>location:
-                        <input 
-                            type='text'
-                            value={this.state.location}
-                            onChange={this.update('location')}
-                        />
-                    </label>
-                    <label>type:
-                        <input 
-                            type='text'
-                            value={this.state.type}
-                            onChange={this.update('type')}
-                        />
-                    </label>
+                    </div>
+
+                    {this.state.type === 'shelter' && (
+                        locationDropdown()
+                    )}
                 </div>
             )
         }
 
         const logInForm = () => {
             return (
-                <div>
-                    <label>email:
-                        <input 
+                <div className='session-form login-form'>
+                    <h3>Log In</h3>
+                    <p>Welcome back!</p>
+
+                    <div className='session-form-field'>
+                        <label for='login-email' id='login-email'>Email</label>
+                        <input
+                            id='login-email'
                             type='text'
                             value={this.state.email}
                             onChange={this.update('email')}
                         />
-                    </label>
-                    <label>password:
-                        <input 
+                    </div>
+
+                    <div className='session-form-field'>
+                        <label for='login-password' id='login-pass'>Password</label>
+                        <input
+                            id='login-password'
                             type='text'
                             value={this.state.password}
                             onChange={this.update('password')}
                         />
-                    </label>
+                    </div>
+                </div>
+            )
+        }
+
+        const locationDropdown = () => {
+            return(
+                <div className='session-form-field'>
+                    <label for='signup-location'>Location</label>
+                    <select
+                        id='signup-location'
+                        onChange={this.update('location')}>
+                        <option selected="selected" disabled>
+                            -- Select a State --
+                            </option>
+                        <option value="alabama">Alabama</option>
+                        <option value="alaska">Alaska</option>
+                        <option value="arizona">Arizona</option>
+                        <option value="arkansas">Arkansas</option>
+                        <option value="california">California</option>
+                        <option value="colorado">Colorado</option>
+                        <option value="connecticut">Connecticut</option>
+                        <option value="delaware">Delaware</option>
+                        <option value="florida">Florida</option>
+                        <option value="georgia">Georgia</option>
+                        <option value="hawaii">Hawaii</option>
+                        <option value="idaho">Idaho</option>
+                        <option value="illinois">Illinois</option>
+                        <option value="indiana">Indiana</option>
+                        <option value="iowa">Iowa</option>
+                        <option value="kansas">Kansas</option>
+                        <option value="kentucky">Kentucky</option>
+                        <option value="louisiana">Louisiana</option>
+                        <option value="maine">Maine</option>
+                        <option value="maryland">Maryland</option>
+                        <option value="massachusetts">Massachusetts</option>
+                        <option value="michigan">Michigan</option>
+                        <option value="minnesota">Minnesota</option>
+                        <option value="mississippi">Mississippi</option>
+                        <option value="missouri">Missouri</option>
+                        <option value="montana">Montana</option>
+                        <option value="nebraska">Nebraska</option>
+                        <option value="nevada">Nevada</option>
+                        <option value="new hampshire">New Hampshire</option>
+                        <option value="new jersey">New Jersey</option>
+                        <option value="new mexico">New Mexico</option>
+                        <option value="new york">New York</option>
+                        <option value="north carolina">North Carolina</option>
+                        <option value="north dakota">North Dakota</option>
+                        <option value="ohio">Ohio</option>
+                        <option value="oklahoma">Oklahoma</option>
+                        <option value="oregon">Oregon</option>
+                        <option value="pennsylvania">Pennsylvania</option>
+                        <option value="rhode island">Rhode Island</option>
+                        <option value="south carolina">South Carolina</option>
+                        <option value="south dakota">South Dakota</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="texas">Texas</option>
+                        <option value="utah">Utah</option>
+                        <option value="vermont">Vermont</option>
+                        <option value="virginia">Virginia</option>
+                        <option value="washington">Washington</option>
+                        <option value="west virginia">West Virginia</option>
+                        <option value="wisconsin">Wisconsin</option>
+                        <option value="wyoming">Wyoming</option>
+                    </select>
                 </div>
             )
         }
@@ -125,12 +225,12 @@ class SessionForm extends React.Component {
 
         return (
             <div onClick={e => e.stopPropagation()}>
-                <div>
-                    <form onSubmit={this.handleSubmit} className='login-form-box'>
-                        {this.props.formType === 'signup' ? signUpForm() : logInForm() }      
-                        <input type='submit' value={this.props.formType} />
-                    </form>
-                </div>
+                <form onSubmit={this.handleSubmit} className='session-form-box'>
+                    {this.props.formType === 'signup' ? signUpForm() : logInForm() }      
+                    <input type='submit' value={submitText} />
+
+                    {this.props.formType === 'login' && demoSignUp()}
+                </form>
             </div>
         )
     }

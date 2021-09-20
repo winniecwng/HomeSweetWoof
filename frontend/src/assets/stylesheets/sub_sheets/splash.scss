@@ -1,8 +1,10 @@
 .splash-container {
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     max-width: 1920px;
     background-color: $splash-bg;
+    user-select: none;
 }
 
 #splash-bg {
@@ -12,7 +14,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    background-image: url('../../images/splash.png');
+    background-image: url('../../images/splash-bg.jpg');
+    // https://unsplash.com/photos/uNNCs5kL70Q
 }
 
 .session-btns {
@@ -23,12 +26,12 @@
     button {
         @include hover;
         margin: 2vw;
-        border: none;
+        border: 1px solid transparent;
         padding: 2vh 2vw;
-        background-color: $splash-bg;
-        border-radius: 3px;
+        background-color: rgba(241, 235, 231, .5);
         font-family: 'Cabin', sans-serif;
         font-size: 1.2rem;
+        color: $splash-bg;
 
         &:last-child {
             margin-left: 0;
@@ -37,9 +40,111 @@
 }
 
 .splash-title {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    font-size: 3rem;
-    color: red;
+    h1 {
+        @include splash-box;
+        font-size: 7rem;
+        letter-spacing: .7rem;
+        font-family: $staat;
+        color: $splash-bg;
+        text-shadow: -1px -1px 0 $mud;
+
+        &::selection {
+            background-color: rgba(109, 89, 77, .4);
+        }
+
+        &::after {
+            display: block;
+            margin-top: 1rem;
+            letter-spacing: .5rem;
+            text-shadow: none;
+            font-size: 2rem;
+            // color: $almost-orange;
+            color: $dark-mud;
+
+            content: "Help a dog in need";
+        }
+    }
 }
+
+.modal-background {
+    position: absolute;
+    z-index: 400;
+    width: 100vw;
+    height: 100vh;
+}
+
+.session-form-box {
+    position: absolute;
+    z-index: 500;
+    @include splash-box;
+    background-color: rgba(241, 235, 231, .95);
+
+    input[type="submit"], .modal-demo-btn {
+        width: 95%;
+        margin: 2.5%;
+        padding: 10px 0;
+        border: none;
+        border-radius: 3px;
+        background-color: $dark-mud;
+        font-size: 1rem;
+        color: white;
+
+        @include hover;
+    }
+}
+
+.session-form {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 0 auto;
+
+    h3 {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+        letter-spacing: 5px;
+        word-spacing: 10px;
+        font-size: 2.5rem;
+        font-family: $staat;
+        color: $dark-mud;
+    }
+
+    p {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0 25px 0;
+        font-size: 1.5rem;
+        font-family: $cabin;
+        color: $dark-mud;
+    }
+
+    .session-form-field {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+
+        label {
+            padding: 5px 3px;
+            margin-top: 10px;
+            font-family: $cabin;
+            font-size: .9rem;
+            color: $dark-mud;
+            min-width: 140px;
+            width: max-content;
+            border: 1px solid transparent;
+        }
+
+        input, select {
+            padding: 5px 3px;
+            margin-top: 10px;
+            width: 100%;
+            margin-left: 5px;
+            border-radius: 3px;
+            border: 1px solid $mud;
+        }
+    }
+}
+
+.login-form { padding: 30px 0; }
