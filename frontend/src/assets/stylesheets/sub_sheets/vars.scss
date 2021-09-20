@@ -2,7 +2,7 @@
 $splash-bg: rgb(241, 235, 231);
 $mud: rgb(139, 120, 114);
 $dark-mud: rgb(126, 110, 106);
-$almost-orange: rgb(189, 132, 94);
+$almost-orange: rgb(224, 166, 127);
 
 
 // FONTS
@@ -12,6 +12,13 @@ $staat: 'Staatliches', cursive;
 
 
 // MIXINS
+@mixin staat {
+    font-family: $staat;
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    word-spacing: 5px;
+}
+
 @mixin hover {
     &:hover {
         cursor: pointer;
@@ -35,26 +42,4 @@ $staat: 'Staatliches', cursive;
     position: absolute;
     top: 12vh;
     left: 12vw;
-}
-
-@mixin profile-main {
-    background-color: white;
-}
-
-@mixin profile-details {
-    h2 {
-        font-size: 2rem;
-        color: $almost-orange;
-        font-family: $cabin;
-    }
-
-    h4 {
-        font-size: 1.2rem;
-        color: $almost-orange;
-        font-family: $cabin;
-    }
-
-    p {
-        font-size: 1rem;
-    }
 }

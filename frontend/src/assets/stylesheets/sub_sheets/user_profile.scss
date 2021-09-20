@@ -1,24 +1,71 @@
-.user-main { @include profile-main; }
+.user-main {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
 
-// .adopter-main {
-// }
+.user-details {
+    width: 50%;
+    height: 100vh;
+    min-width: 500px;
+    overflow: hidden;
+    padding: 50px;
 
-// .shelter-main {
-// }
+    h2 {
+        @include staat;
+        padding-bottom: 20px;
+        font-size: 2.5rem;
+        color: $almost-orange;
+        font-family: $cabin;
+    }
 
-.user-details { @include profile-details; }
+    button {
+        @include hover;
+        margin-bottom: 20px;
+        height: 30px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 3px;
+        background-color: $almost-orange;
+        font-size: 1.1rem;
+        color: white;
+    }
+
+    h3 {
+        padding-bottom: 10px;
+        font-size: 1.2rem;
+        color: $almost-orange;
+        font-family: $cabin;
+    }
+
+    p {
+        padding-bottom: 20px;
+        font-size: 1rem;
+    }
+}
+
+.user-specific {
+    width: 50%;
+    height: 100vh;
+    min-width: 500px;
+    overflow: hidden;
+}
 
 .adopter-appointments {
-    height: 70%;
-    padding: 30px;
+    height: 100%;
+    padding: 60px 30px;
     overflow: auto;
     border: 1px solid $mud;
     text-align: center;
 
     h2 {
-        font-size: 1.5rem;
+        @include staat;
         color: $almost-orange;
     }
+}
+
+#no-appointments {
+    padding-top: 100px;
 }
 
 .appointment {

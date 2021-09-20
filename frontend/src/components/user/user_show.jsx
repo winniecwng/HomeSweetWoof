@@ -16,13 +16,18 @@ class UserShow extends React.Component {
 
     render() {
         if(!this.props.user) return null;
-        debugger
+        
         let userType;
         this.props.user.type === 'adopter' ? userType = 'adopter' : userType = 'shelter'
         return (
             <div className={`user-main ${userType}-main`}>
                 <div className={`user-details ${userType}-details`}>
+
                     <h2>{this.props.user.username}</h2>
+
+                    {userType === 'shelter' && (
+                        <button>Message </button>
+                    )}
 
                     <h3>Contact Email</h3>
                     <p>{this.props.user.email}</p>
@@ -36,14 +41,15 @@ class UserShow extends React.Component {
                     <p>{this.props.user.discription}</p>
                 </div>
 
-                {userType === 'adopter' && (
-                    <AdopterAppointmentsContainer />
-                )}
+                <div className="user-specific">
+                    {userType === 'adopter' && (
+                        <AdopterAppointmentsContainer />
+                    )}
 
-                {userType === 'shelter' && (
-                    <ShelterDogsContainer />
-                )}
-
+                    {userType === 'shelter' && (
+                        <ShelterDogsContainer />
+                    )}
+                </div>
             </div>
         )
     }
