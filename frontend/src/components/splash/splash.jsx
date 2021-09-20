@@ -5,9 +5,15 @@ class Splash extends React.Component {
         const { openModal } = this.props;
 
         return (
-            <div>
-                <button onClick={() => openModal('login')}>Log in</button>
-                <button onClick={() => openModal('signup')}>Sign up</button>
+            <div className="splash-container">
+                <div id="splash-bg"></div>
+                <div className="session-btns">
+                    <button onClick={() => openModal('login')}>Log In</button>
+                    <button onClick={() => openModal('signup')}>Sign Up</button>
+                </div>
+                <h1 className="splash-title">
+                    Home Sweet Woof
+                </h1>
             </div>
         )
     }

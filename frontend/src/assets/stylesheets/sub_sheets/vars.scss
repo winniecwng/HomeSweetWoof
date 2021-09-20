@@ -1,0 +1,13 @@
+@mixin hover {
+    &:hover {
+        cursor: pointer;
+        opacity: .9;
+    }
+
+    &:active {
+        opacity: 1;
+    }
+}
+
+
+$splash-bg: rgb(255, 247, 241);

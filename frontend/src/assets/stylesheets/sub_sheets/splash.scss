@@ -1,0 +1,45 @@
+.splash-container {
+    width: 100vw;
+    height: 100vh;
+    max-width: 1920px;
+    background-color: $splash-bg;
+}
+
+#splash-bg {
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url('../../images/splash.png');
+}
+
+.session-btns {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    button {
+        @include hover;
+        margin: 2vw;
+        border: none;
+        padding: 2vh 2vw;
+        background-color: $splash-bg;
+        border-radius: 3px;
+        font-family: 'Cabin', sans-serif;
+        font-size: 1.2rem;
+
+        &:last-child {
+            margin-left: 0;
+        }
+    }
+}
+
+.splash-title {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 3rem;
+    color: red;
+}

@@ -6,6 +6,7 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import axios from 'axios';
+import './assets/stylesheets/main.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
