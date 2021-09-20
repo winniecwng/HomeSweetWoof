@@ -91,4 +91,38 @@ router.post('/login', (req, res) => {
         })
 })
 
+router.patch('update/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateUserInput(req.body);
+  
+      if (!isValid) {
+        return res.status(400).json(errors);
+      }
+    
+      const updatedUser = {
+        name: req.body.name,
+        gender: req.body.gender,
+        age: req.body.age,
+        breed: req.body.breed
+      }
+
+      User.findById(req.params.id)
+      .then(user => {
+          if (user.id.toHexString() !== req.user.id) {
+            res.status(404).json({ notauthorized: 'This is not your profile'})
+          } else {
+            User.findOneAndUpdate({ _id: req.params.id }, 
+              {$set:updatedUser}, {new: true})
+                .then(returnedUser => res.json(returnedUser))
+                .catch(() =>
+                  res.status(404).json("unable to update"))
+          }
+      })
+      .catch(() =>
+        res.status(404).json({ nouserfound: 'No user found' }))  
+  })
+
+
+
 module.exports = router;
