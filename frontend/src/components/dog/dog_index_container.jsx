@@ -4,7 +4,7 @@ import DogIndex from './dog_index';
 
 const mSTP = (state) => {
   return {
-    dogs: Object.values(state.entities.dogs.all)
+    dogs: Object.values(state.entities.dogs)
   };
 };
 
