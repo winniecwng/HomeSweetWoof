@@ -11,9 +11,13 @@ class Splash extends React.Component {
                     <button onClick={() => openModal('login')}>Log In</button>
                     <button onClick={() => openModal('signup')}>Sign Up</button>
                 </div>
-                <h1 className="splash-title">
-                    Home Sweet Woof
-                </h1>
+                <div className="splash-title">
+                    <h1>
+                        Home <br /> 
+                        Sweet  <br /> 
+                        Woof
+                    </h1>
+                </div>
             </div>
         )
     }

@@ -1,6 +1,7 @@
 .splash-container {
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     max-width: 1920px;
     background-color: $splash-bg;
 }
@@ -12,7 +13,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    background-image: url('../../images/splash.png');
+    background-image: url('../../images/splash-bg.jpg');
+    // https://unsplash.com/photos/uNNCs5kL70Q
 }
 
 .session-btns {
@@ -23,12 +25,12 @@
     button {
         @include hover;
         margin: 2vw;
-        border: none;
+        border: 1px solid transparent;
         padding: 2vh 2vw;
-        background-color: $splash-bg;
-        border-radius: 3px;
+        background-color: rgba(241, 235, 231, .5);
         font-family: 'Cabin', sans-serif;
         font-size: 1.2rem;
+        color: $splash-bg;
 
         &:last-child {
             margin-left: 0;
@@ -37,9 +39,28 @@
 }
 
 .splash-title {
+    h1 {
+        @include splash-box;
+        font-size: 7rem;
+        letter-spacing: .7rem;
+        font-family: $staat;
+        color: $splash-bg;
+        text-shadow: -1px -1px 0 $mud;
+
+        &::selection {
+            background-color: rgba(109, 89, 77, .4);
+        }
+    }
+}
+
+.modal-background {
     position: absolute;
-    left: 0;
-    bottom: 0;
-    font-size: 3rem;
-    color: red;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.login-form-box {
+    border: 1px solid red;
+    @include splash-box;
 }

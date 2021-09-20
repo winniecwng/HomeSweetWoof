@@ -1,3 +1,4 @@
+// MIXINS
 @mixin hover {
     &:hover {
         cursor: pointer;
@@ -9,5 +10,23 @@
     }
 }
 
+@mixin splash-box {
+    height: 70vh;
+    min-height: 450px;
+    background-color: rgba(241, 235, 231, .4);
+    padding: 3.5rem;
+    position: absolute;
+    top: 12vh;
+    left: 12vw;
+}
 
-$splash-bg: rgb(255, 247, 241);
+
+// COLORS
+$splash-bg: rgb(241, 235, 231);
+$mud: rgb(139, 120, 114);
+
+
+// FONTS
+$cabin: 'Cabin', sans-serif;
+$hand: 'Just Another Hand', cursive;
+$staat: 'Staatliches', cursive;
