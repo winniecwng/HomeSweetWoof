@@ -13,8 +13,9 @@
 @mixin splash-box {
     height: 70vh;
     min-height: 450px;
+    max-height: 600px;
     background-color: rgba(241, 235, 231, .4);
-    padding: 3.5rem;
+    padding: 2rem;
     position: absolute;
     top: 12vh;
     left: 12vw;
@@ -24,6 +25,8 @@
 // COLORS
 $splash-bg: rgb(241, 235, 231);
 $mud: rgb(139, 120, 114);
+$dark-mud: rgb(126, 110, 106);
+$almost-orange: rgb(180, 117, 75);
 
 
 // FONTS

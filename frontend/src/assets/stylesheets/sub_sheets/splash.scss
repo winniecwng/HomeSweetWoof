@@ -4,6 +4,7 @@
     overflow: hidden;
     max-width: 1920px;
     background-color: $splash-bg;
+    user-select: none;
 }
 
 #splash-bg {
@@ -49,6 +50,17 @@
 
         &::selection {
             background-color: rgba(109, 89, 77, .4);
+        }
+
+        &::after {
+            display: block;
+            margin-top: 1rem;
+            text-shadow: none;
+            font-size: 2rem;
+            // color: $almost-orange;
+            color: $dark-mud;
+
+            content: "Help a dog in need";
         }
     }
 }
