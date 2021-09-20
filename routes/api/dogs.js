@@ -49,21 +49,25 @@ router.post('/',
       newDog.save().then(dog => res.json(dog));
     }
   );
+  
+router.delete('/:id',
+passport.authenticate('jwt', { session: false }),
+(req, res) => {
+    Dog.findById(req.params.id)
+    .then(dog => {
+        if (dog.user.toHexString() !== req.user.id) {
+            res.status(404).json({ notauthorized: 'This is not your dog'})
+        } else {
+        Dog.findOneAndDelete({ _id: req.params.id })
+            .then(() => res.json("deleted"))
+            .catch(() =>
+            res.status(404).json("delete failed"))
+        }
+    })
+    .catch(() =>
+    res.status(404).json({ nodogsfound: 'No dog found' }))
+});
 
-  router.delete('/:id',
-    passport.authenticate('jwt', { session: false }),
-    (req, res) => {
-      Dog.findById(req.params.id)
-        .then()
-    }
-  );
+
 
   module.exports = router;
-
-  router.get('/:id', (req, res) => {
-    Dog.findById(req.params.id)
-        .then(dog => res.json(dog))
-        .catch(err =>
-            res.status(404).json({ nodogfound: 'No dog found with that ID' })
-        );
-});
