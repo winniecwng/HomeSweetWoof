@@ -23,6 +23,6 @@ export const fetchUsers = () => dispatch => (
 
 export const fetchUser = userId => dispatch => (
     getUser(userId)
-    .then(user => dispatch(receiveUserDogs(user)))
+    .then(user => dispatch(receiveUser(user)))
     .catch(err => console.log(err))
 );
