@@ -10,9 +10,9 @@ class DogIndex extends React.Component {
       breed: "husky",
     };
 
-    this.handleAgeChange = this.handleChange.bind(this);
-    this.handleBreedChange = this.handleChange.bind(this);
-    this.handleGenderChange = this.handleChange.bind(this);
+    this.handleAgeChange = this.handleAgeChange.bind(this);
+    this.handleBreedChange = this.handleBreedChange.bind(this);
+    this.handleGenderChange = this.handleGenderChange.bind(this);
   }
 
   handleAgeChange(e) {
