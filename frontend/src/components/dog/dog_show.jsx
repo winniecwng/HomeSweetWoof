@@ -6,7 +6,13 @@ class DogShow extends React.Component {
     super(props);
   }
 
+  componentDidMount(){
+      
+      this.props.fetchDog(this.props.ownProps.match.params.id);
+  }
+
   render() {
+      if(!this.props.dog) return null;
     const { dog } = this.props;
     return (
       <div className="dog-show-container">
