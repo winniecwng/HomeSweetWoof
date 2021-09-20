@@ -1,21 +1,24 @@
 import React from "react";
 
 
-const ShelterDogs = props => {
+class ShelterDogs extends React.Component {
 
-    // const dogs = () => {
-    //     return this.props.user.dogs.map(dog => {
-    //         return(
-    //             // get component from Winnie's dog index?
-    //         )
-    //     }
-    // }
+    render() {
+//         const dogs = () => {
+//             return this.props.user.dogs.map(dog => {
+//                 return (
+//                 // get component from Winnie's dog index?
+//                     <div></div>
+//                 )
+//             });
+//         }
 
-    return(
-        <div>
-            {/* dogs(); */}
-        </div>
-    )
+        return(
+            <div>
+                 {/* dogs(); */}
+             </div>
+        )
+    }
 }
 
 

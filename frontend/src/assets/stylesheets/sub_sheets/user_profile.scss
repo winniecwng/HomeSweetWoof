@@ -8,8 +8,10 @@
 
 .user-details { @include profile-details; }
 
-.adopter-appointments-container {
+.adopter-appointments {
     height: 70%;
+    padding: 30px;
+    overflow: auto;
     border: 1px solid $mud;
     text-align: center;
 
@@ -17,6 +19,11 @@
         font-size: 1.5rem;
         color: $almost-orange;
     }
+}
+
+.appointment {
+    width: 100%;
+    margin: 20px;
 
     h3 {
         font-size: 1.2rem;
