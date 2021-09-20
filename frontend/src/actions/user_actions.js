@@ -25,7 +25,7 @@ export const fetchUser = userId => dispatch => (
     .then(user => dispatch(receiveUser(user)))
 );
 
-export const updateUser = user => dispatch => (
+export const updateProfile = user => dispatch => (
     UserApil.updateUser(user)
     .then(user=> dispatch(receiveUser(user)))
     .catch(err => console.log(err))
