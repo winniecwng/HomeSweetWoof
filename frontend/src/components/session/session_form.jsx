@@ -40,9 +40,9 @@ class SessionForm extends React.Component {
 
     handleDemoUser(e) {
         e.preventDefault();
-        const demoUser = { username: "DemoUser", password: "demo123" }
+        const demoUser = { email: "demo@demo.demo", password: "demo123" }
         this.setState(demoUser);
-        this.props.processForm(demoUser) //.then(this.props.closeModal);
+        this.props.processForm(demoUser);
     }
 
     render() {
@@ -55,10 +55,6 @@ class SessionForm extends React.Component {
         
         const demoSignUp = () => {
             return (
-                // <button onClick={(e) => this.handleDemoUser(e)} 
-                //     className="modal-demo-btn">
-                //         Log In as Demo User
-                // </button>
                 <input type="submit" onClick={(e) => this.handleDemoUser(e)} value="Log In as Demo User" />
             )
         }
