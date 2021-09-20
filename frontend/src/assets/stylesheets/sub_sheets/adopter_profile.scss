@@ -1,0 +1,24 @@
+.adopter-main {
+    @include profile-main;
+}
+
+.adopter-details-container {
+    @include profile-details;
+}
+
+.adopter-appointments-container {
+    height: 70%;
+    // background-color: $dark-mud;    
+    border: 1px solid $mud;
+    text-align: center;
+
+    h2 {
+        font-size: 1.5rem;
+        color: $almost-orange;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        color: $almost-orange;
+    }
+}

@@ -55,6 +55,7 @@
         &::after {
             display: block;
             margin-top: 1rem;
+            letter-spacing: .5rem;
             text-shadow: none;
             font-size: 2rem;
             // color: $almost-orange;
@@ -67,12 +68,83 @@
 
 .modal-background {
     position: absolute;
+    z-index: 400;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(255, 255, 255, .5);
 }
 
-.login-form-box {
-    border: 1px solid red;
+.session-form-box {
+    position: absolute;
+    z-index: 500;
     @include splash-box;
+    background-color: rgba(241, 235, 231, .95);
+
+    input[type="submit"], .modal-demo-btn {
+        width: 95%;
+        margin: 2.5%;
+        padding: 10px 0;
+        border: none;
+        border-radius: 3px;
+        background-color: $dark-mud;
+        font-size: 1rem;
+        color: white;
+
+        @include hover;
+    }
 }
+
+.session-form {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 0 auto;
+
+    h3 {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+        letter-spacing: 5px;
+        word-spacing: 10px;
+        font-size: 2.5rem;
+        font-family: $staat;
+        color: $dark-mud;
+    }
+
+    p {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0 25px 0;
+        font-size: 1.5rem;
+        font-family: $cabin;
+        color: $dark-mud;
+    }
+
+    .session-form-field {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+
+        label {
+            padding: 5px 3px;
+            margin-top: 10px;
+            font-family: $cabin;
+            font-size: .9rem;
+            color: $dark-mud;
+            min-width: 140px;
+            width: max-content;
+            border: 1px solid transparent;
+        }
+
+        input, select {
+            padding: 5px 3px;
+            margin-top: 10px;
+            width: 100%;
+            margin-left: 5px;
+            border-radius: 3px;
+            border: 1px solid $mud;
+        }
+    }
+}
+
+.login-form { padding: 30px 0; }

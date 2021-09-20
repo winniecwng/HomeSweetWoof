@@ -1,3 +1,16 @@
+// COLORS
+$splash-bg: rgb(241, 235, 231);
+$mud: rgb(139, 120, 114);
+$dark-mud: rgb(126, 110, 106);
+$almost-orange: rgb(189, 132, 94);
+
+
+// FONTS
+$cabin: 'Cabin', sans-serif;
+$hand: 'Just Another Hand', cursive;
+$staat: 'Staatliches', cursive;
+
+
 // MIXINS
 @mixin hover {
     &:hover {
@@ -12,8 +25,11 @@
 
 @mixin splash-box {
     height: 70vh;
+    width: 72vh;
     min-height: 450px;
     max-height: 600px;
+    min-width: 450px;
+    max-width: 600px;
     background-color: rgba(241, 235, 231, .4);
     padding: 2rem;
     position: absolute;
@@ -21,15 +37,24 @@
     left: 12vw;
 }
 
+@mixin profile-main {
+    background-color: white;
+}
 
-// COLORS
-$splash-bg: rgb(241, 235, 231);
-$mud: rgb(139, 120, 114);
-$dark-mud: rgb(126, 110, 106);
-$almost-orange: rgb(180, 117, 75);
+@mixin profile-details {
+    h2 {
+        font-size: 2rem;
+        color: $almost-orange;
+        font-family: $cabin;
+    }
 
+    h4 {
+        font-size: 1.2rem;
+        color: $almost-orange;
+        font-family: $cabin;
+    }
 
-// FONTS
-$cabin: 'Cabin', sans-serif;
-$hand: 'Just Another Hand', cursive;
-$staat: 'Staatliches', cursive;
+    p {
+        font-size: 1rem;
+    }
+}
