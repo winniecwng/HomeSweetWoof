@@ -13,5 +13,5 @@ export const getUserDogs = (id) => {
 };
 
 export const postDog = (data) => {
-  return axios.post("/api/dogs/", data);
+  return axios.post("/api/dogs/new", data);
 };
