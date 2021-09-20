@@ -6,12 +6,16 @@ import Splash from "./splash/splash_container";
 import LogIn from "./session/login_form_container";
 import Signup from "./session/signup_form_container";
 import DogIndexContainer from "../components/dog/dog_index_container";
+import DogShowContainer from "../components/dog/dog_show_container"
 
 const App = () => (
   <div>
     <Modal />
     {/* <Splash /> */}
-    <DogIndexContainer />
+    {/* <DogIndexContainer /> */}
+
+    <Route exact path ="/dogs" component={DogIndexContainer}/>
+    <Route exact path ="/dogs/:id" component={DogShowContainer}/>
   </div>
 );
 

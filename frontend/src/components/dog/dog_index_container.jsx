@@ -3,6 +3,7 @@ import { fetchDogs } from '../../actions/dog_actions';
 import DogIndex from './dog_index';
 
 const mSTP = (state) => {
+    debugger
   return {
     dogs: Object.values(state.entities.dogs)
   };
