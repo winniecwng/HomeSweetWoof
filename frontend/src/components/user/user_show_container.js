@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
-import { fetchUser, fetchUsers } from "../../actions/user_actions";
+import { fetchUser } from "../../actions/user_actions";
+import { fetchUserDogs } from "../../actions/dog_actions"; 
 import UserShow from "./user_show";
 
 
@@ -13,7 +14,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => {
     return {
         fetchUser: id => dispatch(fetchUser(id)),
-        // fetchUsers: () => dispatch(fetchUsers())
+        fetchUserDogs: id => dispatch(fetchUserDogs(id))
     }
 };
 

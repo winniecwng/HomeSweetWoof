@@ -1,25 +1,129 @@
-.user-main { @include profile-main; }
+.user-main {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
 
-// .adopter-main {
-// }
+.user-details {
+    width: 50%;
+    height: 100vh;
+    min-width: 500px;
+    overflow: hidden;
+    padding: 50px;
 
-// .shelter-main {
-// }
+    h2 {
+        @include staat;
+        padding-bottom: 20px;
+        font-size: 2.5rem;
+        color: $almost-orange;
+        font-family: $cabin;
+    }
 
-.user-details { @include profile-details; }
+    button {
+        @include hover;
+        margin-bottom: 20px;
+        height: 30px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 3px;
+        background-color: $almost-orange;
+        font-size: 1.1rem;
+        color: white;
+    }
 
-.adopter-appointments-container {
-    height: 70%;
+    h3 {
+        padding-bottom: 10px;
+        font-size: 1.2rem;
+        color: $almost-orange;
+        font-family: $cabin;
+    }
+
+    p {
+        padding-bottom: 20px;
+        font-size: 1rem;
+    }
+}
+
+.user-specific {
+    width: 50%;
+    height: 100vh;
+    min-width: 500px;
+    overflow: hidden;
+    background-color: rgb(49, 49, 71);
+    color: white;
+}
+
+.adopter-appointments {
+    height: 100%;
+    padding: 60px 30px;
+    overflow: auto;
     border: 1px solid $mud;
     text-align: center;
 
     h2 {
-        font-size: 1.5rem;
+        @include staat;
         color: $almost-orange;
     }
+}
+
+#no-appointments {
+    padding-top: 100px;
+}
+
+.appointment {
+    width: 100%;
+    margin: 20px;
 
     h3 {
         font-size: 1.2rem;
         color: $almost-orange;
+    }
+}
+
+.shelter-dogs {
+    width: 100%;
+    height: 100%;
+    padding: 50px 30px;
+    text-align: center;
+
+    h2 {
+        @include staat;
+        margin-bottom: 20px;
+        color: white;
+        // color: $almost-orange;
+    }
+}
+
+.shelter-dogs-inner-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 90%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 5px;
+
+    .shelter-dog-container {
+        height: 280px;
+        margin: 5px;
+        overflow: hidden;
+        border: 1px solid $pale-green;
+
+        h4 {
+            font-size: 1.1rem;
+            font-family: $cabin;
+        }
+
+        h4, p {
+            margin: 10px 0;
+            text-transform: capitalize;
+        }
+    }
+
+    .shelter-dogs-pic {
+        width: 100%;
+        height: 180px;
+        background-color: rgb(92, 92, 117);
+        border: 1px solid $pale-green;
     }
 }
