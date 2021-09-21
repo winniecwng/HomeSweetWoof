@@ -9,13 +9,16 @@ class Header extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.props.fetchUser(this.props.userId);
+  componentDidMount() { 
+    if(Object.values(this.props.state.session.user).length>0){
+        this.props.fetchUser(this.props.user.id);
+    }
   }
 
   render() {
-    const { logout, userId } = this.props;
+    const { logout, user } = this.props;
     const { toggleNav } = this.state;
+    if (!user) return null
     return (
       <div className="navbar-container">
         <div className="nav-left">
@@ -54,7 +57,7 @@ class Header extends React.Component {
               </div>
             </Link>
             <Link
-              to={`/users/${userId}`}
+              to={`/users/${user.id}`}
               className="nav-link"
               onClick={() => this.setState({ toggleNav: 3 })}
             >

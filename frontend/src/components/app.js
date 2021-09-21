@@ -17,7 +17,7 @@ const App = () => (
     <Modal />
     {/* <Splash /> */}
     {/* <DogIndexContainer /> */}
-    <HeaderContainer />
+    {/* <HeaderContainer /> */}
     {/* <DogIndexContainer /> */}
     {/* <Route exact path="/" component={Splash} /> */}
     {/* <Route exact path="/dogs" component={DogIndexContainer} />
@@ -26,7 +26,9 @@ const App = () => (
     <Route exact path="/dogs/update/:id" component={DogEditContainer} />
     <Route exact path="/users/:id" component={UserShowContainer} /> */}
 
-    <Switch>
+    <Route path="/" component={HeaderContainer}/>
+
+    <Switch>    
       <AuthRoute exact path="/" component={Splash} />
       <ProtectedRoute exact path="/dogs" component={DogIndexContainer} />
       <ProtectedRoute exact path="/dogs/new" component={DogCreateContainer} />
