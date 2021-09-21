@@ -26,7 +26,11 @@ const DogSchema = new Schema({
       type: String
   },
   appointments: {
-    type: Object
+    type: Array
+  },
+  photo: {
+    type: Array,
+    required: false
   }
 });
 

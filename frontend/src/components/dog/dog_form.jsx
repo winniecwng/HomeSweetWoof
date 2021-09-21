@@ -9,23 +9,39 @@ class DogForm extends React.Component {
       name: "",
       breed: "",
       gender: "female",
-      description: ""
+      description: "",
+      photoFile: null,
+      photoUrl: null,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToDogIndex = this.navigateToDogIndex.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
   }
+
+  handleUpload(e){
+    const file = e.currentTarget.files[0]
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+        this.setState({photoFile: file, photoUrl: fileReader.result})
+    }
+    if (file){
+        fileReader.readAsDataURL(file)
+    }
+    
+}
 
   handleSubmit(e) {
     e.preventDefault();
-    let dog = {
-      age: this.state.age,
-      name: this.state.name,
-      breed: this.state.breed,
-      gender: this.state.gender,
-      description: this.state.description
-    };
-    this.props.composeDog(dog);
+    const formData = new FormData();
+    formData.append("age", this.state.age)
+    formData.append("name", this.state.name)
+    formData.append("breed", this.state.breed)
+    formData.append("gender", this.state.gender)
+    formData.append("photo", this.state.photoFile)
+    formData.append("description", this.state.description)
+
+    this.props.composeDog(formData);
     this.setState({ age: "", name: "", breed: "", gender: "female", description: "" });
     // this.navigateToDogIndex();
   }
@@ -49,6 +65,8 @@ class DogForm extends React.Component {
       <div className="create-new-dog">
         <form onSubmit={this.handleSubmit}>
           <h1>A New Dog Needs A New Home</h1>
+          <input type="file" name="photo" onChange={this.handleUpload} accept="image/jpeg, image/png"/>
+
           <label>
             Name:
             <input
