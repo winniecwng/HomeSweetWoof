@@ -1,5 +1,5 @@
 // import dogs from "../../../validation/dogs";
-import { getDog, getDogs, getUserDogs, postDog } from "../util/dog_api_util";
+import { getDog, getDogs, getUserDogs, postDog, updateDog } from "../util/dog_api_util";
 
 export const RECEIVE_DOGS = "RECEIVE_DOGS";
 export const RECEIVE_DOG = "RECEIVE_DOG";
@@ -43,5 +43,10 @@ export const fetchUserDogs = (id) => (dispatch) =>
 
 export const composeDog = (data) => (dispatch) =>
   postDog(data)
+    .then((dog) => dispatch(receiveNewDog(dog)))
+    .catch((err) => console.log(err));
+
+export const editDog = (data) => (dispatch) =>
+  updateDog(data)
     .then((dog) => dispatch(receiveNewDog(dog)))
     .catch((err) => console.log(err));
