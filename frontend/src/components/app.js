@@ -16,6 +16,8 @@ import HeaderContainer from "../components/header/header_container";
 const App = () => (
   <div>
     <Modal />
+    {/* <Splash /> */}
+    {/* <DogIndexContainer /> */}
     <HeaderContainer />
     {/* <DogIndexContainer /> */}
     {/* <Route exact path="/" component={Splash} /> */}

@@ -7,7 +7,6 @@ class DogShow extends React.Component {
   }
 
   componentDidMount(){
-      
       this.props.fetchDog(this.props.ownProps.match.params.id);
   }
 
