@@ -1,4 +1,3 @@
-import * as UserApil from '../util/user_util'
 import { getUser, getUsers, updateUser } from '../util/user_util';
 
 export const RECEIVE_USERS = "RECEIVE_USERS";
@@ -26,8 +25,7 @@ export const fetchUser = userId => dispatch => (
 );
 
 export const updateProfile = user => dispatch => (
-    UserApil.updateUser(user)
+    updateUser(user)
     .then(user=> dispatch(receiveUser(user)))
     .catch(err => console.log(err))
-
 )

@@ -46,7 +46,7 @@ class UserShow extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let user = this.props.user;
+        let user = {...this.props.user};
         user.description = this.state.description;
         this.props.updateProfile(user);
     }
