@@ -6,8 +6,10 @@ $matcha-green: #c0caa8;
 $navy-blue: #383748;
 $rusty-orange: rgb(187, 132, 95);
 
-@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 $lobster: "Lobster", cursive;
+$cabin: "Cabin", sans-serif;
+$hand: "Just Another Hand", cursive;
+$staat: "Staatliches", cursive;
 
 .dogs-container {
   background-color: #e8d5c4;
@@ -22,18 +24,18 @@ $lobster: "Lobster", cursive;
   width: 100%;
   height: 40vh;
   background-repeat: no-repeat;
-  // position: absolute;
-  // top: 0;
-  // right: 0;
 }
 
 .dog-home {
   font-size: 3.5rem;
-  // font-family: $lobster;
   color: $pale-brown;
-  position: relative;
-  top: 8rem;
-  left: 3rem;
+  padding-top: 8rem;
+  padding-left: 5rem;
+
+  span {
+    font-family: $staat;
+    letter-spacing: 2px;
+  }
 }
 
 .special {
@@ -45,7 +47,7 @@ $lobster: "Lobster", cursive;
 .dog-search-filters {
   margin: 2rem 10rem;
   display: flex;
-  border: thin solid black;
+  border: medium solid $rusty-orange;
 }
 
 .dog-list-container {
@@ -90,9 +92,15 @@ $lobster: "Lobster", cursive;
   font-size: 1.5rem;
   color: $navy-blue;
   background-color: $matcha-green;
+
+  label {
+    font-family: $cabin;
+  }
+
   select {
     margin-left: 1rem;
     font-size: 1.5rem;
+    font-family: $cabin;
     color: $navy-blue;
   }
   option {
@@ -101,13 +109,18 @@ $lobster: "Lobster", cursive;
 }
 
 .search-by-gender {
-  border-left: thin solid black;
-  border-right: thin solid black;
+  border-left: medium solid $rusty-orange;
+  border-right: medium solid $rusty-orange;
 }
 
 .dog-description {
-  margin: 1rem;
-  // font-family: $cabin;
+  padding: 1rem;
   font-size: 1.5rem;
   line-height: 2.5rem;
+  background-color: $rusty-orange;
+  p {
+    font-family: $cabin;
+    letter-spacing: 1.5px;
+    color: white;
+  }
 }
