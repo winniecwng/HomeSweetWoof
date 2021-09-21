@@ -25,6 +25,10 @@ const DogSchema = new Schema({
   description: {
       type: String,
       required: false
+  },
+  photo: {
+    type: Array,
+    required: false
   }
 });
 
