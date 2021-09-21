@@ -6,7 +6,7 @@ const keys = require('../../config/keys');
 const jwt = require('jsonwebtoken');
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
-// const validateUserInput = require("../../validation/") //MAKE FILE IN VALIDATION THEN COMMENT BACK IN
+const validateUserInput = require("../../validation/users") //MAKE FILE IN VALIDATION THEN COMMENT BACK IN
 const passport = require('passport');
 
 // router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
@@ -109,11 +109,11 @@ router.post('/login', (req, res) => {
 router.patch('/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    //   const { errors, isValid } = validateUserInput(req.body);
+      const { errors, isValid } = validateUserInput(req.body);
 
-    //   if (!isValid) {
-    //     return res.status(400).json(errors);
-    //   }
+      if (!isValid) {
+        return res.status(400).json(errors);
+      }
         console.log("BACKEND");
       const updatedUser = {
         username: req.body.username,

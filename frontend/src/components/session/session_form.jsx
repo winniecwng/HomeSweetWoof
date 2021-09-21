@@ -29,9 +29,19 @@ class SessionForm extends React.Component {
                 this.props.closeModal()
             }
         })
-        if(this.props.formType==="signup"){
-            this.props.openModal('login')
+        const login = function(){
+            if(this.props.formType==="signup"){
+                this.props.login(user)
+                .then(()=>{
+                    if(this.props.logCheck){
+                        this.props.closeModal()
+                    }
+                })
+            }
         }
+
+        setTimeout(login.bind(this),1000)
+       
         
     }
 
@@ -51,7 +61,12 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const demoUser = { email: "demo@demo.demo", password: "demo123" }
         this.setState(demoUser);
-        this.props.processForm(demoUser);
+        this.props.processForm(demoUser)
+        .then(()=>{
+            if(this.props.logCheck){
+                this.props.closeModal()
+            }
+        });
     }
 
     render() {

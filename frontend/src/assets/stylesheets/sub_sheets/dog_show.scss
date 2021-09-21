@@ -1,0 +1,60 @@
+$grey-beige: #9f968d;
+$brick-orange: #cb9b85;
+$pale-brown: #e8d5c4;
+$matcha-green: #c0caa8;
+$navy-blue: #383748;
+$rusty-orange: rgb(187, 132, 95);
+$brownish-orange: rgb(143, 99, 69);
+
+$lobster: "Lobster", cursive;
+$cabin: "Cabin", sans-serif;
+$hand: "Just Another Hand", cursive;
+$staat: "Staatliches", cursive;
+
+.dog-show-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.dog-show-left {
+  background-color: $pale-brown;
+  padding: 5rem;
+
+  .know {
+    font-size: 5rem;
+    font-family: $hand;
+    margin-bottom: 2rem;
+    color: $brownish-orange;
+  }
+
+  .dog-show-info {
+    line-height: 4rem;
+    p {
+      font-size: 3rem;
+      font-family: $hand;
+      color: $rusty-orange;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+.dog-show-right {
+  background: linear-gradient(45deg, #a0ab69, #b48328);
+  padding: 18rem 5rem;
+  .dog-show-img {
+    width: 32vw;
+    height: auto;
+  }
+}
+
+.appointment-container {
+  margin-top: 5rem;
+
+  p {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    font-family: $hand;
+    letter-spacing: 2px;
+    color: $brownish-orange;
+  }
+}

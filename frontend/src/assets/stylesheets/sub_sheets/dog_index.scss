@@ -3,16 +3,17 @@ $grey-beige: #9f968d;
 $brick-orange: #cb9b85;
 $pale-brown: #e8d5c4;
 $matcha-green: #c0caa8;
-$navy-blue: #383748;
-$rusty-orange: rgb(187, 132, 95);
+
+// $rusty-orange: rgb(187, 132, 95);
 
 $lobster: "Lobster", cursive;
-$cabin: "Cabin", sans-serif;
-$hand: "Just Another Hand", cursive;
-$staat: "Staatliches", cursive;
+// $cabin: "Cabin", sans-serif;
+// $hand: "Just Another Hand", cursive;
+// $staat: "Staatliches", cursive;
 
 .dogs-container {
-  background-color: #e8d5c4;
+  padding-top: 4vh;
+  width: 100vw;
 }
 
 .dog-list-container {
@@ -64,6 +65,7 @@ $staat: "Staatliches", cursive;
   width: auto;
   background-color: white;
   box-shadow: 10px 5px 10px $grey-beige;
+  overflow: hidden;
 }
 
 .dog-info:hover {
@@ -118,6 +120,8 @@ $staat: "Staatliches", cursive;
   font-size: 1.5rem;
   line-height: 2.5rem;
   background-color: $rusty-orange;
+  height: 100%;
+
   p {
     font-family: $cabin;
     letter-spacing: 1.5px;

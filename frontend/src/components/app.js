@@ -11,13 +11,14 @@ import DogCreateContainer from "./dog/dog_create_container";
 import DogEditContainer from "./dog/dog_edit_container";
 import UserShowContainer from "./user/user_show_container";
 import HeaderContainer from "../components/header/header_container";
+import AboutUs from '../components/about/about';
 
 const App = () => (
   <div>
     <Modal />
     {/* <Splash /> */}
     {/* <DogIndexContainer /> */}
-    <HeaderContainer />
+    {/* <HeaderContainer /> */}
     {/* <DogIndexContainer /> */}
     {/* <Route exact path="/" component={Splash} /> */}
     {/* <Route exact path="/dogs" component={DogIndexContainer} />
@@ -26,7 +27,9 @@ const App = () => (
     <Route exact path="/dogs/update/:id" component={DogEditContainer} />
     <Route exact path="/users/:id" component={UserShowContainer} /> */}
 
-    <Switch>
+    <Route path="/" component={HeaderContainer}/>
+
+    <Switch>    
       <AuthRoute exact path="/" component={Splash} />
       <ProtectedRoute exact path="/dogs" component={DogIndexContainer} />
       <ProtectedRoute exact path="/dogs/new" component={DogCreateContainer} />
@@ -37,6 +40,7 @@ const App = () => (
         component={DogEditContainer}
       />
       <ProtectedRoute exact path="/users/:id" component={UserShowContainer} />
+      <Route exact path="/about" component={AboutUs} />
     </Switch>
   </div>
 );
