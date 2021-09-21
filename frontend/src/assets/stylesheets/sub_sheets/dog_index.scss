@@ -1,0 +1,113 @@
+// colors:
+$grey-beige: #9f968d;
+$brick-orange: #cb9b85;
+$pale-brown: #e8d5c4;
+$matcha-green: #c0caa8;
+$navy-blue: #383748;
+$rusty-orange: rgb(187, 132, 95);
+
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+$lobster: "Lobster", cursive;
+
+.dogs-container {
+  background-color: #e8d5c4;
+}
+
+.dog-list-container {
+  padding: 2rem;
+}
+
+.dog-index-bg {
+  background-image: url("../../images/landing-bg.jpg");
+  width: 100%;
+  height: 40vh;
+  background-repeat: no-repeat;
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+}
+
+.dog-home {
+  font-size: 3.5rem;
+  // font-family: $lobster;
+  color: $pale-brown;
+  position: relative;
+  top: 8rem;
+  left: 3rem;
+}
+
+.special {
+  display: block;
+  margin-top: 2rem;
+  margin-left: 4rem;
+}
+
+.dog-search-filters {
+  margin: 2rem 10rem;
+  display: flex;
+  border: thin solid black;
+}
+
+.dog-list-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5rem;
+  justify-items: center;
+}
+
+.dog-info {
+  border: thick solid $matcha-green;
+  border-radius: 1rem;
+  // text-align: center;
+  width: auto;
+  background-color: white;
+  box-shadow: 10px 5px 10px $grey-beige;
+}
+
+.dog-info:hover {
+  transform: scale(1.1);
+  transition-duration: 3sec;
+}
+
+.dog-img {
+  width: 100%;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.dog-search-filter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.search-by-breed,
+.search-by-age,
+.search-by-gender {
+  padding: 1rem;
+
+  // background-color: #;
+  width: 50rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: $navy-blue;
+  background-color: $matcha-green;
+  select {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: $navy-blue;
+  }
+  option {
+    text-align: center;
+  }
+}
+
+.search-by-gender {
+  border-left: thin solid black;
+  border-right: thin solid black;
+}
+
+.dog-description {
+  margin: 1rem;
+  // font-family: $cabin;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
