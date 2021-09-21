@@ -8,7 +8,7 @@ class SessionForm extends React.Component {
             password: '',
             password2: '',
             email: '',
-            location: '',
+            location: 'none',
             type: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,7 +23,16 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user) //.then(this.props.closeModal);
+        this.props.processForm(user)
+        .then(()=>{
+            if(this.props.logCheck){
+                this.props.closeModal()
+            }
+        })
+        if(this.props.formType==="signup"){
+            this.props.openModal('login')
+        }
+        
     }
 
     renderErrors() {
@@ -225,7 +234,7 @@ class SessionForm extends React.Component {
 
         return (
             <div onClick={e => e.stopPropagation()}>
-                <form onSubmit={this.handleSubmit} className='session-form-box'>
+                <form onSubmit={this.handleSubmit} className='session-form-box' id={this.props.formType}>
                     {this.props.formType === 'signup' ? signUpForm() : logInForm() }      
                     <input type='submit' value={submitText} />
 

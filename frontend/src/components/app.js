@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-// import { ProtectedRoute } from "../util/route_util";
+import { ProtectedRoute, AuthRoute } from "../util/route_util";
 import Modal from "./modal/modal";
 import Splash from "./splash/splash_container";
 import LogIn from "./session/login_form_container";
@@ -16,15 +16,23 @@ import HeaderContainer from "../components/header/header_container";
 const App = () => (
   <div>
     <Modal />
-    <Splash />
-    {/* <DogIndexContainer /> */}
     <HeaderContainer />
-    <Route exact path="/dogs" component={DogIndexContainer} />
+    {/* <DogIndexContainer /> */}
+    {/* <Route exact path="/" component={Splash} /> */}
+    {/* <Route exact path="/dogs" component={DogIndexContainer} />
     <Route exact path="/dogs/:id" component={DogShowContainer} />
     <Route exact path="/dogs/new" component={DogCreateContainer} />
     <Route exact path="/dogs/update/:id" component={DogEditContainer} />
-    <Route exact path="/" component={Splash} />
-    <Route exact path="/users/:id" component={UserShowContainer} />
+    <Route exact path="/users/:id" component={UserShowContainer} /> */}
+
+    <Switch>
+        <AuthRoute exact path = "/" component = {Splash}/>
+        <ProtectedRoute exact path="/dogs" component={DogIndexContainer} />
+        <ProtectedRoute exact path="/dogs/new" component={DogCreateContainer} />
+        <ProtectedRoute exact path="/dogs/:id" component={DogShowContainer} />
+        <ProtectedRoute exact path="/dogs/update/:id" component={DogEditContainer} />
+        <ProtectedRoute exact path="/users/:id" component={UserShowContainer} />
+    </Switch>
   </div>
 );
 
