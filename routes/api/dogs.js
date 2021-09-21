@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const Dog = require('../../models/Dog');
+const upload = require('../../upload/upload');
 const validateDogInput = require('../../validation/dogs');
 
 router.get("/", (req, res) => {
@@ -27,14 +28,17 @@ router.get("/:id", (req, res) => {
     );
 });
 
-router.post('/',
+router.post('/', upload.array("photo",1),
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-      const { errors, isValid } = validateDogInput(req.body);
+    //   const { errors, isValid } = validateDogInput(req.body);
   
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
+    //   if (!isValid) {
+    //     return res.status(400).json(errors);
+    //   }
+      
+      const file = req.files[0].location
+      
   
       const newDog = new Dog({
         name: req.body.name,
@@ -42,12 +46,22 @@ router.post('/',
         gender: req.body.gender,
         age: req.body.age,
         user_id: req.user.id,
-        description: req.body.description
+        description: req.body.description,
+        photo: file,
       });
   
       newDog.save().then(dog => res.json(dog));
     }
   );
+
+
+// router.post('/',upload.single('photo'), passport.authenticate('jwt', { session: false }),(req, res) => {
+//     console.log(req.file);
+
+
+// });
+
+
   
 router.delete('/:id',
 passport.authenticate('jwt', { session: false }),
