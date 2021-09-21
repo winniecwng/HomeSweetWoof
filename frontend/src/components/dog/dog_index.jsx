@@ -5,8 +5,8 @@ class DogIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      age: 1,
-      gender: "female",
+      age: "all",
+      gender: "all",
       breed: "husky",
     };
 
