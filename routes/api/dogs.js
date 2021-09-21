@@ -31,11 +31,11 @@ router.get("/:id", (req, res) => {
 router.post('/new', upload.array("photo",1),
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-    //   const { errors, isValid } = validateDogInput(req.body);
+      const { errors, isValid } = validateDogInput(req.body);
   
-    //   if (!isValid) {
-    //     return res.status(400).json(errors);
-    //   }
+      if (!isValid) {
+        return res.status(400).json(errors);
+      }
       
       const file = req.files[0].location
       
@@ -55,11 +55,7 @@ router.post('/new', upload.array("photo",1),
   );
 
 
-// router.post('/',upload.single('photo'), passport.authenticate('jwt', { session: false }),(req, res) => {
-//     console.log(req.file);
 
-
-// });
 
 
   

@@ -8,32 +8,36 @@ class DogShow extends React.Component {
     super(props);
   }
 
-  componentDidMount(){
-      this.props.fetchUser(this.props.userId);
-      this.props.fetchDog(this.props.ownProps.match.params.id);
+  componentDidMount() {
+    this.props.fetchUser(this.props.userId);
+    this.props.fetchDog(this.props.ownProps.match.params.id);
   }
 
   render() {
-    if(!this.props.dog) return null;
+    if (!this.props.dog) return null;
 
     const { dog } = this.props;
 
     return (
       <div className="dog-show-container">
         <div className="dog-show-left">
-          <img src={puppy} className="dog-show-img" />
-        </div>
-        <div className="dog-show-right">
+          <div className="know">Get to know me</div>
           <div className="dog-show-info">
-            <p>Name: {dog.name}</p>
-            <p>Breed: {dog.breed}</p>
-            <p>Age: {dog.age}</p>
-            <p>Description: {dog.description}</p>
-            {/* <button className="make-appointment">Make an Appointment</button> */}
+            <p className="info">Name: {dog.name}</p>
+            <p className="info">Breed: {dog.breed}</p>
+            <p className="info">Age: {dog.age}</p>
+            <p className="info">Description: {dog.description}</p>
+          </div>
+          <div className="appointment-container">
+            <p>
+              If you would like to get to know me better, book an appointment!
+            </p>
+            <CalendarContainer dog={dog} />
           </div>
         </div>
-
-        <CalendarContainer dog={this.props.dog} />
+        <div className="dog-show-right">
+          <img src={puppy} className="dog-show-img" />
+        </div>
       </div>
     );
   }

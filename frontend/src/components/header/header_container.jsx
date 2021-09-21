@@ -5,10 +5,11 @@ import { withRouter } from "react-router";
 import { fetchUser } from "../../actions/user_actions";
 // import { session } from "passport";
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
   return {
-    // currentUser: state.entities.users[session.id], // ????
-    userId: state.session.user.id,
+    user: state.session.user,
+    ownProps,
+    state,
   };
 };
 
