@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import CalendarContainer from "../calendar/calendar_container";
 
 class DogShow extends React.Component {
   constructor(props) {
@@ -7,13 +8,15 @@ class DogShow extends React.Component {
   }
 
   componentDidMount(){
-      
+      this.props.fetchUser(this.props.userId);
       this.props.fetchDog(this.props.ownProps.match.params.id);
   }
 
   render() {
-      if(!this.props.dog) return null;
+    if(!this.props.dog) return null;
+
     const { dog } = this.props;
+
     return (
       <div className="dog-show-container">
         <div className="dog-show-left"></div>
@@ -23,9 +26,11 @@ class DogShow extends React.Component {
             <p>Breed: {dog.breed}</p>
             <p>Age: {dog.age}</p>
             <p>Description: {dog.description}</p>
-            <button className="make-appointment">Make an Appointment</button>
+            {/* <button className="make-appointment">Make an Appointment</button> */}
           </div>
         </div>
+
+        <CalendarContainer dog={this.props.dog} />
       </div>
     );
   }

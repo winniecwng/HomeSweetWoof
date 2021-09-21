@@ -114,7 +114,7 @@ router.patch('/:id',
     //   if (!isValid) {
     //     return res.status(400).json(errors);
     //   }
-    
+        console.log("BACKEND");
       const updatedUser = {
         username: req.body.username,
         email: req.body.email,
