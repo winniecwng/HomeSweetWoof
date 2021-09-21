@@ -11,6 +11,7 @@ import DogCreateContainer from "./dog/dog_create_container";
 import DogEditContainer from "./dog/dog_edit_container";
 import UserShowContainer from "./user/user_show_container";
 import HeaderContainer from "../components/header/header_container";
+import AboutUs from '../components/about/about';
 
 const App = () => (
   <div>
@@ -37,6 +38,7 @@ const App = () => (
         component={DogEditContainer}
       />
       <ProtectedRoute exact path="/users/:id" component={UserShowContainer} />
+      <Route exact path="/about" component={AboutUs} />
     </Switch>
   </div>
 );

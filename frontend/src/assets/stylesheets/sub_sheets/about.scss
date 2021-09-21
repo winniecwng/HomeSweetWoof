@@ -1,0 +1,117 @@
+.about-container {
+    overflow-x: hidden;
+    padding-top: 3vh;
+    min-width: 800px;
+    background-color: $rusty-orange;
+}
+
+.circle-container {
+    display: flex;
+    margin-top: -20vh;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    // padding: 1vh 3vw;
+    // height: 50vw;
+    background-color: transparent;
+
+    &:first-child {
+        margin-top: 5vw;
+    }
+}
+
+#repo-link { 
+    float: right;
+    margin-top: 9vh;
+    margin-right: 5vw;
+
+    a {
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-family: $cabin;
+        color: white;
+
+        &:hover {
+            letter-spacing: 2px;
+            word-spacing: 4px;
+        }
+    }
+}
+
+
+.circle {
+    background-image: url('../../images/pawprint.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 45vw;
+    width: 45vw;
+    // margin: 5vw;
+    padding: 10vw;
+    // border-radius: 100%;
+    // background-color: white;
+    // box-shadow: 2px 2px 0 inset $almost-orange;
+    // border: 1px solid red;
+}
+
+.circle-right {
+    margin-top: 30vh;
+    // float: right;
+}
+
+.team-names {
+    position: relative;
+    z-index: 900;
+    width: 100%;
+    margin-top: 33%;
+    margin-bottom: 40%;
+    padding-left: 1rem;
+    text-align: center;
+    font-size: 2.8rem;
+    font-family: $staat;
+    letter-spacing: 1rem;
+    // border: 1px solid lime;
+    color: white;
+
+    text-shadow: -1px -1px 0 rgb(146, 91, 76);
+}
+
+.team-descriptions {
+    display: block;
+    height: 19vh;
+    position: relative;
+    z-index: 800;
+    // margin-top: 90%;
+    width: 90%;
+    padding: 0;
+    margin: 0 auto;
+    overflow: auto;
+    // border: 1px solid magenta;
+}
+
+.github {
+    @include networking-link;
+    margin-top: -1vw;
+    margin-left: -8vw;
+    background-image: url("../../images/github.png");
+}
+
+.angellist {
+    @include networking-link;
+    margin-top: -14vw;
+    margin-left: 16vw;
+    background-image: url("../../images/angellist.png");
+}
+
+.linkedin {
+    @include networking-link;
+    margin-top: -14vw;
+    margin-left: 1vw;
+    background-image: url("../../images/linkedin.png");
+}
+
+.portfolio {
+    @include networking-link;
+    margin-top: -1.5vw;
+    margin-left: 25.5vw;
+    background-image: url("../../images/portfolio.png");
+}

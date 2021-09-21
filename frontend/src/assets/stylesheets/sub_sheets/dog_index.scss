@@ -3,15 +3,16 @@ $grey-beige: #9f968d;
 $brick-orange: #cb9b85;
 $pale-brown: #e8d5c4;
 $matcha-green: #c0caa8;
-$navy-blue: #383748;
-$rusty-orange: rgb(187, 132, 95);
+
+// $rusty-orange: rgb(187, 132, 95);
 
 $lobster: "Lobster", cursive;
-$cabin: "Cabin", sans-serif;
-$hand: "Just Another Hand", cursive;
-$staat: "Staatliches", cursive;
+// $cabin: "Cabin", sans-serif;
+// $hand: "Just Another Hand", cursive;
+// $staat: "Staatliches", cursive;
 
 .dogs-container {
+  padding-top: 4vh;
   width: 100vw;
 }
 

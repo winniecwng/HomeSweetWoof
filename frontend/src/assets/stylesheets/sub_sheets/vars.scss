@@ -8,7 +8,7 @@ $pale-green: #efffef;
 $green: rgb(182, 219, 182);
 $light-tan: #E8D5C4;
 $tan: #d6c3b3;
-
+$navy-blue: #383748;
 
 // FONTS
 $cabin: 'Cabin', sans-serif;
@@ -47,4 +47,22 @@ $staat: 'Staatliches', cursive;
     position: absolute;
     top: 12vh;
     left: 12vw;
+}
+
+@mixin networking-link {
+    position: absolute;
+    z-index: 700;
+    width: 8vw;
+    height: 8vw;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    opacity: .7;
+
+    &:hover {
+        opacity: .9;
+    }
+
+    &:active {
+        opacity: 1;
+    }
 }
