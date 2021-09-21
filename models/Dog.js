@@ -23,8 +23,10 @@ const DogSchema = new Schema({
     required: true
   },
   description: {
-      type: String,
-      required: false
+      type: String
+  },
+  appointments: {
+    type: Object
   }
 });
 

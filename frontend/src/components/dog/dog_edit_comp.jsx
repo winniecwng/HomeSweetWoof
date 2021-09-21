@@ -60,6 +60,22 @@ class DogEditForm extends React.Component {
               onChange={this.update("age")}
             />
           </label>
+          <label>
+            Description:
+            <textarea
+              type="text"
+              value={this.state.description}
+              onChange={this.update("description")}
+            />
+          </label>
+          <label>
+            Appointments:
+            <input
+              type="date"
+              value={this.state.appointments}
+              onChange={this.update("appointments")}
+            />
+          </label>
           <select
             className="dog-gender"
             value={this.state.gender}

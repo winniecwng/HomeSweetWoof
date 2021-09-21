@@ -9,6 +9,7 @@ class DogForm extends React.Component {
       name: "",
       breed: "",
       gender: "female",
+      description: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToDogIndex = this.navigateToDogIndex.bind(this);
@@ -22,9 +23,10 @@ class DogForm extends React.Component {
       name: this.state.name,
       breed: this.state.breed,
       gender: this.state.gender,
+      description: this.state.description
     };
     this.props.composeDog(dog);
-    this.setState({ age: "", name: "", breed: "", gender: "female" });
+    this.setState({ age: "", name: "", breed: "", gender: "female", description: "" });
     // this.navigateToDogIndex();
   }
 
@@ -69,6 +71,14 @@ class DogForm extends React.Component {
               type="number"
               value={this.state.age}
               onChange={this.update("age")}
+            />
+          </label>
+          <label>
+            Description:
+            <textarea
+              type="text"
+              value={this.state.description}
+              onChange={this.update("description")}
             />
           </label>
           <select

@@ -14,7 +14,7 @@ import UserShowContainer from "./user/user_show_container";
 const App = () => (
   <div>
     <Modal />
-    <Splash />
+    {/* <Splash /> */}
     {/* <DogIndexContainer /> */}
 
     <Route exact path ="/dogs" component={DogIndexContainer}/>

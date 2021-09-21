@@ -70,25 +70,23 @@ passport.authenticate('jwt', { session: false }),
 router.patch('/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    console.log("before validation")
-    // const { errors, isValid } = validateDogInput(req.body);
-    //   console.log("first")
-    //   if (!isValid) {
-    //     return res.status(400).json(errors);
-    //   }
+    const { errors, isValid } = validateDogInput(req.body);
+    
+      if (!isValid) {
+        return res.status(400).json(errors);
+      }
     
       const updatedDog = {
         name: req.body.name,
         gender: req.body.gender,
         age: req.body.age,
-        breed: req.body.breed
+        breed: req.body.breed,
+        description: req.body.description,
+        appointments: req.body.appointments
       }
 
       Dog.findById(req.params.id)
       .then(dog => {
-        console.log(dog.user.toHexString())
-        console.log(req.user.id)
-        console.log(dog)
           if (dog.user.toHexString() !== req.user.id) {
             res.status(404).json({ notauthorized: 'This is not your dog'})
           } else {

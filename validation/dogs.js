@@ -3,7 +3,7 @@ const validText = require('./valid-text');
 
 module.exports = function validateDogInput(data) {
   let errors = {};
-
+  
   data.name = validText(data.name) ? data.name : '';
 
   if (Validator.isEmpty(data.name)) {
@@ -17,8 +17,8 @@ module.exports = function validateDogInput(data) {
   if (Validator.isEmpty(data.gender)) {
     errors.gender = 'Gender field is required';
   }
-
-  if (Validator.isEmpty(data.age)) {
+  
+  if (Validator.isEmpty((data.age).toString())) {
     errors.age = 'Age field is required';
   }
 
