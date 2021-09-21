@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import puppy from "../../assets/images/puppy.jpg";
 
 class DogIndexItem extends React.Component {
   constructor(props) {
@@ -10,7 +11,10 @@ class DogIndexItem extends React.Component {
     const { dog } = this.props;
     return (
       <div className="dog-info">
-        {/* <Link to="{`dogs/${dog._id}`}"><div>Dog Image</div><Link/> */}
+        <Link to={`dogs/${dog._id}`}>
+          <img src={puppy} className="dog-img" />
+        </Link>
+
         <div className="dog-description">
           <p>Name: {dog.name}</p>
           <p>Breed: {dog.breed}</p>

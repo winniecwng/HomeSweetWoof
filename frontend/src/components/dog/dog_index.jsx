@@ -41,50 +41,65 @@ class DogIndex extends React.Component {
 
     return (
       <div className="dogs-container">
+        <div className="dog-index-bg">
+          <p className="dog-home">
+            <span>Every dog deserves a home</span>
+            <span className="special">Find your special friend today</span>
+          </p>
+        </div>
         <div className="dog-search-filters">
           <div className="search-by-breed">
-            <select
-              name="dog-breed"
-              value={this.state.breed}
-              onChange={this.handleBreedChange}
-            >
-              <option value="Select a Breed" selected="true" disabled="true">
-                Select a Breed
-              </option>
-              <option value="husky">Husky</option>
-              <option value="dalmatian">Dalmatian</option>
-              <option value="golden retriever">Golden Retriever</option>
-              <option value="shiba inu">Shiba Inu</option>
-              <option value="german shepherd">German Shepherd</option>
-            </select>
+            <label>
+              Select a Breed:
+              <select
+                name="dog-breed"
+                value={this.state.breed}
+                onChange={this.handleBreedChange}
+              >
+                <option defaultValue="all" value="all">
+                  All
+                </option>
+                <option value="husky">Husky</option>
+                <option value="dalmatian">Dalmatian</option>
+                <option value="golden retriever">Golden Retriever</option>
+                <option value="shiba inu">Shiba Inu</option>
+                <option value="german shepherd">German Shepherd</option>
+              </select>
+            </label>
           </div>
           <div className="search-by-gender">
-            <select
-              className="dog-gender"
-              value={this.state.gender}
-              onChange={this.handleGenderChange}
-            >
-              <option value="Gender Preference" selected="true" disabled="true">
-                Gender Preference
-              </option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
+            <label>
+              Select a Gender:
+              <select
+                className="dog-gender"
+                value={this.state.gender}
+                onChange={this.handleGenderChange}
+              >
+                <option defaultValue="all" value="all">
+                  All
+                </option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </label>
           </div>
           <div className="search-by-age">
-            <select
-              name="dog-age"
-              value={this.state.age}
-              onChange={this.handleAgeChange}
-            >
-              <option value="age-range" selected="true" disabled="true">
-                Age Range
-              </option>
-              <option value="1-4">1-4</option>
-              <option value="5-8">5-8</option>
-              <option value="9-12">9-12</option>
-              <option value="13-16">13-16</option>
-            </select>
+            <label>
+              Select an Age Range:
+              <select
+                name="dog-age"
+                value={this.state.age}
+                onChange={this.handleAgeChange}
+              >
+                <option defaultValue="all" value="all">
+                  All
+                </option>
+                <option value="1-4">1-4</option>
+                <option value="5-8">5-8</option>
+                <option value="9-12">9-12</option>
+                <option value="13-16">13-16</option>
+              </select>
+            </label>
           </div>
         </div>
         <div className="dog-list-container">{allDogs}</div>
