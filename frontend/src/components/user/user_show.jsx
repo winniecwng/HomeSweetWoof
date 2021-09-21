@@ -49,6 +49,7 @@ class UserShow extends React.Component {
         let user = {...this.props.user};
         user.description = this.state.description;
         this.props.updateProfile(user);
+        this.setState({ editingDescription: false });
     }
 
     render() {
@@ -102,7 +103,7 @@ class UserShow extends React.Component {
                             <input type="submit" />
                         </form>
                     ) : (
-                        <p>{this.props.user.discription}</p>
+                        <p>{this.props.user.description}</p>
                     )}
                 </div>
 
