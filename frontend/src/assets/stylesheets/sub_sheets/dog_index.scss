@@ -12,7 +12,7 @@ $hand: "Just Another Hand", cursive;
 $staat: "Staatliches", cursive;
 
 .dogs-container {
-  background-color: #e8d5c4;
+  width: 100vw;
 }
 
 .dog-list-container {
@@ -64,6 +64,7 @@ $staat: "Staatliches", cursive;
   width: auto;
   background-color: white;
   box-shadow: 10px 5px 10px $grey-beige;
+  overflow: hidden;
 }
 
 .dog-info:hover {
@@ -118,6 +119,8 @@ $staat: "Staatliches", cursive;
   font-size: 1.5rem;
   line-height: 2.5rem;
   background-color: $rusty-orange;
+  height: 100%;
+
   p {
     font-family: $cabin;
     letter-spacing: 1.5px;
