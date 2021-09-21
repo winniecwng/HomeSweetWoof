@@ -23,8 +23,7 @@ const UserSchema = new Schema({
         required: true
     },
     description: {
-        type: String,
-        required: false
+        type: String
     },
     // type: {
     //     type: String,

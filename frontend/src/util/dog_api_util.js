@@ -18,4 +18,5 @@ export const postDog = (data) => {
 
 export const updateDog = (data) => {
   return axios.patch(`/api/dogs/${data._id}`, data)
-}
+};
+

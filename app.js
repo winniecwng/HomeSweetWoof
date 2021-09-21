@@ -7,6 +7,10 @@ const path = require('path');
 const users = require("./routes/api/users");
 const User = require('./models/User');
 const dogs = require("./routes/api/dogs");
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 mongoose
   .connect(db, { useNewUrlParser: true })

@@ -1,0 +1,57 @@
+$grey-beige: #9f968d;
+$brick-orange: #cb9b85;
+$pale-brown: #e8d5c4;
+$matcha-green: #c0caa8;
+$navy-blue: #383748;
+$rusty-orange: rgb(187, 132, 95);
+
+$lobster: "Lobster", cursive;
+$cabin: "Cabin", sans-serif;
+$hand: "Just Another Hand", cursive;
+$staat: "Staatliches", cursive;
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0rem 5rem;
+  background-color: $navy-blue;
+  font-size: 1.5rem;
+}
+
+.active-nav {
+  background-color: #514f68;
+}
+
+.nav-left,
+.links {
+  display: flex;
+
+  .nav-link {
+    text-decoration: none;
+    color: white;
+
+    .nav {
+      padding: 2.75rem 3rem;
+      font-family: $cabin;
+      //   border: thin solid $matcha-green;
+    }
+  }
+}
+
+.logo {
+  font-family: $hand;
+  margin-top: 1rem;
+  font-size: 3rem;
+}
+
+.links {
+  margin-left: 3rem;
+}
+
+.nav-right {
+  input {
+    color: white;
+    margin-top: 2.75rem;
+    font-family: $cabin;
+  }
+}

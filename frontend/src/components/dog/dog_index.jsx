@@ -7,7 +7,7 @@ class DogIndex extends React.Component {
     this.state = {
       age: "all",
       gender: "all",
-      breed: "husky",
+      breed: "all",
     };
 
     this.handleAgeChange = this.handleAgeChange.bind(this);
@@ -19,14 +19,18 @@ class DogIndex extends React.Component {
     e.preventDefault();
     this.setState({ age: e.target.value });
   }
+
   handleBreedChange(e) {
     e.preventDefault();
-    this.setState({ breed: e.target.value });
+    this.setState({ breed: e.currentTarget.value });
   }
+
   handleGenderChange(e) {
     e.preventDefault();
     this.setState({ gender: e.target.value });
   }
+
+  // do a handle change for update field
 
   componentDidMount() {
     this.props.fetchDogs();
@@ -34,9 +38,45 @@ class DogIndex extends React.Component {
 
   render() {
     const { dogs } = this.props;
-    const allDogs = dogs.map((dog) => {
-      return <DogIndexItem key={dog._id} dog={dog} />;
-      // dog.id may be dog._id; seen in MERN tweet.js
+    const filteredDogs = dogs.map((dog) => {
+      if (
+        this.state.gender === "all" &&
+        this.state.breed === "all" &&
+        this.state.age === "all"
+      ) {
+        return <DogIndexItem key={dog._id} dog={dog} />;
+      } else if (
+        (this.state.gender === "all" &&
+          this.state.age === "all" &&
+          dog.breed === this.state.breed) ||
+        (this.state.age === "all" &&
+          this.state.breed === "all" &&
+          dog.gender === this.state.gender) ||
+        (this.state.age === "all" &&
+          dog.breed === this.state.breed &&
+          dog.gender === this.state.gender)
+      ) {
+        return <DogIndexItem key={dog._id} dog={dog} />;
+      } else if (
+        (this.state.age === "1-4" && dog.age > 0 && dog.age <= 4) ||
+        (this.state.age === "5-8" && dog.age >= 5 && dog.age <= 8) ||
+        (this.state.age === "9-12" && dog.age >= 9 && dog.age <= 12) ||
+        (this.state.age === "13-16" && dog.age >= 13 && dog.age <= 16)
+      ) {
+        if (this.state.gender === "all" && this.state.breed === "all") {
+          return <DogIndexItem key={dog._id} dog={dog} />;
+        } else if (
+          this.state.gender === "all" &&
+          dog.breed === this.state.breed
+        ) {
+          return <DogIndexItem key={dog._id} dog={dog} />;
+        } else if (
+          dog.gender === this.state.gender &&
+          this.state.breed === "all"
+        ) {
+          return <DogIndexItem key={dog._id} dog={dog} />;
+        }
+      }
     });
 
     return (
@@ -60,7 +100,7 @@ class DogIndex extends React.Component {
                   All
                 </option>
                 <option value="husky">Husky</option>
-                <option value="dalmatian">Dalmatian</option>
+                <option value="dalmation">Dalmatian</option>
                 <option value="golden retriever">Golden Retriever</option>
                 <option value="shiba inu">Shiba Inu</option>
                 <option value="german shepherd">German Shepherd</option>
@@ -102,7 +142,7 @@ class DogIndex extends React.Component {
             </label>
           </div>
         </div>
-        <div className="dog-list-container">{allDogs}</div>
+        <div className="dog-list-container">{filteredDogs}</div>
       </div>
     );
   }

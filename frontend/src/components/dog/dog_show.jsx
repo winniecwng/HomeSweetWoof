@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import CalendarContainer from "../calendar/calendar_container";
+import puppy from "../../assets/images/puppy.jpg";
 
 class DogShow extends React.Component {
   constructor(props) {
@@ -19,7 +20,9 @@ class DogShow extends React.Component {
 
     return (
       <div className="dog-show-container">
-        <div className="dog-show-left"></div>
+        <div className="dog-show-left">
+          <img src={puppy} className="dog-show-img" />
+        </div>
         <div className="dog-show-right">
           <div className="dog-show-info">
             <p>Name: {dog.name}</p>
