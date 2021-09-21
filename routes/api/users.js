@@ -6,6 +6,7 @@ const keys = require('../../config/keys');
 const jwt = require('jsonwebtoken');
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
+// const validateUserInput = require("../../validation/") //MAKE FILE IN VALIDATION THEN COMMENT BACK IN
 const passport = require('passport');
 
 // router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
@@ -105,25 +106,27 @@ router.post('/login', (req, res) => {
         })
 })
 
-router.patch('update/:id',
+router.patch('/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateUserInput(req.body);
-  
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
+    //   const { errors, isValid } = validateUserInput(req.body);
+
+    //   if (!isValid) {
+    //     return res.status(400).json(errors);
+    //   }
     
       const updatedUser = {
-        name: req.body.name,
-        gender: req.body.gender,
-        age: req.body.age,
-        breed: req.body.breed
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        location: req.body.location,
+        type: req.body.type,
+        description: req.body.description
       }
 
       User.findById(req.params.id)
       .then(user => {
-          if (user.id.toHexString() !== req.user.id) {
+          if (user._id.toHexString() !== req.user.id) {
             res.status(404).json({ notauthorized: 'This is not your profile'})
           } else {
             User.findOneAndUpdate({ _id: req.params.id }, 

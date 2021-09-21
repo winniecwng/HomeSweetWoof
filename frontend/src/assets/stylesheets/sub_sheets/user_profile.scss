@@ -5,7 +5,7 @@
 }
 
 .user-details {
-    width: 50%;
+    width: 40%;
     height: 100vh;
     min-width: 500px;
     overflow: hidden;
@@ -42,27 +42,83 @@
         padding-bottom: 20px;
         font-size: 1rem;
     }
+
+    &::after {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 38%;
+        width: 300px;
+        height: 100vh;
+        padding: 0;
+        background-image: url('../../images/pawprints3.png');
+        background-repeat: repeat-y;
+        background-size: 40%;
+        content: "-";
+        color: transparent;
+    }
+
+    .user-description-header {
+        display: flex;
+        flex-direction: row;
+
+        #user-description-edit-btn {
+            height: 1.4rem;
+            margin-left: 20px;
+            margin-top: -.1rem;
+            padding: 0 10px;
+            border-radius: 2px;
+            font-size: .8rem;
+        }
+    }
+
+    form {
+        position: relative;
+        z-index: 600;
+
+        textarea {
+            max-width: 100%;
+            max-height: 150px;
+            min-width: 200px;
+            min-height: 50px;
+        }
+
+        input[type="submit"] {
+            @include hover;
+            display: block;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 3px;
+            background-color: $almost-orange;
+            font-size: .9rem;
+            color: white;
+        }
+    }
 }
 
 .user-specific {
-    width: 50%;
+    width: 60%;
     height: 100vh;
     min-width: 500px;
     overflow: hidden;
-    background-color: rgb(49, 49, 71);
+    background-color: $rusty-orange;
+    // background-color: $light-tan;
+    // background-color: rgb(49, 49, 71);
     color: white;
+    padding-left: 8%;
 }
 
 .adopter-appointments {
     height: 100%;
     padding: 60px 30px;
     overflow: auto;
-    border: 1px solid $mud;
     text-align: center;
 
     h2 {
         @include staat;
-        color: $almost-orange;
+        margin-bottom: 20px;
+        color: white;
+        text-shadow: -1px -1px 0 $tan;
     }
 }
 
@@ -90,6 +146,7 @@
         @include staat;
         margin-bottom: 20px;
         color: white;
+        text-shadow: -1px -1px 0 $tan;
         // color: $almost-orange;
     }
 }
@@ -101,13 +158,14 @@
     height: 90%;
     overflow-x: hidden;
     overflow-y: auto;
-    padding: 5px;
+    padding: 0 5px;
 
     .shelter-dog-container {
         height: 280px;
         margin: 5px;
         overflow: hidden;
-        border: 1px solid $pale-green;
+        background-color: white;
+        color: rgb(47, 47, 71);
 
         h4 {
             font-size: 1.1rem;
@@ -117,13 +175,13 @@
         h4, p {
             margin: 10px 0;
             text-transform: capitalize;
+            color: $rusty-orange;
         }
     }
 
     .shelter-dogs-pic {
         width: 100%;
         height: 180px;
-        background-color: rgb(92, 92, 117);
-        border: 1px solid $pale-green;
+        background-color: rgb(221, 202, 187);
     }
 }

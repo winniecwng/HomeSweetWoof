@@ -10,8 +10,14 @@ class UserShow extends React.Component {
 
         this.state = {
             dogs: {},
-            userType: ''
+            userType: '',
+            editingDescription: false,
+            description: ''
         }
+
+        this.editDescription = this.editDescription.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -28,18 +34,37 @@ class UserShow extends React.Component {
             });
     }
 
+    editDescription(e) {
+        e.preventDefault();
+        this.setState({ editingDescription: !this.state.editingDescription });
+    }
+
+    handleChange(e) {
+        e.preventDefault();
+        this.setState({ description: e.currentTarget.value });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        let user = {...this.props.user};
+        user.description = this.state.description;
+        this.props.updateProfile(user);
+        this.setState({ editingDescription: false });
+    }
+
     render() {
         if(!this.props.user) return null;
         
         let userType;
+        let descriptionTitle;
 
-        this.props.user.type === 'adopter' ? userType = 'adopter' : userType = 'shelter';
-
-        // if(userType === 'shelter') {
-        //     if(dogs) {
-
-        //     }
-        // }
+        if (this.props.user.type === 'adopter') {
+            userType = 'adopter';
+            descriptionTitle = 'Notes to Self';
+        } else {
+            userType = 'shelter';
+            descriptionTitle = 'Description';
+        }
 
         return (
             <div className={`user-main ${userType}-main`}>
@@ -60,7 +85,26 @@ class UserShow extends React.Component {
                     <h3>Location</h3>
                     <p>{this.props.user.location}</p>
 
-                    <p>{this.props.user.discription}</p>
+                    <div className="user-description-header">
+                        <h3 className="user-description">{descriptionTitle}</h3>
+                        <button 
+                            id='user-description-edit-btn'
+                            onClick={this.editDescription}>
+                                ✎ Edit 
+                            </button>
+                    </div>
+
+                    {this.state.editingDescription ? (
+                        <form onSubmit={this.handleSubmit}>
+                            <textarea 
+                                cols="40" rows="10"
+                                onChange={this.handleChange}>
+                            </textarea>
+                            <input type="submit" />
+                        </form>
+                    ) : (
+                        <p>{this.props.user.description}</p>
+                    )}
                 </div>
 
                 <div className="user-specific">
