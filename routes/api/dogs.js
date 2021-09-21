@@ -28,7 +28,7 @@ router.get("/:id", (req, res) => {
     );
 });
 
-router.post('/', upload.array("photo",1),
+router.post('/new', upload.array("photo",1),
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
     //   const { errors, isValid } = validateDogInput(req.body);
