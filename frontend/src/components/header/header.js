@@ -59,7 +59,9 @@ class Header extends React.Component {
             <Link
               to={`/users/${user.id}`}
               className="nav-link"
-              onClick={() => this.setState({ toggleNav: 3 })}
+              onClick={() => this.setState({ toggleNav: 3 }, () => {
+                this.props.fetchUser(user.id);
+              })}
             >
               <div
                 className={

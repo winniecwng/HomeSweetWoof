@@ -9,13 +9,12 @@ class ShelterDogs extends React.Component {
     }
 
     render() {
-        // let button =  this.props.user.id === this.props.currentUser._id ? <button onClick={this.deleteDog.bind(this)}>X</button> :null
-        let dog
-        if (this.props.user._id === this.props.currentUser.id && this.props.user._id !== undefined)  {
+        let dog;
+
+        if(this.props.pageUser._id === this.props.currentUser.id) {
             dog = () => {
                 return this.props.dogs.map(dog => {
                     return (
-                    // get component from Winnie's dog index?
                         <div className='shelter-dog-container'
                             key={`shelterdogs-${dog._id}`}>
                             <div className="shelter-dogs-pic"></div>
@@ -23,23 +22,20 @@ class ShelterDogs extends React.Component {
                             <h4>{dog.name}</h4>
                             <p>{dog.breed} {dog.gender}</p>
                             <p>{dog.age} years old</p>
-                            {/* {JSON.stringify(dog)} */}
                         </div>
                     )
                 });
             }
-        }else{
+        } else {
             dog = () => {
                 return this.props.dogs.map(dog => {
                     return (
-                    // get component from Winnie's dog index?
                         <div className='shelter-dog-container'
                             key={`shelterdogs-${dog._id}`}>
                             <div className="shelter-dogs-pic"></div>
                             <h4>{dog.name}</h4>
                             <p>{dog.breed} {dog.gender}</p>
                             <p>{dog.age} years old</p>
-                            {/* {JSON.stringify(dog)} */}
                         </div>
                     )
                 });

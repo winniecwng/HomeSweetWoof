@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
+import ModalContainer from "../modal/modal_container";
 
 class DogEditComp extends React.Component {
   constructor(props) {
@@ -18,7 +19,6 @@ class DogEditComp extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.editDog(this.state);
-    // this.navigateToDogIndex();
   }
 
   handleChange(e) {
@@ -36,68 +36,84 @@ class DogEditComp extends React.Component {
   }
 
   render() {
-    // debugger;
-    // if (!this.state.entities.dog) return null;
-
     return (
-      <div className="edit-dog-form">
-        <form onSubmit={this.handleSubmit} className="edit-form">
+      <div className="edit-dog-form ignore-modal-close">
+        {/* <ModalContainer dogId={this.props.ownProps.match.params.id} /> */}
+        <form
+          onSubmit={this.handleSubmit}
+          className="edit-form ignore-modal-close"
+        >
           {/* <h1>A New Dog Needs A New Home</h1> */}
-          <label>
-            <div>Name:</div>
+          <label className="ignore-modal-close">
+            <div className="ignore-modal-close">Name:</div>
 
             <input
               type="text"
               value={this.state.name}
               onChange={this.update("name")}
+              className="ignore-modal-close"
             />
           </label>
-          <label>
-            <div>Breed:</div>
+          <label className="ignore-modal-close">
+            <div className="ignore-modal-close">Breed:</div>
 
             <input
               type="text"
               value={this.state.breed}
               onChange={this.update("breed")}
+              className="ignore-modal-close"
             />
           </label>
-          <label>
-            <div>Age:</div>
+          <label className="ignore-modal-close">
+            <div className="ignore-modal-close">Age:</div>
             <input
               type="number"
               value={this.state.age}
               onChange={this.update("age")}
+              className="ignore-modal-close"
             />
           </label>
-          <label>
-            <div>Description:</div>
+          <label className="ignore-modal-close">
+            <div className="ignore-modal-close">Description:</div>
 
             <textarea
               type="text"
               value={this.state.description}
               onChange={this.update("description")}
+              className="ignore-modal-close"
             />
           </label>
-          <label>
+          <label className="ignore-modal-close">
             <div>Appointments:</div>
             <input
               type="date"
               value={this.state.appointments}
               onChange={this.update("appointments")}
+              className="ignore-modal-close"
             />
           </label>
-          <label>
-            <div>Gender:</div>
+          <label className="ignore-modal-close">
+            <div className="ignore-modal-close">Gender:</div>
             <select
               className="dog-gender"
               value={this.state.gender}
               onChange={this.handleChange}
+              className="ignore-modal-close"
             >
-              <option value="Gender Preference" selected="true" disabled="true">
+              <option
+                value="Gender Preference"
+                selected="true"
+                disabled="true"
+                className="ignore-modal-close"
+              >
                 Gender Preference
               </option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
+              <option value="male" className="ignore-modal-close">
+                Male
+              </option>
+              <option value="female" className="ignore-modal-close">
+                Female
+              </option>
             </select>
           </label>
           <div className="edit-btn-container">
@@ -105,6 +121,7 @@ class DogEditComp extends React.Component {
               type="submit"
               className="edit-dog-submit-button"
               value="submit"
+              onClick={this.handleSubmit}
             />
           </div>
         </form>

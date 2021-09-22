@@ -1,154 +1,157 @@
 .splash-container {
-    position: absolute;
-    z-index: 1100;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    max-width: 1920px;
-    background-color: $splash-bg;
-    user-select: none;
+  position: absolute;
+  z-index: 1100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $splash-bg;
+  user-select: none;
 }
 
 #splash-bg {
-    width: 100vw;
-    height: 100vh;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-image: url('../../images/splash-bg.jpg');
-    // https://unsplash.com/photos/uNNCs5kL70Q
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: url("../../images/splash-bg-wide.jpg");
+  // https://unsplash.com/photos/uNNCs5kL70Q
 }
 
 .session-btns {
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 
-    button {
-        @include hover;
-        margin: 2vw;
-        border: 1px solid transparent;
-        padding: 2vh 2vw;
-        background-color: rgba(241, 235, 231, .5);
-        font-family: 'Cabin', sans-serif;
-        font-size: 1.2rem;
-        color: $splash-bg;
+  button {
+    @include hover;
+    margin: 2vw;
+    border: 1px solid transparent;
+    padding: 2vh 2vw;
+    background-color: rgba(241, 235, 231, 0.5);
+    font-family: "Cabin", sans-serif;
+    font-size: 1.2rem;
+    color: $splash-bg;
 
-        &:last-child {
-            margin-left: 0;
-        }
+    &:last-child {
+      margin-left: 0;
     }
+  }
 }
 
 .splash-title {
-    h1 {
-        @include splash-box;
-        font-size: 7rem;
-        letter-spacing: .7rem;
-        font-family: $staat;
-        color: $splash-bg;
-        text-shadow: -1px -1px 0 $mud;
+  h1 {
+    @include splash-box;
+    font-size: 7rem;
+    letter-spacing: 0.7rem;
+    font-family: $staat;
+    color: $splash-bg;
+    text-shadow: -1px -1px 0 $mud;
 
-        &::selection {
-            background-color: rgba(109, 89, 77, .4);
-        }
-
-        &::after {
-            display: block;
-            margin-top: 1rem;
-            letter-spacing: .5rem;
-            text-shadow: none;
-            font-size: 2rem;
-            // color: $almost-orange;
-            color: $dark-mud;
-
-            content: "Help a dog in need";
-        }
+    &::selection {
+      background-color: rgba(109, 89, 77, 0.4);
     }
+
+    &::after {
+      display: block;
+      margin-top: 1rem;
+      letter-spacing: 0.5rem;
+      text-shadow: none;
+      font-size: 2rem;
+      // color: $almost-orange;
+      color: $dark-mud;
+
+      content: "Help a dog in need";
+    }
+  }
 }
 
 .modal-background {
-    position: absolute;
-    z-index: 1200;
-    width: 100vw;
-    height: 100vh;
+  position: absolute;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
 }
 
 .session-form-box {
-    position: absolute;
-    z-index: 1500;
-    @include splash-box;
-    background-color: rgba(241, 235, 231, .95);
+  position: absolute;
+  z-index: 1500;
+  @include splash-box;
+  background-color: rgba(241, 235, 231, 0.95);
 
-    input[type="submit"], .modal-demo-btn {
-        width: 95%;
-        margin: 2.5%;
-        padding: 10px 0;
-        border: none;
-        border-radius: 3px;
-        background-color: $dark-mud;
-        font-size: 1rem;
-        color: white;
+  input[type="submit"],
+  .modal-demo-btn {
+    width: 95%;
+    margin: 2.5%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 3px;
+    background-color: $dark-mud;
+    font-size: 1rem;
+    color: white;
 
-        @include hover;
-    }
+    @include hover;
+  }
 }
 
 .session-form {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin: 0 auto;
+
+  h3 {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    letter-spacing: 5px;
+    word-spacing: 10px;
+    font-size: 2.5rem;
+    font-family: $staat;
+    color: $dark-mud;
+  }
+
+  p {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0 25px 0;
+    font-size: 1.5rem;
+    font-family: $cabin;
+    color: $dark-mud;
+  }
+
+  .session-form-field {
     display: flex;
-    flex-direction: column;
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
+    margin-bottom: 10px;
 
-    h3 {
-        width: 100%;
-        margin-bottom: 10px;
-        text-align: center;
-        letter-spacing: 5px;
-        word-spacing: 10px;
-        font-size: 2.5rem;
-        font-family: $staat;
-        color: $dark-mud;
+    label {
+      padding: 5px 3px;
+      margin-top: 10px;
+      font-family: $cabin;
+      font-size: 0.9rem;
+      color: $dark-mud;
+      min-width: 140px;
+      width: max-content;
+      border: 1px solid transparent;
     }
 
-    p {
-        width: 100%;
-        text-align: center;
-        margin: 10px 0 25px 0;
-        font-size: 1.5rem;
-        font-family: $cabin;
-        color: $dark-mud;
+    input,
+    select {
+      padding: 5px 3px;
+      margin-top: 10px;
+      width: 100%;
+      margin-left: 5px;
+      border-radius: 3px;
+      border: 1px solid $mud;
     }
-
-    .session-form-field {
-        display: flex;
-        width: 100%;
-        margin: 0 auto;
-        margin-bottom: 10px;
-
-        label {
-            padding: 5px 3px;
-            margin-top: 10px;
-            font-family: $cabin;
-            font-size: .9rem;
-            color: $dark-mud;
-            min-width: 140px;
-            width: max-content;
-            border: 1px solid transparent;
-        }
-
-        input, select {
-            padding: 5px 3px;
-            margin-top: 10px;
-            width: 100%;
-            margin-left: 5px;
-            border-radius: 3px;
-            border: 1px solid $mud;
-        }
-    }
+  }
 }
 
-.login-form { padding: 30px 0; }
+.login-form {
+  padding: 30px 0;
+}
