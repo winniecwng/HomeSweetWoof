@@ -53,35 +53,6 @@ class About extends React.Component {
           <div className="circle circle-right">
             <div className="circle-inner">
               <div className="networking-links">
-                <a
-                  href={"https://github.com/Juka1031"}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <div className="github"></div>
-                </a>
-                <a href={tempLink} target="_blank" rel="noreferrer">
-                  <div className="angellist"></div>
-                </a>
-                <a href={tempLink} target="_blank" rel="noreferrer">
-                  <div className="linkedin"></div>
-                </a>
-                <a href={tempLink} target="_blank" rel="noreferrer">
-                  <div className="portfolio"></div>
-                </a>
-              </div>
-
-              <h1 className="team-names">Winnie</h1>
-              <h2 className="team-roles team-roles-winnie">Frontend</h2>
-              <p className="team-descriptions">
-                Nunc lobortis sed tortor vel imperdiet. Nunc velit ipsum,
-                scelerisque et nibh eu, iaculis placerat lacus.
-              </p>
-            </div>
-          </div>
-          <div className="circle circle-right">
-            <div className="circle-inner">
-              <div className="networking-links">
                 <a href={tempLink} target="_blank" rel="noreferrer">
                   <div className="github"></div>
                 </a>
