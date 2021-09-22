@@ -126,7 +126,7 @@ class UserShow extends React.Component {
                             <input type="submit" />
                         </form>
                     ) : (
-                        <p>{this.state.user.description}</p>
+                        <p>{this.props.user.description}</p>
                     )}
                 </div>
 

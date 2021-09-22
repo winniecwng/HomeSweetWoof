@@ -123,6 +123,7 @@ router.patch('/:id',
         type: req.body.type,
         description: req.body.description
       }
+      console.log(req.params)
 
       User.findById(req.params.id)
       .then(user => {

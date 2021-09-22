@@ -6,7 +6,7 @@ import UserShow from "./user_show";
 
 const mSTP = (state, ownProps) => {
     return {
-        user: ownProps.match.params.id, //gets the user info of the page of :id
+        user: state.entities.users, //gets the user info of the page of :id
         currentUser: state.session.user, //looged in
         ownProps
     }
