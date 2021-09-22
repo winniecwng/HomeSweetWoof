@@ -1,16 +1,16 @@
 import { connect } from "react-redux";
-// import { withRouter } from "react-router";
+import { fetchDogs } from "../../actions/dog_actions";
 import AdopterAppointments from "./adoption_appointments";
 
 
-const mSTP = (state, ownProps) => ({
-    user: state,
-    dogs: ownProps.dogs
+const mSTP = state => ({
+    user: state.session.user,
+    dogs: state.entities.dogs
 });
 
-// const mDTP = dispatch => ({
-//     // 
-// });
+const mDTP = dispatch => ({
+    fetchDogs: () => dispatch(fetchDogs())
+});
 
 
-export default connect(mSTP, null)(AdopterAppointments);
+export default connect(mSTP, mDTP)(AdopterAppointments);

@@ -2,10 +2,12 @@ import React from "react";
 
 class About extends React.Component {
     render() {
+        const tempLink = "https://github.com/alexsaintlam/AdoptADog";
+
         return(
             <div className="about-container">
                 <div id="repo-link">
-                    <a href="https://github.com/alexsaintlam/AdoptADog" target="_blank">
+                    <a href="https://github.com/alexsaintlam/AdoptADog" target="_blank" rel="noreferrer">
                         Project GitHub Repo
                     </a>
                 </div>
@@ -14,16 +16,16 @@ class About extends React.Component {
                     <div className="circle circle-left">
                         <div className="circle-inner">
                             <div className="networking-links">
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="github"></div>
                                 </a>
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="angellist"></div>
                                 </a>
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="linkedin"></div>
                                 </a>
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="portfolio"></div>
                                 </a>
                             </div>
@@ -42,16 +44,16 @@ class About extends React.Component {
                     <div className="circle circle-right">
                         <div className="circle-inner">
                             <div className="networking-links">
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="github"></div>
                                 </a>
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="angellist"></div>
                                 </a>
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="linkedin"></div>
                                 </a>
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="portfolio"></div>
                                 </a>
                             </div>
@@ -74,16 +76,16 @@ class About extends React.Component {
                     <div className="circle circle-left">
                         <div className="circle-inner">
                             <div className="networking-links">
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="github"></div>
                                 </a>
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="angellist"></div>
                                 </a>
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="linkedin"></div>
                                 </a>
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="portfolio"></div>
                                 </a>
                             </div>
@@ -102,16 +104,16 @@ class About extends React.Component {
                     <div className="circle circle-right">
                         <div className="circle-inner">
                             <div className="networking-links">
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="github"></div>
                                 </a>
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="angellist"></div>
                                 </a>
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="linkedin"></div>
                                 </a>
-                                <a href="#" target="_blanks">
+                                <a href={tempLink} target="_blank" rel="noreferrer">
                                     <div className="portfolio"></div>
                                 </a>
                             </div>

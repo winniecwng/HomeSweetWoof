@@ -1,7 +1,6 @@
 import {
   RECEIVE_DOGS,
   RECEIVE_DOG,
-  RECEIVE_USER_DOGS,
   RECEIVE_NEW_DOG,
   REMOVE_DOG,
 } from "../actions/dog_actions";

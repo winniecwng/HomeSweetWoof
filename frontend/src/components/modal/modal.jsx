@@ -5,17 +5,12 @@ import SignupFormContainer from "../session/signup_form_container";
 import EditFormContainer from "../dog/dog_edit_container";
 
 class Modal extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { modal, closeModal } = this.props;
-    if (!modal) {
-      return null;
-    }
-    // debugger;
     let component;
+
+    if (!modal) return null;
+
     switch (modal) {
       case "login":
         component = <LoginFormContainer />;

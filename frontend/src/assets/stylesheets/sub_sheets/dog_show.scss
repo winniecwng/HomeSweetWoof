@@ -20,13 +20,6 @@ $staat: "Staatliches", cursive;
   background-color: $pale-brown;
   padding: 10rem 5rem 5rem 5rem;
 
-  .know {
-    font-size: 5rem;
-    font-family: $hand;
-    margin-bottom: 2rem;
-    color: $brownish-orange;
-  }
-
   .dog-show-info {
     line-height: 4rem;
     p {
@@ -36,6 +29,17 @@ $staat: "Staatliches", cursive;
       letter-spacing: 2px;
     }
   }
+}
+
+// .know-header {
+
+// }
+
+.know {
+  font-size: 5rem;
+  font-family: $hand;
+  // margin-bottom: 2rem;
+  color: $brownish-orange;
 }
 
 .dog-show-right {
@@ -56,5 +60,37 @@ $staat: "Staatliches", cursive;
     font-family: $hand;
     letter-spacing: 2px;
     color: $brownish-orange;
+  }
+
+  .react-datepicker {
+    transform: scale(115%);
+    margin: 1.2rem 0;
+  }
+
+  .react-datepicker__current-month {
+    font-size: 1.2rem;
+    color: $rusty-orange;
+  }
+
+  .react-datepicker-time__header {
+    color: $rusty-orange;
+
+  }
+
+  button#book-it {
+    padding: 15px;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: $rusty-orange;
+    font-size: 1.2rem;
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+      opacity: .9;
+    }
+
+    &:active { opacity: 1; }
   }
 }

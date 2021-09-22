@@ -1,9 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CancelAppointmentContainer from "./cancel_appointment_container";
 
 
 class AdopterAppointments extends React.Component {
-    
+
+    componentDidUpdate() {
+        this.props.fetchDogs();
+    }
+
     render() {
         const dogs = this.props.dogs;
         const user = this.props.user;
@@ -13,12 +18,12 @@ class AdopterAppointments extends React.Component {
                 return dogs.map(dog => {
                     return dog.appointments.map(appointment => {
                         if (appointment.user && (
-                            appointment.user.id === user.id)) {
+                            appointment.user._id === user.id)) {
 
                             return(
-                                <div key={`adopter-appmt-${user.id}${dog.id}`}
+                                <div key={`adopter-appmt-${appointment.date}${dog._id}`}
                                     className="adopter-appointment">
-                                    <Link to={`dogs/${dog._id}`}>
+                                    <Link to={`/dogs/${dog._id}`}>
                                         <h3>{dog.name}</h3>
                                     </Link>
                                     <p>
@@ -27,8 +32,15 @@ class AdopterAppointments extends React.Component {
                                     <p>
                                         {(new Date(appointment.date)).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                     </p>
+
+                                    <CancelAppointmentContainer 
+                                        dog={dog} 
+                                        date={appointment.date}
+                                        fetchDogs={this.props.fetchDogs} />
                                 </div>
                             )
+                        } else {
+                            return null;
                         }
                     });
                 });

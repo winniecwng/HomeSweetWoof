@@ -1,8 +1,68 @@
+$grey-beige: #9f968d;
+$brick-orange: #cb9b85;
+$pale-brown: #e8d5c4;
+$matcha-green: #c0caa8;
+$navy-blue: #383748;
+$rusty-orange: rgb(187, 132, 95);
+$brownish-orange: rgb(143, 99, 69);
+
+$lobster: "Lobster", cursive;
+$cabin: "Cabin", sans-serif;
+$hand: "Just Another Hand", cursive;
+$staat: "Staatliches", cursive;
+
+// .modal-background {
+//   position: absolute;
+//   z-index: 1200;
+//   width: 100vw;
+//   height: 100vh;
+// }
+
 .edit-dog-form {
-  // margin-top: 50rem;
-  z-index: 1500;
-  height: 100px;
   position: absolute;
-  top: 500px;
-  color: red;
+  margin: 15rem;
+  padding: 3rem;
+  z-index: 1500;
+  height: 700px;
+  width: 600px;
+
+  background-color: $rusty-orange;
+  color: $pale-brown;
+  // top: 500;
+  // left: 500;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  line-height: 3rem;
+
+  label {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 2rem;
+
+    div {
+      font-family: $hand;
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+.edit-btn-container {
+  margin-top: 3rem;
+  font-family: $hand;
+  letter-spacing: 2px;
+  font-size: 3.5rem;
+  text-align: center;
+  cursor: pointer;
+  border: thin solid $pale-brown;
+  border-radius: 2rem;
+  padding-top: 5px;
+  background-color: $brick-orange;
+}
+
+.edit-btn-container:hover {
+  background-color: $grey-beige;
 }
