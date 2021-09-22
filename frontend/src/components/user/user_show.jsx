@@ -30,6 +30,11 @@ class UserShow extends React.Component {
                         .then(dogsResult => {
                             this.setState({ dogs: dogsResult.dogs.data });
                         });
+                } else {
+                    this.props.fetchDogs()
+                        .then(dogsResult => {
+                            this.setState({ dogs: dogsResult.dogs })
+                        });
                 }
             });
     }
@@ -57,10 +62,22 @@ class UserShow extends React.Component {
         
         let userType;
         let descriptionTitle;
+        let appointmentDogs;
 
         if (this.props.user.type === 'adopter') {
             userType = 'adopter';
             descriptionTitle = 'Notes to Self';
+
+            // determine which dogs (if any) adopter has booked appointment with
+            if (this.props.dogs.length > 0) {
+                appointmentDogs = this.props.dogs.filter(dog => {
+                    return dog.appointments.length > 1 && (
+                        dog.appointments.some(appointment => {
+                            return appointment.adopterId === this.props.user.id;
+                        })
+                    )
+                })
+            }
         } else {
             userType = 'shelter';
             descriptionTitle = 'Description';
@@ -98,7 +115,8 @@ class UserShow extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                             <textarea 
                                 cols="40" rows="10"
-                                onChange={this.handleChange}>
+                                onChange={this.handleChange}
+                                placeholder={this.props.user.description}>
                             </textarea>
                             <input type="submit" />
                         </form>
@@ -109,7 +127,7 @@ class UserShow extends React.Component {
 
                 <div className="user-specific">
                     {userType === 'adopter' && (
-                        <AdopterAppointmentsContainer />
+                        <AdopterAppointmentsContainer dogs={appointmentDogs} />
                     )}
 
                     {userType === 'shelter' && (

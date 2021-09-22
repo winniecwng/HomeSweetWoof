@@ -81,34 +81,62 @@ router.patch('/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateDogInput(req.body);
-    
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
-    
-      const updatedDog = {
-        name: req.body.name,
-        gender: req.body.gender,
-        age: req.body.age,
-        breed: req.body.breed,
-        description: req.body.description,
-        appointments: req.body.appointments
-      }
 
-      Dog.findById(req.params.id)
-      .then(dog => {
-          if (dog.user.toHexString() !== req.user.id) {
-            res.status(404).json({ notauthorized: 'This is not your dog'})
-          } else {
-            Dog.findOneAndUpdate({ _id: req.params.id }, 
-              {$set:updatedDog}, {new: true})
-                .then(returnedDog => res.json(returnedDog))
-                .catch(() =>
-                  res.status(404).json("unable to update"))
-          }
-      })
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    const updatedDog = {
+      name: req.body.name,
+      gender: req.body.gender,
+      age: req.body.age,
+      breed: req.body.breed,
+      description: req.body.description,
+      appointments: req.body.appointments
+    }
+
+    Dog.findOneAndUpdate({ _id: req.params.id },
+      { $set: updatedDog }, { new: true })
+      .then(returnedDog => res.json(returnedDog))
       .catch(() =>
-        res.status(404).json({ nodogfound: 'No dog found' }))  
+        res.status(404).json("unable to update"))
+      .catch(() =>
+        res.status(404).json({ nodogfound: 'No dog found' }))
   })
+
+
+// router.patch('/:id',
+//   passport.authenticate('jwt', { session: false }),
+//   (req, res) => {
+//     const { errors, isValid } = validateDogInput(req.body);
+    
+//       if (!isValid) {
+//         return res.status(400).json(errors);
+//       }
+    
+//       const updatedDog = {
+//         name: req.body.name,
+//         gender: req.body.gender,
+//         age: req.body.age,
+//         breed: req.body.breed,
+//         description: req.body.description,
+//         appointments: req.body.appointments
+//       }
+
+//       Dog.findById(req.params.id)
+//       .then(dog => {
+//           if (dog.user.toHexString() !== req.user.id) {
+//             res.status(404).json({ notauthorized: 'This is not your dog'})
+//           } else {
+//             Dog.findOneAndUpdate({ _id: req.params.id }, 
+//               {$set:updatedDog}, {new: true})
+//                 .then(returnedDog => res.json(returnedDog))
+//                 .catch(() =>
+//                   res.status(404).json("unable to update"))
+//           }
+//       })
+//       .catch(() =>
+//         res.status(404).json({ nodogfound: 'No dog found' }))  
+//   })
 
   module.exports = router;

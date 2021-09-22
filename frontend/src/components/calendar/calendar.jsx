@@ -14,7 +14,7 @@ class Calendar extends React.Component {
 
         this.state = {
             appointment: {
-                user: this.props.user,
+                user: null,
                 date: new Date()
             }
         }
@@ -22,10 +22,14 @@ class Calendar extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        let appointment = {};
+        appointment.user = this.props.user;
+        appointment.date = new Date();
+        this.setState({ appointment: appointment });
+    }
+
     componentDidUpdate() {
-        // this.setState({
-        //     appointment: 
-        // })
         console.log(this.state.appointment);
     }
 

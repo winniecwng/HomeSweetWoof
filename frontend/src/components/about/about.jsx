@@ -31,6 +31,9 @@ class About extends React.Component {
                             <h1 className="team-names">
                                 Winnie
                             </h1>
+                            <h2 className="team-roles team-roles-winnie">
+                                Frontend
+                            </h2>
                             <p className="team-descriptions">
                                 Nunc lobortis sed tortor vel imperdiet. Nunc velit ipsum, scelerisque et nibh eu, iaculis placerat lacus.
                             </p>
@@ -56,6 +59,9 @@ class About extends React.Component {
                             <h1 className="team-names">
                                 Julian
                             </h1>
+                            <h2 className="team-roles team-roles-julian">
+                                Team Lead / Backend
+                            </h2>
                             <p className="team-descriptions">
                                 Donec massa quam, porta non nisl vel, imperdiet faucibus arcu. Proin ut tortor at neque fermentum rhoncus. Duis tellus nulla, congue sed urna eu, tempus vehicula libero.
                             </p>
@@ -84,6 +90,9 @@ class About extends React.Component {
                             <h1 className="team-names">
                                 Alex
                             </h1>
+                            <h2 className="team-roles team-roles-alex">
+                                Backend / Flex
+                            </h2>
                             <p className="team-descriptions">
                                 lkajhf ladjlhe iweu iw eauie iweuadk adkljhkjf
                             </p>
@@ -109,6 +118,9 @@ class About extends React.Component {
                         <h1 className="team-names">
                             Kira
                         </h1>
+                            <h2 className="team-roles team-roles-kira">
+                                Frontend
+                            </h2>
                         <p className="team-descriptions">
                             Mauris sollicitudin tellus sem. Mauris sed libero eleifend nisl finibus malesuada at eleifend elit. Maecenas laoreet dictum felis volutpat pretium. Suspendisse potenti. Donec ullamcorper eros et lacinia congue. Nunc in odio diam. Proin tempus dui nibh, sed placerat nisi dapibus vitae. Sed non placerat nulla. Vivamus luctus et urna ut vestibulum. Sed efficitur neque venenatis consectetur ullamcorper. Sed id congue nibh.
                         </p>

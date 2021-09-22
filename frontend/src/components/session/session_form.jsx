@@ -116,7 +116,7 @@ class SessionForm extends React.Component {
                         <label for='signup-password'>Password</label>
                         <input
                             id='signup-password'
-                            type='text'
+                            type='password'
                             placeholder='Password (minimum length 6 characters)'
                             value={this.state.password}
                             onChange={this.update('password')}
@@ -127,7 +127,7 @@ class SessionForm extends React.Component {
                         <label for='signup-confirm-pass'>Confirm Password</label>
                         <input
                             for='signup-confirm-pass'
-                            type='text'
+                            type='password'
                             placeholder='Confirm Password'
                             value={this.state.password2}
                             onChange={this.update('password2')}
@@ -172,7 +172,7 @@ class SessionForm extends React.Component {
                         <label for='login-password' id='login-pass'>Password</label>
                         <input
                             id='login-password'
-                            type='text'
+                            type='password'
                             value={this.state.password}
                             onChange={this.update('password')}
                         />

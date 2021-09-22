@@ -7,14 +7,12 @@ class ShelterDogs extends React.Component {
         const dogs = () => {
             return this.props.dogs.map(dog => {
                 return (
-                // get component from Winnie's dog index?
                     <div className='shelter-dog-container'
                         key={`shelterdogs-${dog._id}`}>
                         <div className="shelter-dogs-pic"></div>
                         <h4>{dog.name}</h4>
                         <p>{dog.breed} {dog.gender}</p>
                         <p>{dog.age} years old</p>
-                        {/* {JSON.stringify(dog)} */}
                     </div>
                 )
             });
@@ -28,7 +26,9 @@ class ShelterDogs extends React.Component {
                     {this.props.dogs.length > 0 ? (
                         dogs()
                     ) : (
-                        null
+                        <div id='no-dogs'>
+                            Your shelter has no dogs listed.
+                        </div>
                     )}
                 </div>
              </div>

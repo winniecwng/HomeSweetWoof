@@ -75,7 +75,7 @@ class Header extends React.Component {
           <input
             type="submit"
             onClick={logout}
-            value="Sign out"
+            value="Sign Out"
             className="sign-out"
           />
           {/* <button onClick={}>Sign out</button> */}

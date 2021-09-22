@@ -34,6 +34,8 @@ $lobster: "Lobster", cursive;
   padding-left: 5rem;
 
   span {
+    margin-top: 0;
+    width: fit-content;
     font-family: $staat;
     letter-spacing: 2px;
   }

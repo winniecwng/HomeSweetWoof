@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import ShelterDogs from "./shelter_dogs";
 
 
@@ -12,4 +13,4 @@ const mSTP = (state, ownProps) => ({
 // })
 
 
-export default connect(mSTP, null)(ShelterDogs);
+export default withRouter(connect(mSTP, null)(ShelterDogs));
