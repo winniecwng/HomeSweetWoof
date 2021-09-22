@@ -106,21 +106,21 @@
     background-color: $rusty-orange;
     // background-color: $light-tan;
     // background-color: rgb(49, 49, 71);
-    color: white;
+    color: $rusty-orange;
     padding-left: 8%;
 }
 
 .adopter-appointments {
     height: 100%;
     padding: 60px 30px;
-    overflow: auto;
+    overflow-y: hidden;
     text-align: center;
 
     h2 {
         @include staat;
         margin-bottom: 20px;
         color: white;
-        text-shadow: -1px -1px 0 $tan;
+        text-shadow: -1px -1px 0 rgb(211, 148, 106);
     }
 }
 
@@ -128,13 +128,34 @@
     padding-top: 100px;
 }
 
-.appointment {
-    width: 100%;
-    margin: 20px;
+#no-dogs {
+    padding-top: 100px;
+}
 
-    h3 {
-        font-size: 1.2rem;
-        color: $almost-orange;
+.adopter-appointments-container {
+    width: 92%;
+    margin: 20px;
+    padding: 2rem;
+    height: 90%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.adopter-appointment {
+    margin-bottom: 2rem;
+    color: $rusty-orange;
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+
+    a {
+        text-decoration: none;
+        text-transform: capitalize;
+        font-variant: small-caps;
+        color: $rusty-orange;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
     }
 }
 
@@ -149,7 +170,6 @@
         margin-bottom: 20px;
         color: white;
         text-shadow: -1px -1px 0 $tan;
-        // color: $almost-orange;
     }
 }
 

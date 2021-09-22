@@ -6,7 +6,7 @@ import Calendar from './calendar';
 const mSTP = (state, ownProps) => {
     return {
         dog: ownProps.dog,
-        user: ownProps.user
+        user: state.entities.users
     }
 }
 

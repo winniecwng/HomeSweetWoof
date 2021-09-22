@@ -3,7 +3,7 @@ import React from 'react';
 // DATE PICKER
 import DatePicker from 'react-datepicker';
 import addDays from 'date-fns/addDays';
-import setHours from "date-fns/setHours";
+// import setHours from "date-fns/setHours";
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -14,7 +14,7 @@ class Calendar extends React.Component {
 
         this.state = {
             appointment: {
-                user: this.props.user,
+                user: null,
                 date: new Date()
             }
         }
@@ -22,11 +22,11 @@ class Calendar extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidUpdate() {
-        // this.setState({
-        //     appointment: 
-        // })
-        console.log(this.state.appointment);
+    componentDidMount() {
+        let appointment = {};
+        appointment.user = this.props.user;
+        appointment.date = new Date();
+        this.setState({ appointment: appointment });
     }
 
     handleSubmit(e) {

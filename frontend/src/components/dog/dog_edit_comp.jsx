@@ -1,15 +1,19 @@
 import React from "react";
 import { withRouter } from "react-router";
 
-class DogEditForm extends React.Component {
+class DogEditComp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.dog
+    this.state = this.props.dog;
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToDogIndex = this.navigateToDogIndex.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
+  // componentDidMount() {
+  //   this.props.fetchDog(this.props.dogId);
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -23,7 +27,7 @@ class DogEditForm extends React.Component {
   }
 
   update(field) {
-    return (e) => this.setState({ [field]: e.currentTarget.value }); 
+    return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
   navigateToDogIndex() {
@@ -32,10 +36,13 @@ class DogEditForm extends React.Component {
   }
 
   render() {
+    // debugger;
+    // if (!this.state.entities.dog) return null;
+
     return (
-      <div className="create-new-dog">
+      <div className="edit-dog-form">
         <form onSubmit={this.handleSubmit}>
-          <h1>A New Dog Needs A New Home</h1>
+          {/* <h1>A New Dog Needs A New Home</h1> */}
           <label>
             Name:
             <input
@@ -95,4 +102,4 @@ class DogEditForm extends React.Component {
   }
 }
 
-export default withRouter(DogEditForm);
+export default withRouter(DogEditComp);

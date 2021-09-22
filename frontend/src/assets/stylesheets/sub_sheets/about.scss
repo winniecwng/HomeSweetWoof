@@ -11,8 +11,6 @@
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-    // padding: 1vh 3vw;
-    // height: 50vw;
     background-color: transparent;
 
     &:first-child {
@@ -22,12 +20,14 @@
 
 #repo-link { 
     float: right;
-    margin-top: 9vh;
-    margin-right: 5vw;
+    height: 10px;
+    overflow: visible;
+    margin-top: 5vw;
+    margin-right: 4vw;
 
     a {
         text-decoration: none;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         font-family: $cabin;
         color: white;
 
@@ -45,17 +45,11 @@
     background-repeat: no-repeat;
     height: 45vw;
     width: 45vw;
-    // margin: 5vw;
     padding: 10vw;
-    // border-radius: 100%;
-    // background-color: white;
-    // box-shadow: 2px 2px 0 inset $almost-orange;
-    // border: 1px solid red;
 }
 
 .circle-right {
     margin-top: 30vh;
-    // float: right;
 }
 
 .team-names {
@@ -69,23 +63,32 @@
     font-size: 2.8rem;
     font-family: $staat;
     letter-spacing: 1rem;
-    // border: 1px solid lime;
     color: white;
 
     text-shadow: -1px -1px 0 rgb(146, 91, 76);
 }
 
+.team-roles {
+    position: absolute;
+    font-family: $staat;
+    font-size: 1.7rem;
+    color: $almost-orange;
+}
+
+.team-roles-winnie { margin: -3vw 0 0 9vw }
+.team-roles-julian { margin: -3vw 0 0 5vw }
+.team-roles-alex { margin: -3vw 0 0 7vw }
+.team-roles-kira { margin: -3vw 0 0 9vw }
+
 .team-descriptions {
-    display: block;
-    height: 19vh;
-    position: relative;
     z-index: 800;
-    // margin-top: 90%;
-    width: 90%;
+    position: absolute;
+    display: block;
+    height: 6vw;
+    width: 26vw;
     padding: 0;
-    margin: 0 auto;
+    margin: 2vw 0 0 .5vw;
     overflow: auto;
-    // border: 1px solid magenta;
 }
 
 .github {

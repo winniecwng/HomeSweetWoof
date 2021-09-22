@@ -1,42 +1,62 @@
-import React from 'react';
-import { closeModal } from '../../actions/modal_actions';
-import { connect } from 'react-redux';
-import LoginFormContainer from '../session/login_form_container';
-import SignupFormContainer from '../session/signup_form_container';
+import React from "react";
 
-const Modal = ({modal, closeModal}) => {
-    if (!modal) {
+import LoginFormContainer from "../session/login_form_container";
+import SignupFormContainer from "../session/signup_form_container";
+import EditFormContainer from "../dog/dog_edit_container";
+
+class Modal extends React.Component {
+  render() {
+    const { modal, closeModal } = this.props;
+    let component;
+
+    if (!modal) return null;
+
+    switch (modal) {
+      case "login":
+        component = <LoginFormContainer />;
+        break;
+      case "signup":
+        component = <SignupFormContainer />;
+        break;
+      case "editForm":
+        component = <EditFormContainer dogId={this.props.ownProps.dogId} />;
+        break;
+      default:
         return null;
     }
-
-    let component;
-    switch (modal) {
-        case 'login':
-            component = <LoginFormContainer />;
-            break;
-        case 'signup':
-            component = <SignupFormContainer />;
-            break;
-        default:
-            return null;
-    }
     return (
-        <div className="modal-background" onClick={closeModal}>
-            { component }
-        </div>
+      <div className="modal-background" onClick={closeModal}>
+        {component}
+      </div>
     );
-};
+  }
+}
 
-const mSTP = state => {
-    return {
-        modal: state.ui.modal
-    };
-};
+// const Modal = ({ modal, closeModal }) => {
+//   if (!modal) {
+//     return null;
+//   }
 
-const mDTP = dispatch => {
-    return {
-        closeModal: () => dispatch(closeModal())
-    };
-};
+//   let component;
+//   debugger;
+//   switch (modal) {
+//     case "login":
+//       component = <LoginFormContainer />;
+//       break;
+//     case "signup":
+//       component = <SignupFormContainer />;
+//       break;
+//     case "editForm":
+//       component = <EditFormContainer dogId={this.props.ownProps.dogId} />;
+//       break;
+//     default:
+//       return null;
+//   }
+//   return (
+//     <div className="modal-background" onClick={closeModal}>
+//       {component}
+//     </div>
+//   );
+// };
 
-export default connect(mSTP, mDTP)(Modal);
+export default Modal;

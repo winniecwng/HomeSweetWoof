@@ -1,10 +1,11 @@
 // import dogs from "../../../validation/dogs";
-import { getDog, getDogs, getUserDogs, postDog, updateDog } from "../util/dog_api_util";
+import { getDog, getDogs, getUserDogs, postDog, updateDog, deleteDog } from "../util/dog_api_util";
 
 export const RECEIVE_DOGS = "RECEIVE_DOGS";
 export const RECEIVE_DOG = "RECEIVE_DOG";
 export const RECEIVE_USER_DOGS = "RECEIVE_USER_DOGS";
 export const RECEIVE_NEW_DOG = "RECEIVE_NEW_DOG";
+export const REMOVE_DOG = "REMOVE_DOG";
 
 export const receiveDogs = (dogs) => ({
   type: RECEIVE_DOGS,
@@ -25,6 +26,13 @@ export const receiveDog = (dog) => ({
   type: RECEIVE_DOG,
   dog,
 });
+
+export const removeDog = dogId => {
+  return({
+    type: REMOVE_DOG,
+    dogId
+  })
+}
 
 export const fetchDogs = () => (dispatch) =>
   getDogs()
@@ -50,3 +58,8 @@ export const editDog = (data) => (dispatch) =>
   updateDog(data)
     .then((dog) => dispatch(receiveNewDog(dog)))
     .catch((err) => console.log(err));
+
+export const destroyDog = (data) => (dispatch) =>
+    deleteDog(data)
+        .then((dog) => dispatch(removeDog(dog)))
+        .catch((err) => console.log(err));
