@@ -111,7 +111,7 @@ passport.authenticate('jwt', { session: false }),
 //         res.status(404).json({ nodogfound: 'No dog found' }))  
 //   })
 
-  router.patch('/:id',
+  router.patch('/:id', upload.array("photo",1),
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateDogInput(req.body);
@@ -120,13 +120,16 @@ passport.authenticate('jwt', { session: false }),
       return res.status(400).json(errors);
     }
 
+    const file = req.files[0].location
+
     const updatedDog = {
       name: req.body.name,
       gender: req.body.gender,
       age: req.body.age,
       breed: req.body.breed,
       description: req.body.description,
-      appointments: req.body.appointments
+      appointments: req.body.appointments,
+      photo: file,
     }
 
     Dog.findOneAndUpdate({ _id: req.params.id },
