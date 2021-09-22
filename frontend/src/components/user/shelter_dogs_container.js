@@ -4,8 +4,8 @@ import ShelterDogs from "./shelter_dogs";
 
 
 const mSTP = (state, ownProps) => ({
-    dogs: ownProps.dogs,
-    user: ownProps.user
+    // dogs: ownProps.dogs,
+    // user: ownProps.user
 });
 
 // const mDTP = dispatch => ({
