@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { fetchUser, updateProfile } from "../../actions/user_actions";
-import { fetchDogs, fetchUserDogs } from "../../actions/dog_actions"; 
-import { fetchUserDogs, destroyDog } from "../../actions/dog_actions"; 
+import { fetchDogs, fetchUserDogs, destroyDog } from "../../actions/dog_actions"; 
 import UserShow from "./user_show";
 
 
