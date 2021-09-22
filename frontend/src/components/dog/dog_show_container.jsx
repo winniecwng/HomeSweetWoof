@@ -1,20 +1,25 @@
 import { connect } from "react-redux";
-import { fetchDog } from "../../actions/dog_actions";
+import { fetchDog, editDog } from "../../actions/dog_actions";
 import { fetchUser } from "../../actions/user_actions";
 import DogShow from "../dog/dog_show";
+import { openModal } from "../../actions/modal_actions";
 
 const mSTP = (state, ownProps) => {
   return {
-    dog: state.entities.dogs, 
+    dog: state.entities.dogs,
     userId: state.session.user.id,
-    ownProps
+    user: state.entities.users,
+    ownProps,
+    state,
   };
 };
 
 const mDTP = (dispatch) => {
   return {
     fetchDog: (id) => dispatch(fetchDog(id)),
-    fetchUser: id => dispatch(fetchUser(id))
+    fetchUser: (id) => dispatch(fetchUser(id)),
+    editDog: (data) => dispatch(editDog(data)),
+    openModal: (modal) => dispatch(openModal(modal)),
   };
 };
 
