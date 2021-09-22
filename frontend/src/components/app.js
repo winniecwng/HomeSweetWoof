@@ -40,7 +40,7 @@ const App = () => (
         component={DogEditContainer}
       />
       <ProtectedRoute exact path="/users/:id" component={UserShowContainer} />
-      <Route exact path="/about" component={AboutUs} />
+      <ProtectedRoute exact path="/about" component={AboutUs} />
     </Switch>
   </div>
 );
