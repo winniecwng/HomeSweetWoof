@@ -11,41 +11,32 @@ class ShelterDogs extends React.Component {
     render() {
         let dog;
 
-        if(this.props.pageUser._id === this.props.currentUser.id) {
-            dog = () => {
-                return this.props.dogs.map(dog => {
-                    return (
-                        <div className='shelter-dog-container'
-                            key={`shelterdogs-${dog._id}`}>
-                            <div className="shelter-dogs-pic">
-                                <button key={`del-dog-${dog._id}`}
-                                    onClick={this.deleteDog.bind(this)}
-                                    className="shelter-delete-dog-btn">
+        let filtered;
+        if (Array.isArray(this.props.dogs)) {
+            filtered = this.props.dogs.filter(dog => dog.user === this.props.pageUser._id)
+        }
+
+        dog = () => {
+            return filtered.map(dog => {
+                return (
+                    <div className='shelter-dog-container'
+                        key={`shelterdogs-${dog._id}`}>
+                        <div className="shelter-dogs-pic">
+                            {this.props.pageUser._id === this.props.currentUser.id && (
+                                <button id={dog._id} 
+                                onClick={this.deleteDog.bind(this)}
+                                className="shelter-delete-dog-btn">
                                     X
                                 </button>
-                            </div>
-                            
-                            <h4>{dog.name}</h4>
-                            <p>{dog.breed} {dog.gender}</p>
-                            <p>{dog.age} years old</p>
+
+                            )}
                         </div>
-                    )
-                });
-            }
-        } else {
-            dog = () => {
-                return this.props.dogs.map(dog => {
-                    return (
-                        <div className='shelter-dog-container'
-                            key={`shelterdogs-${dog._id}`}>
-                            <div className="shelter-dogs-pic"></div>
-                            <h4>{dog.name}</h4>
-                            <p>{dog.breed} {dog.gender}</p>
-                            <p>{dog.age} years old</p>
-                        </div>
-                    )
-                });
-            }
+                        <h4>{dog.name}</h4>
+                        <p>{dog.breed} {dog.gender}</p>
+                        <p>{dog.age} years old</p>
+                    </div>
+                )
+            });
         }
 
         return(
@@ -63,7 +54,7 @@ class ShelterDogs extends React.Component {
                 </div>
 
                 <div className="shelter-dogs-inner-container">
-                    {this.props.dogs.length > 0 ? (
+                    {filtered && filtered.length > 0 ? (
                         dog()
                     ) : (
                         <div id='no-dogs'>

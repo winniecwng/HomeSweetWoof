@@ -60,8 +60,8 @@ class UserShow extends React.Component {
       descriptionTitle = "Notes to Self";
 
       // determine which dogs (if any) adopter has booked appointment with
-      if (this.props.dogs.length > 0) {
-        appointmentDogs = this.props.dogs.filter((dog) => {
+      if (this.props.dogs && this.props.dogs.length > 0) {
+        appointmentDogs = this.props.dogs.filter(dog => {
           return (
             dog.appointments.length > 1 &&
             dog.appointments.some((appointment) => {
