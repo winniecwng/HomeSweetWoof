@@ -12,7 +12,6 @@ class DogShow extends React.Component {
   }
 
   render() {
-    debugger;
     if (!this.props.state) return null;
     const { dog } = this.props;
 
@@ -27,7 +26,6 @@ class DogShow extends React.Component {
         </button>
       );
     }
-
     return (
       <>
         <ScrollToTop />
