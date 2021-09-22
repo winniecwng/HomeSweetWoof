@@ -61,11 +61,10 @@ class DogForm extends React.Component {
   }
 
   render() {
-      debugger
     const preview = this.state.photoUrl ? <img src={this.state.photoUrl} alt="preview" /> :null
     return (
-      <div className="create-new-dog" >
-        <form onSubmit={this.handleSubmit} style={{margin: 500}}>
+      <div className="create-new-dog">
+        <form onSubmit={this.handleSubmit}>
           <h1>A New Dog Needs A New Home</h1>
           <input type="file" name="photo" onChange={this.handleUpload} accept="image/jpeg, image/png"/>
             <div>

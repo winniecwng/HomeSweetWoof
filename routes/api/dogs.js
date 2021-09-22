@@ -45,11 +45,11 @@ router.post('/new', upload.array("photo",1),
         breed: req.body.breed,
         gender: req.body.gender,
         age: req.body.age,
-        user_id: req.user.id,
+        user: req.user.id,
         description: req.body.description,
         photo: file,
       });
-  
+      console.log(newDog)
       newDog.save().then(dog => res.json(dog));
     }
   );

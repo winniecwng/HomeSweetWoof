@@ -16,7 +16,7 @@ class DogShow extends React.Component {
     const { dog } = this.props;
 
     let editDogButton;
-    if (this.props.user.type === "shelter") {
+    if (this.props.userId === dog.user) {
       editDogButton = (
         <button
           onClick={() => this.props.openModal("editForm")}
