@@ -16,7 +16,7 @@ class About extends React.Component {
                     <div className="circle circle-left">
                         <div className="circle-inner">
                             <div className="networking-links">
-                                <a href={tempLink} target="_blank" rel="noreferrer">
+                                <a href={'https://github.com/WinnieNg3210'} target="_blank" rel="noreferrer">
                                     <div className="github"></div>
                                 </a>
                                 <a href={tempLink} target="_blank" rel="noreferrer">
@@ -44,7 +44,7 @@ class About extends React.Component {
                     <div className="circle circle-right">
                         <div className="circle-inner">
                             <div className="networking-links">
-                                <a href={tempLink} target="_blank" rel="noreferrer">
+                                <a href={'https://github.com/Juka1031'} target="_blank" rel="noreferrer">
                                     <div className="github"></div>
                                 </a>
                                 <a href={tempLink} target="_blank" rel="noreferrer">
@@ -76,7 +76,7 @@ class About extends React.Component {
                     <div className="circle circle-left">
                         <div className="circle-inner">
                             <div className="networking-links">
-                                <a href={tempLink} target="_blank" rel="noreferrer">
+                                <a href={'https://github.com/alexsaintlam'} target="_blank" rel="noreferrer">
                                     <div className="github"></div>
                                 </a>
                                 <a href={tempLink} target="_blank" rel="noreferrer">
@@ -104,13 +104,13 @@ class About extends React.Component {
                     <div className="circle circle-right">
                         <div className="circle-inner">
                             <div className="networking-links">
-                                <a href={tempLink} target="_blank" rel="noreferrer">
+                                <a href={'https://github.com/kierxin'} target="_blank" rel="noreferrer">
                                     <div className="github"></div>
                                 </a>
-                                <a href={tempLink} target="_blank" rel="noreferrer">
+                                <a href={'https://angel.co/u/keeruh'} target="_blank" rel="noreferrer">
                                     <div className="angellist"></div>
                                 </a>
-                                <a href={tempLink} target="_blank" rel="noreferrer">
+                                <a href={'https://www.linkedin.com/in/kiraporter'} target="_blank" rel="noreferrer">
                                     <div className="linkedin"></div>
                                 </a>
                                 <a href={tempLink} target="_blank" rel="noreferrer">
