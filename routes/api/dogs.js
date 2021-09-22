@@ -120,7 +120,7 @@ passport.authenticate('jwt', { session: false }),
       return res.status(400).json(errors);
     }
 
-    const file = req.files[0].location
+    // const file = req.files[0].location
 
     const updatedDog = {
       name: req.body.name,
@@ -129,7 +129,7 @@ passport.authenticate('jwt', { session: false }),
       breed: req.body.breed,
       description: req.body.description,
       appointments: req.body.appointments,
-      photo: file,
+      // photo: file,
     }
 
     Dog.findOneAndUpdate({ _id: req.params.id },

@@ -59,6 +59,7 @@ class DogEditComp extends React.Component {
           onSubmit={this.handleSubmit}
           className="edit-form ignore-modal-close"
         >
+          <input type="file" name="photo" className="ignore-modal-close" onChange={this.handleUpload} accept="image/jpeg, image/png"/>
             
           {/* <h1>A New Dog Needs A New Home</h1> */}
           <label className="ignore-modal-close">
@@ -71,7 +72,7 @@ class DogEditComp extends React.Component {
               className="ignore-modal-close"
             />
           </label>
-          <input type="file" name="photo" className="ignore-modal-close" onChange={this.handleUpload} accept="image/jpeg, image/png"/>
+          
           <label className="ignore-modal-close">
             <div className="ignore-modal-close">Breed:</div>
 
