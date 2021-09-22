@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import CalendarContainer from "../calendar/calendar_container";
 import puppy from "../../assets/images/puppy.jpg";
 import ModalContainer from "../modal/modal_container";
+import ScrollToTop from "../scroll/scroll_to_top";
 
 class DogShow extends React.Component {
   componentDidMount() {
@@ -28,6 +29,7 @@ class DogShow extends React.Component {
 
     return (
       <>
+        <ScrollToTop />
         <ModalContainer dogId={this.props.ownProps.match.params.id} />
         <div className="dog-show-container">
           <div className="dog-show-left">
@@ -43,9 +45,11 @@ class DogShow extends React.Component {
               <p className="info">Description: {dog.description}</p>
             </div>
             <div className="appointment-container">
-              <p>
-                If you would like to get to know me better, book an appointment!
-              </p>
+              {this.props.user.type === 'adopter' && (
+                <p>
+                  If you would like to get to know me better, book an appointment!
+                </p>
+              )}
               <CalendarContainer dog={dog} />
             </div>
           </div>

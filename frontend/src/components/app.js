@@ -9,12 +9,10 @@ import DogEditContainer from "./dog/dog_edit_container";
 import UserShowContainer from "./user/user_show_container";
 import HeaderContainer from "../components/header/header_container";
 import AboutUs from "../components/about/about";
-import ScrollToTop from "./scroll/scroll_to_top";
 
 const App = () => (
   <div>
     <Route path="/" component={HeaderContainer} />
-    <Route path="/" component={ScrollToTop} />
 
     <Switch>
       <AuthRoute exact path="/" component={Splash} />
