@@ -61,18 +61,17 @@ class DogForm extends React.Component {
   }
 
   render() {
-      debugger
     const preview = this.state.photoUrl ? <img src={this.state.photoUrl} alt="preview" /> :null
     return (
-      <div className="create-new-dog" >
-        <form onSubmit={this.handleSubmit} style={{margin: 500}}>
+      <div className="create-new-dog">
+        <form onSubmit={this.handleSubmit} className="create-dog-form">
           <h1>A New Dog Needs A New Home</h1>
           <input type="file" name="photo" onChange={this.handleUpload} accept="image/jpeg, image/png"/>
             <div>
                 {preview} 
             </div>
           <label>
-            Name:
+            <div className="create-dog-label">Name:</div>
             <input
               type="text"
               value={this.state.name}
@@ -80,7 +79,7 @@ class DogForm extends React.Component {
             />
           </label>
           <label>
-            Breed:
+            <div className="create-dog-label">Breed:</div>
             <input
               type="text"
               value={this.state.breed}
@@ -88,7 +87,7 @@ class DogForm extends React.Component {
             />
           </label>
           <label>
-            Age:
+            <div className="create-dog-label">Age:</div>
             <input
               type="number"
               value={this.state.age}
@@ -96,25 +95,27 @@ class DogForm extends React.Component {
             />
           </label>
           <label>
-            Description:
+            <div className="create-dog-label">Description:</div>
             <textarea
               type="text"
               value={this.state.description}
               onChange={this.update("description")}
             />
           </label>
-          <select
-            className="dog-gender"
-            value={this.state.gender}
-            onChange={this.handleChange}
-          >
-            Gender:
-            <option value="Gender Preference" selected="true" disabled="true">
-              Gender Preference
-            </option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
+          <label>
+            <div className="create-dog-label">Gender:</div>
+            <select
+              className="dog-gender"
+              value={this.state.gender}
+              onChange={this.handleChange}
+            >
+              <option value="Gender Preference" selected="true" disabled="true">
+                Gender Preference
+              </option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </label>
           <input type="submit" className="add-dog-submit-button" />
         </form>
       </div>
