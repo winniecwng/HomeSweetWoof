@@ -12,7 +12,8 @@ class UserShow extends React.Component {
             dogs: {},
             userType: '',
             editingDescription: false,
-            description: ''
+            description: '',
+            user: null
         }
 
         this.editDescription = this.editDescription.bind(this);
@@ -25,6 +26,9 @@ class UserShow extends React.Component {
 
         this.props.fetchUser(id)
             .then(userResult => {
+                this.setState({ user: userResult.user.data });
+                console.log(this.state.user);
+
                 if (userResult.user.data.type === 'shelter') {
                     this.props.fetchUserDogs(id)
                         .then(dogsResult => {
@@ -61,21 +65,24 @@ class UserShow extends React.Component {
     }
 
     render() {
-        if(!this.props.user) return null;
+        console.log(this.props.ownProps);
+
+
+        if(!this.state.user) return null;
         let userType;
         let descriptionTitle;
         let appointmentDogs;
-        
-        if (this.props.user.type === 'adopter') {
+
+        if (this.state.user.type === 'adopter') {
             userType = 'adopter';
             descriptionTitle = 'Notes to Self';
 
             // determine which dogs (if any) adopter has booked appointment with
-            if (this.props.dogs.length > 0) {
-                appointmentDogs = this.props.dogs.filter(dog => {
+            if (this.state.dogs.length > 0) {
+                appointmentDogs = this.state.dogs.filter(dog => {
                     return dog.appointments.length > 1 && (
                         dog.appointments.some(appointment => {
-                            return appointment.adopterId === this.props.user.id;
+                            return appointment.adopterId === this.state.user.id;
                         })
                     )
                 })
@@ -89,20 +96,20 @@ class UserShow extends React.Component {
             <div className={`user-main ${userType}-main`}>
                 <div className={`user-details ${userType}-details`}>
 
-                    <h2>{this.props.user.username}</h2>
+                    <h2>{this.state.user.username}</h2>
 
                     {userType === 'shelter' && (
                         <button>Message </button>
                     )}
 
                     <h3>Contact Email</h3>
-                    <p>{this.props.user.email}</p>
+                    <p>{this.state.user.email}</p>
 
                     <h3>Phone Number</h3>
-                    <p>{this.props.user.phone_number}</p>
+                    <p>{this.state.user.phone_number}</p>
 
                     <h3>Location</h3>
-                    <p>{this.props.user.location}</p>
+                    <p>{this.state.user.location}</p>
 
                     <div className="user-description-header">
                         <h3 className="user-description">{descriptionTitle}</h3>
@@ -118,12 +125,12 @@ class UserShow extends React.Component {
                             <textarea 
                                 cols="40" rows="10"
                                 onChange={this.handleChange}
-                                placeholder={this.props.user.description}>
+                                placeholder={this.state.user.description}>
                             </textarea>
                             <input type="submit" />
                         </form>
                     ) : (
-                        <p>{this.props.user.description}</p>
+                        <p>{this.state.user.description}</p>
                     )}
                 </div>
 
@@ -135,7 +142,7 @@ class UserShow extends React.Component {
                     {userType === 'shelter' && (
                         <ShelterDogsContainer 
                             dogs={this.state.dogs}
-                            user={this.props.user} 
+                            user={this.state.user} 
                             currentUser={this.props.currentUser} 
                             destroyDog = {this.props.destroyDog}
                         />
