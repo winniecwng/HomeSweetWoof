@@ -5,10 +5,14 @@ import UserShow from "./user_show";
 
 
 const mSTP = (state, ownProps) => {
+    const user = state.entities.users;
+    let dogs = state.entities.dogs;
+
     return {
-        user: state.entities.users, //gets the user info of the page of :id
+        user, //gets the user info of the page of :id
         currentUser: state.session.user, //looged in
-        ownProps
+        ownProps,
+        dogs
     }
 };
 

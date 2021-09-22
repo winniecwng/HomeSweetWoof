@@ -12,9 +12,7 @@ class DogEditForm extends React.Component {
   render() {
     const { dog, fetchDog, editDog, dogId } = this.props;
     if (!this.props.dog) return null;
-    // if (Object.values(dog).length < 1) return null;
-    // if (!this.state.entities.dogs._id) return null;
-    // const dog = this.props.fetchDog(dogId);
+    
     return (
       <DogEditComp
         dog={dog}
@@ -27,7 +25,6 @@ class DogEditForm extends React.Component {
 }
 
 const mSTP = (state, ownProps) => {
-  // debugger;
   return {
     dog: state.entities.dogs,
     ownProps,

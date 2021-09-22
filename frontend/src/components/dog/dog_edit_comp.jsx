@@ -18,7 +18,6 @@ class DogEditComp extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.editDog(this.state);
-    // this.navigateToDogIndex();
   }
 
   handleChange(e) {
@@ -36,9 +35,6 @@ class DogEditComp extends React.Component {
   }
 
   render() {
-    // debugger;
-    // if (!this.state.entities.dog) return null;
-
     return (
       <div className="edit-dog-form">
         <form onSubmit={this.handleSubmit} className="edit-form">

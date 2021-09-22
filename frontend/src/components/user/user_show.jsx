@@ -1,6 +1,6 @@
 import React from "react";
 import AdopterAppointmentsContainer from "./adoption_appointments_container";
-import ShelterDogsContainer from "./shelter_dogs_container";
+import ShelterDogs from "./shelter_dogs";
 
 
 class UserShow extends React.Component {
@@ -9,7 +9,6 @@ class UserShow extends React.Component {
         super(props);
 
         this.state = {
-            dogs: {},
             userType: '',
             editingDescription: false,
             description: '',
@@ -28,20 +27,10 @@ class UserShow extends React.Component {
             .then(userResult => {
                 this.setState({ user: userResult.user.data });
 
-                if (userResult.user.data.type === 'shelter') {
-                    this.props.fetchUserDogs(id)
-                        .then(dogsResult => {
-                            this.setState({ dogs: dogsResult.dogs.data });
-                        });
-                } else {
-                    this.props.fetchDogs()
-                        .then(dogsResult => {
-                            this.setState({ dogs: dogsResult.dogs })
-                        });
-                }
+                    this.props.fetchDogs();
             });
         if(this.props.user.id !== this.props.ownProps.match.params.id){
-            this.props.fetchUser(id)
+            this.props.fetchUser(id);
         }
     }
 
@@ -69,13 +58,13 @@ class UserShow extends React.Component {
         let descriptionTitle;
         let appointmentDogs;
 
-        if (this.state.user.type === 'adopter') {
+        if (this.props.user.type === 'adopter') {
             userType = 'adopter';
             descriptionTitle = 'Notes to Self';
 
             // determine which dogs (if any) adopter has booked appointment with
-            if (this.state.dogs.length > 0) {
-                appointmentDogs = this.state.dogs.filter(dog => {
+            if (this.props.dogs.length > 0) {
+                appointmentDogs = this.props.dogs.filter(dog => {
                     return dog.appointments.length > 1 && (
                         dog.appointments.some(appointment => {
                             return appointment.adopterId === this.state.user.id;
@@ -92,20 +81,20 @@ class UserShow extends React.Component {
             <div className={`user-main ${userType}-main`}>
                 <div className={`user-details ${userType}-details`}>
 
-                    <h2>{this.state.user.username}</h2>
+                    <h2>{this.props.user.username}</h2>
 
                     {userType === 'shelter' && (
                         <button>Message </button>
                     )}
 
                     <h3>Contact Email</h3>
-                    <p>{this.state.user.email}</p>
+                    <p>{this.props.user.email}</p>
 
                     <h3>Phone Number</h3>
-                    <p>{this.state.user.phone_number}</p>
+                    <p>{this.props.user.phone_number}</p>
 
                     <h3>Location</h3>
-                    <p>{this.state.user.location}</p>
+                    <p>{this.props.user.location}</p>
 
                     <div className="user-description-header">
                         <h3 className="user-description">{descriptionTitle}</h3>
@@ -121,7 +110,7 @@ class UserShow extends React.Component {
                             <textarea 
                                 cols="40" rows="10"
                                 onChange={this.handleChange}
-                                placeholder={this.state.user.description}>
+                                placeholder={this.props.user.description}>
                             </textarea>
                             <input type="submit" />
                         </form>
@@ -136,10 +125,10 @@ class UserShow extends React.Component {
                     )}
 
                     {userType === 'shelter' && (
-                        <ShelterDogsContainer 
-                            dogs={this.state.dogs}
-                            user={this.state.user} 
-                            currentUser={this.props.currentUser} 
+                        <ShelterDogs 
+                            dogs={this.props.dogs}
+                            pageUser={this.props.user} 
+                            currentUser={this.props.currentUser}
                             destroyDog = {this.props.destroyDog}
                         />
                     )}

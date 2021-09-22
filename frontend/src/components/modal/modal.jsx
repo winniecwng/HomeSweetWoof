@@ -32,31 +32,4 @@ class Modal extends React.Component {
   }
 }
 
-// const Modal = ({ modal, closeModal }) => {
-//   if (!modal) {
-//     return null;
-//   }
-
-//   let component;
-//   debugger;
-//   switch (modal) {
-//     case "login":
-//       component = <LoginFormContainer />;
-//       break;
-//     case "signup":
-//       component = <SignupFormContainer />;
-//       break;
-//     case "editForm":
-//       component = <EditFormContainer dogId={this.props.ownProps.dogId} />;
-//       break;
-//     default:
-//       return null;
-//   }
-//   return (
-//     <div className="modal-background" onClick={closeModal}>
-//       {component}
-//     </div>
-//   );
-// };
-
 export default Modal;

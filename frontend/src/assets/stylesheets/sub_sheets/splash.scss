@@ -6,7 +6,6 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    max-width: 1920px;
     background-color: $splash-bg;
     user-select: none;
 }
@@ -18,7 +17,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    background-image: url('../../images/splash-bg.jpg');
+    background-image: url('../../images/splash-bg-wide.jpg');
     // https://unsplash.com/photos/uNNCs5kL70Q
 }
 
