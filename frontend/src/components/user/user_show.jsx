@@ -65,7 +65,7 @@ class UserShow extends React.Component {
         let userType;
         let descriptionTitle;
         let appointmentDogs;
-
+        
         if (this.props.user.type === 'adopter') {
             userType = 'adopter';
             descriptionTitle = 'Notes to Self';
