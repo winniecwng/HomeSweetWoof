@@ -1,16 +1,10 @@
 import { connect } from "react-redux";
-// import { withRouter } from "react-router";
 import AdopterAppointments from "./adoption_appointments";
 
 
-const mSTP = (state, ownProps) => ({
+const mSTP = state => ({
     user: state,
-    dogs: ownProps.dogs
+    dogs: state.entities.dogs
 });
-
-// const mDTP = dispatch => ({
-//     // 
-// });
-
 
 export default connect(mSTP, null)(AdopterAppointments);

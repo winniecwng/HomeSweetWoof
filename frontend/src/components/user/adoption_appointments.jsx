@@ -18,7 +18,7 @@ class AdopterAppointments extends React.Component {
                             return(
                                 <div key={`adopter-appmt-${user.id}${dog.id}`}
                                     className="adopter-appointment">
-                                    <Link to={`dogs/${dog._id}`}>
+                                    <Link to={`/dogs/${dog._id}`}>
                                         <h3>{dog.name}</h3>
                                     </Link>
                                     <p>
@@ -29,6 +29,8 @@ class AdopterAppointments extends React.Component {
                                     </p>
                                 </div>
                             )
+                        } else {
+                            return null;
                         }
                     });
                 });

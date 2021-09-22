@@ -3,24 +3,14 @@ import { withRouter } from "react-router-dom";
 import CalendarContainer from "../calendar/calendar_container";
 import puppy from "../../assets/images/puppy.jpg";
 import ModalContainer from "../modal/modal_container";
-// import DogEditContainer from "../dog/dog_edit_container";
+
 
 class DogShow extends React.Component {
-  constructor(props) {
-    super(props);
-
-    // this.editDogForm = this.editDogForm.bind(this);
-  }
 
   componentDidMount() {
     this.props.fetchDog(this.props.ownProps.match.params.id);
     this.props.fetchUser(this.props.userId);
   }
-
-  // editDogForm(e) {
-  //   e.preventDefault();
-  //   return <DogEditContainer />;
-  // }
 
   render() {
     if (!this.props.state) return null;
@@ -57,7 +47,7 @@ class DogShow extends React.Component {
             </div>
           </div>
           <div className="dog-show-right">
-            <img src={puppy} className="dog-show-img" />
+            <img src={puppy} alt="the dog" className="dog-show-img" />
           </div>
         </div>
       </>

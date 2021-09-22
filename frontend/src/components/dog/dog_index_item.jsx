@@ -3,16 +3,13 @@ import { Link } from "react-router-dom";
 import puppy from "../../assets/images/puppy.jpg";
 
 class DogIndexItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { dog } = this.props;
     return (
       <div className="dog-info">
-        <Link to={`dogs/${dog._id}`}>
-          <img src={puppy} className="dog-img" />
+        <Link to={`/dogs/${dog._id}`}>
+          <img src={puppy} alt="the dog" className="dog-img" />
         </Link>
 
         <div className="dog-description">
