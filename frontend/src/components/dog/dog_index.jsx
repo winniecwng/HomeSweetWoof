@@ -34,6 +34,7 @@ class DogIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchDogs();
+    this.props.closeModal();
   }
 
   render() {

@@ -23,32 +23,25 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user)
-        .then(()=>{
-            if(this.props.logCheck){
-                this.props.closeModal()
-            }
-        })
-        const login = function(){
-            if(this.props.formType==="signup"){
+        // const login2 = function(){
+        //     this.props.login(user)
+        // }
+
+        const login3 = function() {
+            if(this.props.formType==="signup" && this.props.logCheck){      
                 this.props.login(user)
-                .then(()=>{
-                    if(this.props.logCheck){
-                        this.props.closeModal()
-                    }
-                })
             }
         }
+        this.props.processForm(user)
 
-        setTimeout(login.bind(this),1000)
-       
-        
+        setTimeout(login3.bind(this), 1000)
     }
+
 
     renderErrors() {
         return (
             <ul>
-                {this.props.errors.map((error, i) => (
+                {Object.values(this.props.errors).map((error, i) => (
                     <li className="error-message" key={`error-${i}`}>
                         {error}
                     </li>
@@ -61,12 +54,7 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const demoUser = { email: "demo@demo.demo", password: "demo123" }
         this.setState(demoUser);
-        this.props.processForm(demoUser)
-        .then(()=>{
-            if(this.props.logCheck){
-                this.props.closeModal()
-            }
-        });
+        this.props.processForm(demoUser).then(this.props.closeModal())
     }
 
     render() {
@@ -87,7 +75,7 @@ class SessionForm extends React.Component {
             return (
                 <div className='session-form signup-form'>
                     <h3>Sign Up</h3>
-
+                    {this.renderErrors()}
                     <div className='session-form-field'>
                         <label for='signup-account-type'>Account Type</label>
                         <select 
@@ -157,7 +145,7 @@ class SessionForm extends React.Component {
                 <div className='session-form login-form'>
                     <h3>Log In</h3>
                     <p>Welcome back!</p>
-
+                    {this.renderErrors()}
                     <div className='session-form-field'>
                         <label for='login-email' id='login-email'>Email</label>
                         <input
@@ -167,7 +155,7 @@ class SessionForm extends React.Component {
                             onChange={this.update('email')}
                         />
                     </div>
-
+                    
                     <div className='session-form-field'>
                         <label for='login-password' id='login-pass'>Password</label>
                         <input

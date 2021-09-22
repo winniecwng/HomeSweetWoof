@@ -8,8 +8,8 @@ const mSTP = (state, ownProps) => {
   return {
     dog: state.entities.dogs,
     userId: state.session.user.id,
-    user: ownProps.match.params.id,
-    // user: state.entities.users,
+    // user: ownProps.match.params.id,
+    user: state.entities.users,
     ownProps,
     state,
   };
