@@ -173,6 +173,23 @@
     }
 }
 
+.shelter-dogs-header {
+    display: flex;
+    padding-left: 1rem;
+    padding-bottom: 0;
+    justify-content: space-between;
+
+    button.add-dog {
+        @include hover;
+        height: 2rem;
+        border-radius: 3px;
+        padding: 5px;
+        background-color: white;
+        font-size: 1.1rem;
+        color: $navy-blue;
+    }
+}
+
 .shelter-dogs-inner-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -188,6 +205,7 @@
         overflow: hidden;
         background-color: white;
         color: rgb(47, 47, 71);
+        border: 1px solid lime;
 
         h4 {
             font-size: 1.1rem;
@@ -198,6 +216,15 @@
             margin: 10px 0;
             text-transform: capitalize;
             color: $rusty-orange;
+        }
+
+        .shelter-delete-dog-btn {
+            @include hover;
+            opacity: .5;
+            float: right;
+            padding: 1rem;
+            font-size: 2rem;
+            color: red;
         }
     }
 
