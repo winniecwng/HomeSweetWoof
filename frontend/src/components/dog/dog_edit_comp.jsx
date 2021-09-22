@@ -10,7 +10,6 @@ class DogEditComp extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToDogIndex = this.navigateToDogIndex.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleUpload = this.handleUpload.bind(this);
   }
 
   // componentDidMount() {
@@ -27,20 +26,6 @@ class DogEditComp extends React.Component {
     this.setState({ gender: e.target.value });
   }
 
-  handleUpload(e){
-      e.preventDefault();
-      debugger
-    const file = e.currentTarget.files[0]
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-        this.setState({photoFile: file, photoUrl: fileReader.result})
-    }
-    if (file){
-        fileReader.readAsDataURL(file)
-    }
-    
-}
-
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
@@ -54,13 +39,10 @@ class DogEditComp extends React.Component {
     return (
       <div className="edit-dog-form ignore-modal-close">
         {/* <ModalContainer dogId={this.props.ownProps.match.params.id} /> */}
-        
         <form
           onSubmit={this.handleSubmit}
           className="edit-form ignore-modal-close"
         >
-          <input type="file" name="photo" className="ignore-modal-close" onChange={this.handleUpload} accept="image/jpeg, image/png"/>
-            
           {/* <h1>A New Dog Needs A New Home</h1> */}
           <label className="ignore-modal-close">
             <div className="ignore-modal-close">Name:</div>
@@ -72,7 +54,6 @@ class DogEditComp extends React.Component {
               className="ignore-modal-close"
             />
           </label>
-          
           <label className="ignore-modal-close">
             <div className="ignore-modal-close">Breed:</div>
 

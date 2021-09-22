@@ -26,6 +26,7 @@ class DogShow extends React.Component {
         </button>
       );
     }
+
     return (
       <>
         <ScrollToTop />
