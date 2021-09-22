@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import CalendarContainer from "../calendar/calendar_container";
 import puppy from "../../assets/images/puppy.jpg";
 import ModalContainer from "../modal/modal_container";
+import ScrollToTop from "../scroll/scroll_to_top";
 
 
 class DogShow extends React.Component {
@@ -25,6 +26,7 @@ class DogShow extends React.Component {
 
     return (
       <>
+        <ScrollToTop />
         <ModalContainer dogId={this.props.ownProps.match.params.id} />
         <div className="dog-show-container">
           <div className="dog-show-left">
