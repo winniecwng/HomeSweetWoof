@@ -7,7 +7,7 @@ const mSTP = ({ errors, session }) => {
     return {
         errors: errors.session,
         formType: 'signup',
-        logCheck: session.isAuthenticated
+        logCheck: session.isSignedIn
     };
 };
 
