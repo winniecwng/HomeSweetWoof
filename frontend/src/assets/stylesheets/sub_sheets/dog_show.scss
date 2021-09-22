@@ -57,4 +57,36 @@ $staat: "Staatliches", cursive;
     letter-spacing: 2px;
     color: $brownish-orange;
   }
+
+  .react-datepicker {
+    transform: scale(115%);
+    margin: 1.2rem 0;
+  }
+
+  .react-datepicker__current-month {
+    font-size: 1.2rem;
+    color: $rusty-orange;
+  }
+
+  .react-datepicker-time__header {
+    color: $rusty-orange;
+
+  }
+
+  button#book-it {
+    padding: 15px;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: $rusty-orange;
+    font-size: 1.2rem;
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+      opacity: .9;
+    }
+
+    &:active { opacity: 1; }
+  }
 }

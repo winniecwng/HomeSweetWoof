@@ -42,9 +42,11 @@ class DogShow extends React.Component {
               <p className="info">Description: {dog.description}</p>
             </div>
             <div className="appointment-container">
-              <p>
-                If you would like to get to know me better, book an appointment!
-              </p>
+              {this.props.user.type === 'adopter' && (
+                <p>
+                  If you would like to get to know me better, book an appointment!
+                </p>
+              )}
               <CalendarContainer dog={dog} />
             </div>
           </div>

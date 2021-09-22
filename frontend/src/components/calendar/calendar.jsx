@@ -46,27 +46,31 @@ class Calendar extends React.Component {
         const dog = this.props.dog;
 
         return(
-            <div className='calendar'>
-                <h3>Book an Appointment</h3>
-                <div className='datepicker'>
-                    <DatePicker 
-                        selected={this.state.appointment.date}
-                        showTimeSelect
-                        inline
-                        minDate={new Date()}
-                        maxDate={addDays(new Date(), 180)}
-                        // excludeTimes={dog.appointments}
-                        onChange={date => {
-                            let appointment = {...this.state.appointment};
-                            appointment.date = date;
-                            this.setState({ appointment: appointment });
-                        }} 
-                        />
-                </div>
-                <button onClick={this.handleSubmit}>
-                    Book Appointment
-                </button>
-            </div>
+            <> 
+                {this.props.user.type === 'adopter' && (
+                    <div className='calendar'>
+                        <div className='datepicker'>
+                            <DatePicker
+                                selected={this.state.appointment.date}
+                                showTimeSelect
+                                inline
+                                minDate={new Date()}
+                                maxDate={addDays(new Date(), 180)}
+                                // excludeTimes={dog.appointments}
+                                // exclu
+                                onChange={date => {
+                                    let appointment = { ...this.state.appointment };
+                                    appointment.date = date;
+                                    this.setState({ appointment: appointment });
+                                }}
+                            />
+                        </div>
+                        <button onClick={this.handleSubmit} id="book-it">
+                            Book Appointment
+                        </button>
+                    </div>
+                )} 
+            </>
         )
     }
 }
