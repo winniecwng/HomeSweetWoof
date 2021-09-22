@@ -24,6 +24,7 @@ $staat: "Staatliches", cursive;
   background-color: $navy-blue;
   font-size: 1.5rem;
   border: none;
+  // display: none;
 }
 
 .active-nav {
@@ -42,12 +43,12 @@ $staat: "Staatliches", cursive;
     height: 100%;
 
     .nav {
-    display: block;
-    height: 100%;
+      display: block;
+      height: 100%;
       padding: 8% 3rem 0 3rem;
       // padding: 2.75rem 3rem;
       font-family: $cabin;
-        // border: thin solid $matcha-green;
+      // border: thin solid $matcha-green;
     }
   }
 }
@@ -63,7 +64,7 @@ $staat: "Staatliches", cursive;
     font-family: $hand;
     color: white;
     user-select: none;
-  // margin-top: 1rem;
+    // margin-top: 1rem;
     font-size: 2.5rem;
   }
 }
