@@ -27,7 +27,6 @@ class UserShow extends React.Component {
         this.props.fetchUser(id)
             .then(userResult => {
                 this.setState({ user: userResult.user.data });
-                console.log(this.state.user);
 
                 if (userResult.user.data.type === 'shelter') {
                     this.props.fetchUserDogs(id)
@@ -65,9 +64,6 @@ class UserShow extends React.Component {
     }
 
     render() {
-        console.log(this.props.ownProps);
-
-
         if(!this.state.user) return null;
         let userType;
         let descriptionTitle;
