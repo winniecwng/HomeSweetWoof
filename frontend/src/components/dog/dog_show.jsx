@@ -12,6 +12,7 @@ class DogShow extends React.Component {
   }
 
   render() {
+    debugger;
     if (!this.props.state) return null;
     const { dog } = this.props;
 
@@ -22,7 +23,7 @@ class DogShow extends React.Component {
           onClick={() => this.props.openModal("editForm")}
           className="editBtn"
         >
-          Edit
+          ✎
         </button>
       );
     }
@@ -45,16 +46,18 @@ class DogShow extends React.Component {
               <p className="info">Description: {dog.description}</p>
             </div>
             <div className="appointment-container">
-              {this.props.user.type === 'adopter' && (
+              {this.props.user.type === "adopter" && (
                 <p>
-                  If you would like to get to know me better, book an appointment!
+                  If you would like to get to know me better, book an
+                  appointment!
                 </p>
               )}
               <CalendarContainer dog={dog} />
             </div>
           </div>
           <div className="dog-show-right">
-            <img src={puppy} alt="the dog" className="dog-show-img" />
+            <img src={dog.photo} alt="the dog" className="dog-show-img" />
+            <div></div>
           </div>
         </div>
       </>
