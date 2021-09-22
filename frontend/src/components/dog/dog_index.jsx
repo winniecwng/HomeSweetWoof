@@ -77,7 +77,7 @@ class DogIndex extends React.Component {
           return <DogIndexItem key={dog._id} dog={dog} />;
         } else if (
           dog.gender === this.state.gender &&
-          this.state.breed === "all"
+          dog.breed === this.state.breed
         ) {
           return <DogIndexItem key={dog._id} dog={dog} />;
         }

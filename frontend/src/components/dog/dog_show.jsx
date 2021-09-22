@@ -4,9 +4,7 @@ import CalendarContainer from "../calendar/calendar_container";
 import puppy from "../../assets/images/puppy.jpg";
 import ModalContainer from "../modal/modal_container";
 
-
 class DogShow extends React.Component {
-
   componentDidMount() {
     this.props.fetchDog(this.props.ownProps.match.params.id);
     this.props.fetchUser(this.props.userId);
@@ -19,7 +17,12 @@ class DogShow extends React.Component {
     let editDogButton;
     if (this.props.user.type === "shelter") {
       editDogButton = (
-        <button onClick={() => this.props.openModal("editForm")}>Edit</button>
+        <button
+          onClick={() => this.props.openModal("editForm")}
+          className="editBtn"
+        >
+          Edit
+        </button>
       );
     }
 
