@@ -1,12 +1,13 @@
 import { connect } from "react-redux";
 import { fetchUser, updateProfile } from "../../actions/user_actions";
-import { fetchUserDogs } from "../../actions/dog_actions"; 
+import { fetchUserDogs, destroyDog } from "../../actions/dog_actions"; 
 import UserShow from "./user_show";
 
 
 const mSTP = (state, ownProps) => {
     return {
-        user: state.entities.users,
+        user: state.entities.users, //gets the user info of the page of :id
+        currentUser: state.session.user, //looged in
         ownProps
     }
 };
@@ -15,7 +16,8 @@ const mDTP = dispatch => {
     return {
         fetchUser: id => dispatch(fetchUser(id)),
         fetchUserDogs: id => dispatch(fetchUserDogs(id)),
-        updateProfile: user => dispatch(updateProfile(user))
+        updateProfile: user => dispatch(updateProfile(user)),
+        destroyDog: dog => dispatch(destroyDog(dog))
     }
 };
 

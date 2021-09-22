@@ -32,6 +32,9 @@ class UserShow extends React.Component {
                         });
                 }
             });
+        if(this.props.user.id !== this.props.ownProps.match.params.id){
+            this.props.fetchUser(id)
+        }
     }
 
     editDescription(e) {
@@ -54,7 +57,6 @@ class UserShow extends React.Component {
 
     render() {
         if(!this.props.user) return null;
-        
         let userType;
         let descriptionTitle;
 
@@ -115,7 +117,10 @@ class UserShow extends React.Component {
                     {userType === 'shelter' && (
                         <ShelterDogsContainer 
                             dogs={this.state.dogs}
-                            user={this.props.user} />
+                            user={this.props.user} 
+                            currentUser={this.props.currentUser} 
+                            destroyDog = {this.props.destroyDog}
+                        />
                     )}
                 </div>
             </div>
