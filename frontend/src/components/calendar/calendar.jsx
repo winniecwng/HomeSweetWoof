@@ -29,10 +29,6 @@ class Calendar extends React.Component {
         this.setState({ appointment: appointment });
     }
 
-    componentDidUpdate() {
-        console.log(this.state.appointment);
-    }
-
     handleSubmit(e) {
         e.preventDefault();
         const dog = {...this.props.dog};
