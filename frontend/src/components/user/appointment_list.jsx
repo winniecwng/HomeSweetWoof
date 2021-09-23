@@ -28,8 +28,7 @@ class AppointmentList extends React.Component {
                                     </div>
                                     <div className="display-appointment-adopter">
                                         <h4>{appointment.user.username}</h4>
-                                        <Link to={`/users/${appointment.user._id}`} className="message-adopter-link">
-                                            <button className="message-adopter-btn">Message</button> </Link>
+                                        <Room pageId={appointment.user._id} currentUser={this.props.currentUser}/>
                                     </div>
                                 </div>
                             )
