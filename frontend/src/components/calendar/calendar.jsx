@@ -3,7 +3,8 @@ import React from 'react';
 // DATE PICKER
 import DatePicker from 'react-datepicker';
 import addDays from 'date-fns/addDays';
-// import setHours from "date-fns/setHours";
+import setHours from "date-fns/setHours";
+import setMinutes from "date-fns/setMinutes";
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -66,6 +67,8 @@ class Calendar extends React.Component {
                                 maxDate={addDays(new Date(), 180)}
                                 // excludeTimes={dog.appointments}
                                 // exclu
+                                minTime={setHours(setMinutes(new Date(), 0), 9)}
+                                maxTime={setHours(setMinutes(new Date(), 0), 5)}
                                 onChange={date => {
                                     let appointment = { ...this.state.appointment };
                                     appointment.date = date;
