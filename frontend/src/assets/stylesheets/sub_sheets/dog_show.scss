@@ -68,7 +68,6 @@
   .react-datepicker {
     transform: scale(115%);
     margin: 1.2rem 0;
-    padding-left: 1vw;
     min-width: 300px;
   }
 
@@ -80,6 +79,19 @@
   .react-datepicker-time__header {
     color: #c49236;
 
+  }
+
+  .react-datepicker__day--selected,
+  .react-datepicker__time-list-item--selected {
+    background-color: #b4be7d;
+  }
+
+  .react-datepicker__day--disabled {
+    opacity: .5;
+  }
+
+  .react-datepicker__time-list-item--disabled {
+    display: none;
   }
 
   button#book-it {
