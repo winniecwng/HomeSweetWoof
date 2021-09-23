@@ -121,7 +121,10 @@ class UserShow extends React.Component {
       <div className={`user-main ${userType}-main`}>
         <div className={`user-details ${userType}-details`}>
           <h2>{this.props.user.username}</h2>
-          <Room pageId={this.props.user._id} currentUser={this.props.currentUser}/>
+
+          {this.props.user.type === "shelter" &&  this.props.currentUser.type === 'adopter' ? 
+          <Room pageId={this.props.user._id} currentUser={this.props.currentUser}/> : null}
+          
           {/* {userType === "shelter" && <button>Message </button>} */}
 
           <h3>Contact Email</h3>
