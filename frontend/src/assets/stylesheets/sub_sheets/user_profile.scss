@@ -132,38 +132,39 @@
 .adopter-appointments-container {
     width: 92%;
     margin: 20px;
-    padding: 2rem;
+    padding: 2rem 2rem .5rem 2rem;
     height: 90%;
     overflow-x: hidden;
     overflow-y: auto;
     border-radius: 1rem;
     border: 1px solid white;
-    // background-color: white;
 }
 
 .adopter-appointment {
     margin-bottom: 2rem;
-    color: white;
+    padding: 1rem .5rem .4rem .5rem;
+    color: $rusty-orange;
     font-size: 1.1rem;
     line-height: 1.8rem;
+    background-color: white;
+    border: 1px solid white;
 
     a {
         text-decoration: none;
         text-transform: capitalize;
         font-variant: small-caps;
-        color: white;
         font-size: 1.5rem;
-        line-height: 1.8rem;
+        line-height: 2rem;
+        color: $rusty-orange;
 
         &:hover {
             letter-spacing: 2px;
+            color: rgb(163, 199, 78);
         }
     }
 }
 
-.cancel-appointment {
-    &:hover { color: rgb(255, 198, 198); }
-}
+.cancel-appointment:hover { color: red; }
 
 .shelter-dogs {
     width: 100%;
@@ -211,27 +212,51 @@
         overflow: hidden;
         background-color: white;
         color: rgb(47, 47, 71);
-        border: 1px solid lime;
 
-        h4 {
-            font-size: 1.1rem;
-            font-family: $cabin;
+        .shelter-dogs-pic {
+            overflow: hidden;
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
         }
 
-        h4, p {
-            margin: 10px 0;
-            text-transform: capitalize;
-            color: $rusty-orange;
-        }
-
-        .shelter-delete-dog-btn {
+        .shelter-dogs-clickable {
             @include hover;
-            opacity: .5;
-            float: right;
-            padding: 1rem;
-            font-size: 2rem;
-            color: red;
+            display: block;
+            height: 100%;
+            text-decoration: none;
+            color: $rusty-orange;
+            text-transform: capitalize;
+
+            h4 {
+                font-size: 1.1rem;
+                font-family: $cabin;
+            }
+
+            h4, p {
+                width: 100%;
+                margin: 10px 0;
+            }
         }
+    }
+
+    .shelter-delete-dog-btn {
+        @include hover;
+        height: 2.5rem;
+        width: 2.5rem;
+        padding: 0;
+        position: relative;
+        overflow: visible;
+        z-index: 1200;
+        margin: .5rem 0 0 -3rem;
+        font-size: 1.2rem;
+        opacity: .7;
+        color: red;
+
+        &:hover { border: 1px solid red; }
     }
 
     .shelter-dogs-pic {

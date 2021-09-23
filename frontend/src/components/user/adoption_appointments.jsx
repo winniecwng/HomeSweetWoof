@@ -5,10 +5,6 @@ import CancelAppointmentContainer from "./cancel_appointment_container";
 
 class AdopterAppointments extends React.Component {
 
-    componentDidUpdate() {
-        this.props.fetchDogs();
-    }
-
     render() {
         const dogs = this.props.dogs;
         const user = this.props.user;
@@ -19,12 +15,11 @@ class AdopterAppointments extends React.Component {
                     return dog.appointments.map(appointment => {
                         if (appointment.user && (
                             appointment.user._id === user.id)) {
-
                             return(
                                 <div key={`adopter-appmt-${appointment.date}${dog._id}`}
                                     className="adopter-appointment">
                                     <Link to={`/dogs/${dog._id}`}>
-                                        <h3>{dog.name}</h3>
+                                        <h3>{dog.name} <i class="fas fa-dog"></i></h3>
                                     </Link>
                                     <p>
                                         {(new Date(appointment.date)).toDateString()}
@@ -44,13 +39,14 @@ class AdopterAppointments extends React.Component {
                         }
                     });
                 });
-            } else {
-                return(
-                    <div id='no-appointments'>
-                        You haven't booked any appointments.
-                    </div>
-                )
-            }
+            } 
+            // else {
+            //     return(
+            //         <div id='no-appointments'>
+            //             You haven't booked any appointments.
+            //         </div>
+            //     )
+            // }
             
         }
 

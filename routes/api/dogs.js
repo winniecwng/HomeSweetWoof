@@ -49,7 +49,6 @@ router.post('/new', upload.array("photo",1),
         description: req.body.description,
         photo: file,
       });
-      console.log(newDog)
       newDog.save().then(dog => res.json(dog));
     }
   );

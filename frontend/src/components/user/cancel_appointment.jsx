@@ -5,7 +5,7 @@ class CancelAppointment extends React.Component {
 
     constructor(props) {
         super(props);
-        this.cancelAppointment = this.cancelAppointment.bind(this);
+        this.cancelAppointment = this.cancelAppointment.bind(this)
     }
 
     cancelAppointment(e) {
@@ -17,14 +17,15 @@ class CancelAppointment extends React.Component {
 
         dog.appointments.splice(appointmentIdx, 1);
 
-        this.props.editDog(dog);
+        this.props.editDog(dog)
+        .then(() => this.props.fetchDogs());
     }
 
     render() {
         return (
             <button onClick={this.cancelAppointment}
                 className="cancel-appointment">
-                Cancel Appointment
+                <i class="far fa-trash-alt"></i> Cancel Appointment
             </button>
         )
     }

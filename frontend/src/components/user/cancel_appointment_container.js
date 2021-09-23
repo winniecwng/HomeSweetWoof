@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { editDog } from "../../actions/dog_actions";
+import { editDog, fetchDogs } from "../../actions/dog_actions";
 import CancelAppointment from "./cancel_appointment";
 
 
@@ -9,7 +9,8 @@ const mSTP = (state, ownProps) => ({
 });
 
 const mDTP = dispatch => ({
-    editDog: dog => dispatch(editDog(dog))
+    editDog: dog => dispatch(editDog(dog)),
+    fetchDogs: () => dispatch(fetchDogs())
 });
 
 

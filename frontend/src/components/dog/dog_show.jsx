@@ -40,7 +40,7 @@ class DogShow extends React.Component {
 
             <div className="dog-show-info">
               <p className="info">Name: {dog.name}</p>
-              <p className="info">Breed: {dog.breed}</p>
+              <p className="info" id="show-breed">Breed: {dog.breed}</p>
               <p className="info">Age: {dog.age}</p>
               <p className="info">Description: {dog.description}</p>
             </div>

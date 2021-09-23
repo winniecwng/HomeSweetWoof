@@ -10,7 +10,7 @@ const DogsReducer = (state = {}, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_DOGS:
-        newState = action.dogs.data;
+      newState = action.dogs.data;
         return newState;
     case RECEIVE_DOG:
         return newState[action.dog.id] = action.dog.data; //?????
