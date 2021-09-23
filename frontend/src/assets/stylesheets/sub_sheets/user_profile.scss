@@ -45,6 +45,10 @@
         font-size: 1rem;
     }
 
+    span#user-location {
+        text-transform: capitalize;
+    }
+
     &::after {
         display: block;
         position: absolute;
