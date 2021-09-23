@@ -64,14 +64,15 @@
         color: transparent;
     }
 
-    .user-description-header {
+    .user-description-header, .user-phone-number-header {
         display: flex;
         flex-direction: row;
 
-        #user-description-edit-btn {
+        #user-description-edit-btn, #add-phone-number-btn {
             height: 1.4rem;
-            margin-left: 20px;
-            margin-top: -.1rem;
+            margin: -.1rem 0 0 20px;
+            // margin-left: 20px;
+            // margin-top: -.1rem;
             padding: 0 10px;
             border-radius: 2px;
             font-size: .8rem;
@@ -92,6 +93,7 @@
         input[type="submit"] {
             @include hover;
             display: block;
+            margin: 10px 0 20px 0;
             padding: 5px 15px;
             border: none;
             border-radius: 3px;
@@ -108,8 +110,6 @@
     min-width: 500px;
     overflow: hidden;
     background-color: $rusty-orange;
-    // background-color: $light-tan;
-    // background-color: rgb(49, 49, 71);
     color: $rusty-orange;
     padding-left: 8%;
 }
