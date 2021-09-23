@@ -102,7 +102,6 @@ class UserShow extends React.Component {
 
     return (
       <div className={`user-main ${userType}-main`}>
-        {/* <div id="show-rusty-orange-bg"></div> */}
         <div className={`user-details ${userType}-details`}>
           <h2>{this.props.user.username}</h2>
 
