@@ -7,7 +7,7 @@ class DogForm extends React.Component {
     this.state = {
       age: "",
       name: "",
-      breed: "",
+      breed: "other",
       gender: "female",
       description: "",
       photoFile: null,

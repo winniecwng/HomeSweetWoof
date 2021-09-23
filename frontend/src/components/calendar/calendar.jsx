@@ -34,7 +34,7 @@ class Calendar extends React.Component {
         })
         dog.appointments.push(this.state.appointment);
         this.props.editDog(dog)
-            .then(result => this.setState({ 
+            .then(() => this.setState({ 
                 appointment: {
                     user: this.props.user,
                     date: new Date()
@@ -50,7 +50,7 @@ class Calendar extends React.Component {
     }
 
     render() {
-        const dog = this.props.dog;
+        // const dog = this.props.dog;
         let booked;
         this.state.booked ? booked = 'booked-appt' : booked = 'not-booked-appt';
 
@@ -65,7 +65,7 @@ class Calendar extends React.Component {
                                 inline
                                 minDate={new Date()}
                                 maxDate={addDays(new Date(), 180)}
-                                // excludeTimes={dog.appointments}
+                                // excludeTimes={dog.appointments.}
                                 // exclu
                                 minTime={setHours(setMinutes(new Date(), 0), 9)}
                                 maxTime={setHours(setMinutes(new Date(), 0), 5)}

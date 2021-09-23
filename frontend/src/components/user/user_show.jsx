@@ -127,6 +127,7 @@ class UserShow extends React.Component {
               pageUser={this.props.user}
               currentUser={this.props.currentUser}
               destroyDog={this.props.destroyDog}
+              fetchDogs={this.props.fetchDogs}
             />
           )}
         </div>
