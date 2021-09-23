@@ -1,7 +1,6 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import CalendarContainer from "../calendar/calendar_container";
-import puppy from "../../assets/images/puppy.jpg";
 import ModalContainer from "../modal/modal_container";
 import ScrollToTop from "../scroll/scroll_to_top";
 
@@ -55,8 +54,11 @@ class DogShow extends React.Component {
             </div>
           </div>
           <div className="dog-show-right">
+            <Link to={`/users/${dog.user}`}
+              className="go-to-shelter">
+              View Shelter
+            </Link>
             <img src={dog.photo} alt="the dog" className="dog-show-img" />
-            <div></div>
           </div>
         </div>
       </>
