@@ -53,6 +53,8 @@ class Calendar extends React.Component {
         // const dog = this.props.dog;
         let booked;
         this.state.booked ? booked = 'booked-appt' : booked = 'not-booked-appt';
+        const startDate = setHours(setMinutes(new Date(), 0), 9);
+        const endDate = setHours(setMinutes(new Date(), 0), 17);
 
         return(
             <> 
@@ -65,10 +67,9 @@ class Calendar extends React.Component {
                                 inline
                                 minDate={new Date()}
                                 maxDate={addDays(new Date(), 180)}
-                                // excludeTimes={dog.appointments.}
-                                // exclu
-                                minTime={setHours(setMinutes(new Date(), 0), 9)}
-                                maxTime={setHours(setMinutes(new Date(), 0), 5)}
+                                timeIntervals={60}
+                                minTime={startDate}
+                                maxTime={endDate}
                                 onChange={date => {
                                     let appointment = { ...this.state.appointment };
                                     appointment.date = date;
