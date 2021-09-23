@@ -6,6 +6,7 @@ import { closeModal } from '../../actions/modal_actions';
 const mSTP = (state) => {
   return {
     dogs: Object.values(state.entities.dogs),
+    currentUser: state.session.user
   };
 };
 

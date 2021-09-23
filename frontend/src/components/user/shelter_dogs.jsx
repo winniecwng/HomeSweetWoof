@@ -23,8 +23,9 @@ class ShelterDogs extends React.Component {
                     <div className='shelter-dog-container'
                         key={`shelterdogs-${dog._id}`}>
                         <div className="shelter-dogs-pic">
-
+                        <Link to={`/dogs/${dog._id}`} >
                             <img src={dog.photo} alt="the dog" className="dog-show-img" />
+                        </Link>
                         </div>
 
                         <Link to={`/dogs/${dog._id}`} 
