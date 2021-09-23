@@ -1,5 +1,6 @@
 import React from "react";
 import DogIndexItem from "./dog_index_item";
+import { Link } from "react-router-dom";
 
 class DogIndex extends React.Component {
   constructor(props) {
@@ -39,6 +40,14 @@ class DogIndex extends React.Component {
 
   render() {
     const { dogs } = this.props;
+    const createButton = this.props.currentUser.type === 'shelter' ?
+        
+            <button className="add-dog-index">
+                <Link to="/dogs/new" className="link-to-dog-create">
+                + List A Dog
+                </Link>
+            </button>
+         : null
     const filteredDogs = dogs.map((dog) => {
       if (
         this.state.gender === "all" &&
@@ -110,6 +119,7 @@ class DogIndex extends React.Component {
                 <option value="golden retriever">Golden Retriever</option>
                 <option value="shiba inu">Shiba Inu</option>
                 <option value="german shepherd">German Shepherd</option>
+                <option value="other">Other</option>
               </select>
             </label>
           </div>
@@ -147,6 +157,9 @@ class DogIndex extends React.Component {
               </select>
             </label>
           </div>
+        </div>
+        <div>
+                {createButton}
         </div>
         <div className="dog-list-container">{filteredDogs}</div>
       </div>

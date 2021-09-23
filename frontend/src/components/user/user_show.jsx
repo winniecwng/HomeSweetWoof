@@ -89,7 +89,7 @@ class UserShow extends React.Component {
           <p>{this.props.user.phone_number}</p>
 
           <h3>Location</h3>
-          <p>{this.props.user.location}</p>
+          <p><span id="user-location">{this.props.user.location}</span></p>
 
           <div className="user-description-header">
             <h3 className="user-description">{descriptionTitle}</h3>
@@ -127,6 +127,7 @@ class UserShow extends React.Component {
               pageUser={this.props.user}
               currentUser={this.props.currentUser}
               destroyDog={this.props.destroyDog}
+              fetchDogs={this.props.fetchDogs}
             />
           )}
         </div>

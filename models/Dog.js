@@ -30,7 +30,7 @@ const DogSchema = new Schema({
   },
   photo: {
     type: Array,
-    required: false
+    required: true
   }
 });
 

@@ -40,14 +40,6 @@ class AdopterAppointments extends React.Component {
                     });
                 });
             } 
-            // else {
-            //     return(
-            //         <div id='no-appointments'>
-            //             You haven't booked any appointments.
-            //         </div>
-            //     )
-            // }
-            
         }
 
         return (

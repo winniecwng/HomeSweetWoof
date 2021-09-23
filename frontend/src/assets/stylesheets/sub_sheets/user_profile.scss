@@ -45,6 +45,10 @@
         font-size: 1rem;
     }
 
+    span#user-location {
+        text-transform: capitalize;
+    }
+
     &::after {
         display: block;
         position: absolute;
@@ -251,10 +255,12 @@
         overflow: visible;
         height: 2.5rem;
         width: 2.5rem;
+        left: 7.5rem;
+        bottom: 29rem;
         padding: 0;
-        margin: .5rem 0 0 -3rem;
+        // margin: -20rem 0 0 13rem;
         opacity: .7;
-        z-index: 1200;
+        z-index: 2500;
         border-radius: 2rem;
         font-size: 1.2rem;
         color: red;
