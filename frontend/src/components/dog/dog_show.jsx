@@ -56,7 +56,7 @@ class DogShow extends React.Component {
           <div className="dog-show-right">
             <Link to={`/users/${dog.user}`}
               className="go-to-shelter">
-              View Shelter
+              View Shelter <i class="fas fa-home"></i>
             </Link>
             <img src={dog.photo} alt="the dog" className="dog-show-img" />
           </div>

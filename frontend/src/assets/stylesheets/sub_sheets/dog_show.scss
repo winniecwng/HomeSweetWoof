@@ -43,12 +43,14 @@
     text-align: center;
     text-decoration: none;
     letter-spacing: 2px;
-    color: #bdd5db;
+    color: #e2eff1;
     font-family: $hand;
     font-size: 3rem;
 
+    .fa-home { font-size: 1.6rem; }
+
     &:hover { color: white }
-    &:active { color: $dark-mud }
+    &:active { color: #d4e5e9 }
   }
 }
 
@@ -61,13 +63,13 @@
     font-family: $hand;
     letter-spacing: 2px;
     color: $dark-mud;
-    // color: $brownish-orange;
   }
 
   .react-datepicker {
     transform: scale(115%);
     margin: 1.2rem 0;
     padding-left: 1vw;
+    min-width: 300px;
   }
 
   .react-datepicker__current-month {
@@ -82,7 +84,7 @@
 
   button#book-it {
     padding: 15px;
-    margin-top: 2rem;
+    margin: 2rem 0 0 4.5rem;
     border: none;
     border-radius: 5px;
     background-color: $dark-mud;
