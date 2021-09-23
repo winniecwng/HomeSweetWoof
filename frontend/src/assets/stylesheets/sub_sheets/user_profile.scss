@@ -210,6 +210,8 @@
         height: 280px;
         margin: 5px;
         overflow: hidden;
+        border-radius: .5rem;
+        border: 1px solid white;
         background-color: white;
         color: rgb(47, 47, 71);
 
@@ -245,23 +247,24 @@
 
     .shelter-delete-dog-btn {
         @include hover;
+        position: relative;
+        overflow: visible;
         height: 2.5rem;
         width: 2.5rem;
         padding: 0;
-        position: relative;
-        overflow: visible;
-        z-index: 1200;
         margin: .5rem 0 0 -3rem;
-        font-size: 1.2rem;
         opacity: .7;
+        z-index: 1200;
+        border-radius: 2rem;
+        font-size: 1.2rem;
         color: red;
 
-        &:hover { border: 1px solid red; }
+        &:hover { border: 1px solid red; background-color: white; }
     }
 
     .shelter-dogs-pic {
         width: 100%;
         height: 180px;
-        background-color: rgb(221, 202, 187);
+        background-color: white;
     }
 }

@@ -42,7 +42,7 @@ class DogForm extends React.Component {
     formData.append("description", this.state.description)
 
     this.props.composeDog(formData);
-    this.setState({ age: "", name: "", breed: "", gender: "female", description: "" });
+    this.setState({ age: "", name: "", breed: "", gender: "female", description: "", photoFile: null, photoUrl: null });
     // this.navigateToDogIndex();
   }
 
