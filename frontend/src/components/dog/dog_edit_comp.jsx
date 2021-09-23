@@ -80,11 +80,11 @@ class DogEditComp extends React.Component {
                 value="german shepherd">
                   German Shepherd
               </option>
-              {/* <option 
+              <option 
                 className="ignore-modal-close" 
                 value="other">
                   Other
-              </option> */}
+              </option>
             </select>
           </label>
 
