@@ -12,7 +12,7 @@ class RoomForm extends React.Component {
   }
 
   render() {
-    debugger
+    
     return (
       <div className="socket-room-container">
           <Link to={`/chat_form?name=${this.state.name}&room=${this.state.room}`}>

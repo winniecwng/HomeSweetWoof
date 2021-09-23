@@ -55,13 +55,13 @@ app.use("/api/dogs", dogs);
 io.on("connection", (socket) => {
   socket.on("join", ({ name, room }, callback) => {
     const { error, user } = addUser({ id: socket.id, name, room });
-
     if (error) return callback("error");
 
     socket.emit("message", {
       user: "admin",
       text: `${user.name}, welcome to the ${user.room} chat room`,
     }); // send message to user
+
     socket.broadcast
       .to(user.room)
       .emit("message", { user: "admin", text: `${user.name}, has joined!` }); // send message to everyone in the room
@@ -79,7 +79,9 @@ io.on("connection", (socket) => {
     callback();
   });
 
-  socket.on("disconnnect", () => {
-    console.log("user has left");
-  });
+  socket.on("disconnect", () => {
+    const user = removeUser(socket.id);
+    if(user) {
+      io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has left.` });
+  }});
 });

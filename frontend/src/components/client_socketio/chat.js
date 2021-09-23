@@ -17,16 +17,16 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
-
     socket = io(ENDPOINT);
-
     setname(name);
     setRoom(room);
 
-    socket.emit("join", { name, room }, () => {});
+    socket.emit("join", { name, room }, () => {
+
+    });
 
     return () => {
-      socket.disconnect();
+      socket.on('disconnect');
       socket.off();
     };
   }, [ENDPOINT, location.search]);
@@ -43,6 +43,7 @@ const Chat = ({ location }) => {
     if (message) {
       socket.emit("sendMessage", message, () => setMessage(""));
     }
+    
   };
 
   return (
