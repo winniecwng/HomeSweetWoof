@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
+// import ModalContainer from "../modal/modal_container";
 
 class DogEditComp extends React.Component {
   constructor(props) {
@@ -53,37 +54,25 @@ class DogEditComp extends React.Component {
             <select
               value={this.state.breed}
               onChange={this.update("breed")}
-              className="ignore-modal-close" >
-
-              <option 
-                className="ignore-modal-close" 
-                value="husky">
-                  Husky
+              className="ignore-modal-close"
+            >
+              <option className="ignore-modal-close" value="husky">
+                Husky
               </option>
-              <option 
-                className="ignore-modal-close" 
-                value="dalmatian">
-                  Dalmatian
+              <option className="ignore-modal-close" value="dalmatian">
+                Dalmatian
               </option>
-              <option 
-                className="ignore-modal-close" 
-                value="golden retriever">
-                  Golden Retriever
+              <option className="ignore-modal-close" value="golden retriever">
+                Golden Retriever
               </option>
-              <option 
-                className="ignore-modal-close" 
-                value="shiba inu">
-                  Shiba Inu
+              <option className="ignore-modal-close" value="shiba inu">
+                Shiba Inu
               </option>
-              <option 
-                className="ignore-modal-close" 
-                value="german shepherd">
-                  German Shepherd
+              <option className="ignore-modal-close" value="german shepherd">
+                German Shepherd
               </option>
-              <option 
-                className="ignore-modal-close" 
-                value="other">
-                  Other
+              <option className="ignore-modal-close" value="other">
+                Other
               </option>
             </select>
           </label>
@@ -107,19 +96,20 @@ class DogEditComp extends React.Component {
               className="ignore-modal-close"
             />
           </label>
-          
+
           <label className="ignore-modal-close">
             <div className="ignore-modal-close">Gender:</div>
             <select
               className="dog-gender ignore-modal-close"
               value={this.state.gender}
-              onChange={this.handleChange} >
+              onChange={this.handleChange}
+            >
               <option
                 value="Gender Preference"
                 selected="selected"
                 disabled
                 className="ignore-modal-close"
- >
+              >
                 Gender Preference
               </option>
               <option value="male" className="ignore-modal-close">
@@ -135,7 +125,8 @@ class DogEditComp extends React.Component {
               type="submit"
               className="edit-dog-submit-button"
               value="submit"
-              onClick={this.handleSubmit} />
+              onClick={this.handleSubmit}
+            />
           </div>
         </form>
       </div>

@@ -6,7 +6,7 @@ $almost-orange: rgb(224, 166, 127);
 $rusty-orange: rgb(187, 132, 95);
 $pale-green: #efffef;
 $green: rgb(182, 219, 182);
-$light-tan: #E8D5C4;
+$light-tan: #e8d5c4;
 $tan: #d6c3b3;
 $navy-blue: #383748;
 $grey-beige: #9f968d;
@@ -14,62 +14,61 @@ $brick-orange: #cb9b85;
 $pale-brown: #e8d5c4;
 $matcha-green: #c0caa8;
 $brownish-orange: rgb(143, 99, 69);
-
+$pale-sky-blue: #83bad3;
 
 // FONTS
-$cabin: 'Cabin', sans-serif;
-$hand: 'Just Another Hand', cursive;
-$staat: 'Staatliches', cursive;
+$cabin: "Cabin", sans-serif;
+$hand: "Just Another Hand", cursive;
+$staat: "Staatliches", cursive;
 $lobster: "Lobster", cursive;
-
 
 // MIXINS
 @mixin staat {
-    font-family: $staat;
-    font-size: 2.2rem;
-    letter-spacing: 3px;
-    word-spacing: 5px;
+  font-family: $staat;
+  font-size: 2.2rem;
+  letter-spacing: 3px;
+  word-spacing: 5px;
 }
 
 @mixin hover {
-    &:hover {
-        cursor: pointer;
-        opacity: .9;
-    }
+  &:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
 
-    &:active {
-        opacity: 1;
-    }
+  &:active {
+    opacity: 1;
+  }
 }
 
 @mixin splash-box {
-    height: 70vh;
-    width: 72vh;
-    min-height: 450px;
-    max-height: 600px;
-    min-width: 450px;
-    max-width: 600px;
-    background-color: rgba(241, 235, 231, .4);
-    padding: 2rem;
-    position: absolute;
-    top: 12vh;
-    left: 12vw;
+  height: 70vh;
+  width: 72vh;
+  min-height: 450px;
+  max-height: 600px;
+  min-width: 450px;
+  max-width: 600px;
+  background-color: rgba(241, 235, 231, 0.4);
+  padding: 2rem;
+  position: absolute;
+  top: 12vh;
+  left: 12vw;
 }
 
 @mixin networking-link {
-    position: absolute;
-    z-index: 700;
-    width: 8vw;
-    height: 8vw;
-    background-size: 90%;
-    background-repeat: no-repeat;
-    opacity: .7;
+  position: absolute;
+  z-index: 700;
+  width: 8vw;
+  height: 8vw;
+  background-size: 90%;
+  background-repeat: no-repeat;
+  opacity: 0.7;
 
-    &:hover {
-        opacity: .9;
-    }
+  &:hover {
+    opacity: 0.9;
+  }
 
-    &:active {
-        opacity: 1;
-    }
+  &:active {
+    opacity: 1;
+  }
 }
