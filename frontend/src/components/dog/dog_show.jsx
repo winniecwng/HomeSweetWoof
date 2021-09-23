@@ -1,7 +1,6 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import CalendarContainer from "../calendar/calendar_container";
-import puppy from "../../assets/images/puppy.jpg";
 import ModalContainer from "../modal/modal_container";
 import ScrollToTop from "../scroll/scroll_to_top";
 
@@ -40,7 +39,7 @@ class DogShow extends React.Component {
 
             <div className="dog-show-info">
               <p className="info">Name: {dog.name}</p>
-              <p className="info">Breed: {dog.breed}</p>
+              <p className="info" id="show-breed">Breed: {dog.breed}</p>
               <p className="info">Age: {dog.age}</p>
               <p className="info">Description: {dog.description}</p>
             </div>
@@ -55,8 +54,11 @@ class DogShow extends React.Component {
             </div>
           </div>
           <div className="dog-show-right">
+            <Link to={`/users/${dog.user}`}
+              className="go-to-shelter">
+              View Shelter <i class="fas fa-home"></i>
+            </Link>
             <img src={dog.photo} alt="the dog" className="dog-show-img" />
-            <div></div>
           </div>
         </div>
       </>

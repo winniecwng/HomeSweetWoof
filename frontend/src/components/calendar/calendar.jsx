@@ -15,35 +15,43 @@ class Calendar extends React.Component {
         this.state = {
             appointment: {
                 user: null,
-                date: new Date()
-            }
+                date: null
+            },
+            lastBooked: null,
+            booked: false
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount() {
-        let appointment = {};
-        appointment.user = this.props.user;
-        appointment.date = new Date();
-        this.setState({ appointment: appointment });
-    }
-
     handleSubmit(e) {
         e.preventDefault();
         const dog = {...this.props.dog};
+        dog.appointments.push({
+            date: this.state.appointment.date,
+            user: this.props.user
+        })
         dog.appointments.push(this.state.appointment);
         this.props.editDog(dog)
             .then(result => this.setState({ 
                 appointment: {
                     user: this.props.user,
                     date: new Date()
-                }
+                },
+                lastBooked: this.state.appointment.date
             }));
+        this.setState({ booked: true }, () => {
+            setTimeout(() => {
+                this.setState({ booked: false });
+                this.setState({ lastBooked: null });
+            }, 3000);
+        });
     }
 
     render() {
         const dog = this.props.dog;
+        let booked;
+        this.state.booked ? booked = 'booked-appt' : booked = 'not-booked-appt';
 
         return(
             <> 
@@ -65,9 +73,19 @@ class Calendar extends React.Component {
                                 }}
                             />
                         </div>
-                        <button onClick={this.handleSubmit} id="book-it">
-                            Book Appointment
-                        </button>
+                        <div className="book-it-container">
+                            <button onClick={this.handleSubmit} id="book-it">
+                                Book Appointment
+                            </button>
+                            {this.state.lastBooked && (
+                                <p id={booked}>Booked: <br /> {`
+                                    ${(this.state.lastBooked).toDateString()} 
+                                    ${(this.state.lastBooked).toLocaleTimeString(
+                                        [], { hour: '2-digit', minute: '2-digit' }
+                                    )}
+                                `}</p>
+                            )}
+                        </div>
                     </div>
                 )} 
             </>

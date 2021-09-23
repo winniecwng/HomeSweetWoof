@@ -19,22 +19,33 @@ class ShelterDogs extends React.Component {
         dog = () => {
             return filtered.map(dog => {
                 return (
+                    <>
                     <div className='shelter-dog-container'
                         key={`shelterdogs-${dog._id}`}>
                         <div className="shelter-dogs-pic">
-                            {this.props.pageUser._id === this.props.currentUser.id && (
-                                <button id={dog._id} 
+
+                            <img src={dog.photo} alt="the dog" className="dog-show-img" />
+                        </div>
+
+                        <Link to={`/dogs/${dog._id}`} 
+                            className="shelter-dogs-clickable">
+                            <h4>{dog.name}</h4>
+                            <p>{dog.breed} {dog.gender}</p>
+                            <p>{dog.age} years old</p>
+                        </Link>
+                    </div>
+
+                    {
+                        this.props.pageUser._id === this.props.currentUser.id && (
+                            <button id={dog._id}
                                 onClick={this.deleteDog.bind(this)}
                                 className="shelter-delete-dog-btn">
-                                    X
-                                </button>
+                                    <i class="far fa-trash-alt"></i>
+                            </button>
 
-                            )}
-                        </div>
-                        <h4>{dog.name}</h4>
-                        <p>{dog.breed} {dog.gender}</p>
-                        <p>{dog.age} years old</p>
-                    </div>
+                        )
+                    }
+                    </>
                 )
             });
         }

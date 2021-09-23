@@ -4,39 +4,53 @@
 }
 
 .dog-show-left {
-  background: linear-gradient(-45deg, $matcha-green, #86a2aa);
-  // background-color: $pale-brown;
-  padding: 10rem 5rem 5rem 5rem;
+  background: linear-gradient(-45deg, $matcha-green, #bdd5db);
+  padding: 14vh 5rem 5rem 5rem;
 
   .dog-show-info {
     line-height: 4rem;
     p {
-      font-size: 3rem;
+      font-size: 2.8rem;
       font-family: $hand;
       color: $navy-blue;
-      // color: $rusty-orange;
       letter-spacing: 2px;
     }
+    #show-breed { text-transform: capitalize; }
   }
 }
 
-// .know-header {
-
-// }
-
 .know {
+  padding-bottom: 1rem;
   font-size: 5rem;
   font-family: $hand;
-  // margin-bottom: 2rem;
-  color: rgb(94, 72, 63);
+  color: $dark-mud;
 }
 
 .dog-show-right {
-  background: linear-gradient(45deg, #a0ab69, #b48328);
-  padding: 18rem 10rem;
+  background: linear-gradient(45deg, #b4be7d, #c49236);
+
   .dog-show-img {
+    display: block;
+    margin: 2vw auto;
     width: 32vw;
     height: auto;
+  }
+
+  .go-to-shelter {
+    display: block;
+    margin-top: 15vh;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 2px;
+    color: #e2eff1;
+    font-family: $hand;
+    font-size: 3rem;
+
+    .fa-home { font-size: 1.6rem; }
+
+    &:hover { color: white }
+    &:active { color: #d4e5e9 }
   }
 }
 
@@ -48,30 +62,32 @@
     font-size: 3rem;
     font-family: $hand;
     letter-spacing: 2px;
-    color: $brownish-orange;
+    color: $dark-mud;
   }
 
   .react-datepicker {
     transform: scale(115%);
     margin: 1.2rem 0;
+    padding-left: 1vw;
+    min-width: 300px;
   }
 
   .react-datepicker__current-month {
     font-size: 1.2rem;
-    color: $rusty-orange;
+    color: #c49236;
   }
 
   .react-datepicker-time__header {
-    color: $rusty-orange;
+    color: #c49236;
 
   }
 
   button#book-it {
     padding: 15px;
-    margin-top: 2rem;
+    margin: 2rem 0 0 4.5rem;
     border: none;
     border-radius: 5px;
-    background-color: $rusty-orange;
+    background-color: $dark-mud;
     font-size: 1.2rem;
     color: white;
 
@@ -81,5 +97,23 @@
     }
 
     &:active { opacity: 1; }
+  }
+
+  p#not-booked-appt {
+    visibility: hidden;
+    font-family: $cabin;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    // text-shadow: 1px 1px 0 $navy-blue;
+    color: black;
+  }
+
+  p#booked-appt {
+    visibility: visible;
+    font-family: $cabin;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    // text-shadow: 1px 1px 0 $navy-blue;
+    color: black;
   }
 }

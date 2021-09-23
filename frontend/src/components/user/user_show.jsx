@@ -24,7 +24,7 @@ class UserShow extends React.Component {
     this.props.fetchUser(id).then((userResult) => {
       this.setState({ user: userResult.user.data });
 
-      this.props.fetchDogs();
+      !this.props.dogs.length && this.props.fetchDogs();
     });
     if (this.props.user.id !== this.props.ownProps.match.params.id) {
       this.props.fetchUser(id);

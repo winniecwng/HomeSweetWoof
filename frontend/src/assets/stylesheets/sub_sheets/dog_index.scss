@@ -1,23 +1,12 @@
-// colors:
-$grey-beige: #9f968d;
-$brick-orange: #cb9b85;
-$pale-brown: #e8d5c4;
-$matcha-green: #c0caa8;
-
-// $rusty-orange: rgb(187, 132, 95);
-
-$lobster: "Lobster", cursive;
-// $cabin: "Cabin", sans-serif;
-// $hand: "Just Another Hand", cursive;
-// $staat: "Staatliches", cursive;
-
 .dogs-container {
   padding-top: 4vh;
-  width: 100vw;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .dog-list-container {
   padding: 2rem;
+  width: 100%;
 }
 
 .dog-index-bg {
@@ -30,7 +19,7 @@ $lobster: "Lobster", cursive;
 .dog-home {
   font-size: 3.5rem;
   color: $pale-brown;
-  padding-top: 8rem;
+  padding-top: 12vh;
   padding-left: 5rem;
 
   span {
@@ -48,9 +37,10 @@ $lobster: "Lobster", cursive;
 }
 
 .dog-search-filters {
-  margin: 2rem 10rem;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
-  border: medium solid $rusty-orange;
+  border: medium solid $mud;
 }
 
 .dog-list-container {
@@ -63,16 +53,23 @@ $lobster: "Lobster", cursive;
 .dog-info {
   border: thick solid $matcha-green;
   border-radius: 1rem;
-  // text-align: center;
   width: auto;
-  background-color: white;
-  box-shadow: 10px 5px 10px $grey-beige;
+  background-color: $rusty-orange;
+  // background-color: white;
+  box-shadow: 10px 5px 10px rgba(95, 121, 85, 0.3);
   overflow: hidden;
 }
 
 .dog-info:hover {
   transform: scale(1.1);
   transition-duration: 3sec;
+}
+
+.dog-index-pic {
+  display: block;
+  width: 100%;
+  height: 20vw;
+  overflow: hidden;
 }
 
 .dog-img {
@@ -89,8 +86,6 @@ $lobster: "Lobster", cursive;
 .search-by-age,
 .search-by-gender {
   padding: 1rem;
-
-  // background-color: #;
   width: 50rem;
   text-align: center;
   font-size: 1.5rem;
@@ -113,8 +108,8 @@ $lobster: "Lobster", cursive;
 }
 
 .search-by-gender {
-  border-left: medium solid $rusty-orange;
-  border-right: medium solid $rusty-orange;
+  border-left: medium solid $mud;
+  border-right: medium solid $mud;
 }
 
 .dog-description {
@@ -128,5 +123,6 @@ $lobster: "Lobster", cursive;
     font-family: $cabin;
     letter-spacing: 1.5px;
     color: white;
+    text-transform: capitalize;
   }
 }
