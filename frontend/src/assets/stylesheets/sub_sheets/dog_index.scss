@@ -114,7 +114,7 @@
 
 .dog-description {
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 2.5rem;
   background-color: $rusty-orange;
   height: 100%;
@@ -125,4 +125,26 @@
     color: white;
     text-transform: capitalize;
   }
+}
+
+button.add-dog-index {
+    @include hover;
+    border-radius: 2rem;
+    display: block;
+    width: 8rem;
+    height: 3rem;
+    padding: 7px;
+    font-size: 1.1rem;
+    color: $navy-blue;
+    border: 1px solid black;
+    margin-top: 10px;
+    position: relative;
+    left: 88%;
+    background-color: $navy-blue;
+    color: white;
+
+}
+
+button.add-dog-index a{
+    color: white;
 }

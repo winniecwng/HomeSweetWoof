@@ -111,6 +111,7 @@ router.patch('/:id',
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
+        phone_number: req.body.phone_number,
         location: req.body.location,
         type: req.body.type,
         description: req.body.description

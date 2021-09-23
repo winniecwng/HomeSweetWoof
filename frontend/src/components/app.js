@@ -9,13 +9,13 @@ import DogEditContainer from "./dog/dog_edit_container";
 import UserShowContainer from "./user/user_show_container";
 import HeaderContainer from "../components/header/header_container";
 import AboutUs from "../components/about/about";
-import RoomForm from './client_socketio/room';
-import ChatForm from './client_socketio/chat';
+import RoomForm from "./client_socketio/room";
+import ChatForm from "./client_socketio/chat";
 
 const App = () => (
   <div>
-    <Route path="/" component={HeaderContainer} />
-
+    {/* <Route path="/" component={HeaderContainer} /> */}
+    <HeaderContainer />
     <Switch>
       <Route exact path="/room" component={RoomForm} />
       <Route path="/chat_form" component={ChatForm} />

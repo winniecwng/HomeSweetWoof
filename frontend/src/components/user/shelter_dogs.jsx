@@ -5,15 +5,19 @@ import { Link } from "react-router-dom";
 class ShelterDogs extends React.Component {
 
     deleteDog(e){
-        this.props.destroyDog(e.currentTarget.id).then(()=> window.location.reload(false))
+        this.props.destroyDog(e.currentTarget.id)
+        .then(() => this.props.fetchDogs())
+            // .then(()=> window.location.reload(false))
     }
 
     render() {
         let dog;
-
         let filtered;
+        
         if (Array.isArray(this.props.dogs)) {
-            filtered = this.props.dogs.filter(dog => dog.user === this.props.pageUser._id)
+            filtered = this.props.dogs.filter(dog => {
+                return dog.user === this.props.pageUser._id
+            });
         }
 
         dog = () => {
@@ -23,8 +27,9 @@ class ShelterDogs extends React.Component {
                     <div className='shelter-dog-container'
                         key={`shelterdogs-${dog._id}`}>
                         <div className="shelter-dogs-pic">
-
+                        <Link to={`/dogs/${dog._id}`} >
                             <img src={dog.photo} alt="the dog" className="dog-show-img" />
+                        </Link>
                         </div>
 
                         <Link to={`/dogs/${dog._id}`} 
@@ -33,9 +38,7 @@ class ShelterDogs extends React.Component {
                             <p>{dog.breed} {dog.gender}</p>
                             <p>{dog.age} years old</p>
                         </Link>
-                    </div>
-
-                    {
+                        {
                         this.props.pageUser._id === this.props.currentUser.id && (
                             <button id={dog._id}
                                 onClick={this.deleteDog.bind(this)}
@@ -45,6 +48,9 @@ class ShelterDogs extends React.Component {
 
                         )
                     }
+                    </div>
+
+                    
                     </>
                 )
             });

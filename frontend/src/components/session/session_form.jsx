@@ -59,6 +59,7 @@ class SessionForm extends React.Component {
 
     render() {
         let submitText;
+        
         if(this.props.formType === 'login') {
             submitText = 'Log In';
         } else {
@@ -90,7 +91,13 @@ class SessionForm extends React.Component {
                     </div>
 
                     <div className='session-form-field'>
-                        <label for='signup-username'>Username</label>
+                        <label for='signup-username'>
+                            {this.state.type === 'shelter' ? (
+                                <>Shelter Name</>
+                            ) : (
+                                <>Username</>
+                            )}
+                        </label>
                         <input
                             id='signup-username'
                             type='text'

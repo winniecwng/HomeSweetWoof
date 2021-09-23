@@ -25,10 +25,10 @@ const UserSchema = new Schema({
     description: {
         type: String
     },
-    // type: {
-    //     type: String,
-    //     required: false
-    // },
+    phone_number: {
+        type: String,
+        required: false
+    },
     date: {
         type: Date,
         default: Date.now

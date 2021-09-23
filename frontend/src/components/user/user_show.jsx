@@ -9,14 +9,19 @@ class UserShow extends React.Component {
 
     this.state = {
       userType: "",
+      editingNumber: false,
       editingDescription: false,
+      phoneNumber: "",
       description: "",
       user: null,
     };
 
+    this.editNumber = this.editNumber.bind(this);
     this.editDescription = this.editDescription.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.changeNumber = this.changeNumber.bind(this);
+    this.changeDescription = this.changeDescription.bind(this);
+    this.submitNumber = this.submitNumber.bind(this);
+    this.submitDescription = this.submitDescription.bind(this);
   }
 
   componentDidMount() {
@@ -32,17 +37,36 @@ class UserShow extends React.Component {
     }
   }
 
+  editNumber(e) {
+    e.preventDefault();
+    this.setState({ editingNumber: !this.state.editingNumber });
+  }
+
   editDescription(e) {
     e.preventDefault();
     this.setState({ editingDescription: !this.state.editingDescription });
   }
 
-  handleChange(e) {
+  changeNumber(e) {
+    e.preventDefault();
+    this.setState({ phoneNumber: e.currentTarget.value });
+  }
+
+  changeDescription(e) {
     e.preventDefault();
     this.setState({ description: e.currentTarget.value });
   }
 
-  handleSubmit(e) {
+  submitNumber(e) {
+    console.log(this.state.phoneNumber);
+    e.preventDefault();
+    let user = { ...this.props.user };
+    user.phone_number = this.state.phoneNumber;
+    this.props.updateProfile(user);
+    this.setState({ editingNumber: false });
+  }
+
+  submitDescription(e) {
     e.preventDefault();
     let user = { ...this.props.user };
     user.description = this.state.description;
@@ -86,11 +110,31 @@ class UserShow extends React.Component {
           <h3>Contact Email</h3>
           <p>{this.props.user.email}</p>
 
-          <h3>Phone Number</h3>
-          <p>{this.props.user.phone_number}</p>
+          <div className="user-phone-number-header">
+            <h3>Phone Number</h3>
+            <button id="add-phone-number-btn" onClick={this.editNumber}>+</button>
+          </div>
+
+
+          {this.state.editingNumber ? (
+            <form onSubmit={this.submitNumber}>
+              <input
+                id="users-number" 
+                type="text" 
+                value={this.state.phoneNumber || ""}
+                placeholder={
+                  (this.state.phoneNumber.length > 1 && this.state.phoneNumber) || "514-228-2983" 
+                }
+                onChange={this.changeNumber} />
+              <input type="submit" value="Update Phone Number" />
+            </form>
+          ) : (
+            <p>{this.props.user.phone_number || ""}</p>
+          )}
+
 
           <h3>Location</h3>
-          <p>{this.props.user.location}</p>
+          <p><span id="user-location">{this.props.user.location}</span></p>
 
           <div className="user-description-header">
             <h3 className="user-description">{descriptionTitle}</h3>
@@ -103,14 +147,14 @@ class UserShow extends React.Component {
           </div>
 
           {this.state.editingDescription ? (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.submitDescription}>
               <textarea
                 cols="40"
                 rows="10"
-                onChange={this.handleChange}
+                onChange={this.changeDescription}
                 placeholder={this.props.user.description}
               ></textarea>
-              <input type="submit" />
+              <input type="submit" value="Update Description" />
             </form>
           ) : (
             <p>{this.props.user.description}</p>
@@ -136,6 +180,7 @@ class UserShow extends React.Component {
               pageUser={this.props.user}
               currentUser={this.props.currentUser}
               destroyDog={this.props.destroyDog}
+              fetchDogs={this.props.fetchDogs}
             />
           )}
         </div>
