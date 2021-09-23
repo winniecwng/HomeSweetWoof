@@ -9,12 +9,16 @@ import DogEditContainer from "./dog/dog_edit_container";
 import UserShowContainer from "./user/user_show_container";
 import HeaderContainer from "../components/header/header_container";
 import AboutUs from "../components/about/about";
+import RoomForm from './client_socketio/room';
+import ChatForm from './client_socketio/chat';
 
 const App = () => (
   <div>
     <Route path="/" component={HeaderContainer} />
 
     <Switch>
+      <Route exact path="/room" component={RoomForm} />
+      <Route path="/chat_form" component={ChatForm} />
       <AuthRoute exact path="/" component={Splash} />
       <ProtectedRoute exact path="/dogs" component={DogIndexContainer} />
       <ProtectedRoute exact path="/dogs/new" component={DogCreateContainer} />
