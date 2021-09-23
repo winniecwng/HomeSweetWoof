@@ -1,6 +1,7 @@
 import React from "react";
 import AdopterAppointmentsContainer from "./adoption_appointments_container";
 import ShelterDogs from "./shelter_dogs";
+import AppointmentList from './appointment_list.jsx';
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -113,6 +114,14 @@ class UserShow extends React.Component {
             </form>
           ) : (
             <p>{this.props.user.description}</p>
+          )}
+
+          <h3>Appointments</h3>
+          {userType === "shelter" && (
+            <AppointmentList
+              dogs={this.props.dogs}
+              pageUser={this.props.user}
+            />
           )}
         </div>
 

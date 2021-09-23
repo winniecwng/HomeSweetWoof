@@ -27,11 +27,11 @@ class Calendar extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const dog = {...this.props.dog};
-        dog.appointments.push({
+        let appointment = ({
             date: this.state.appointment.date,
             user: this.props.user
         })
-        dog.appointments.push(this.state.appointment);
+        dog.appointments.push(appointment);
         this.props.editDog(dog)
             .then(result => this.setState({ 
                 appointment: {

@@ -39,6 +39,8 @@ class DogIndex extends React.Component {
 
   render() {
     const { dogs } = this.props;
+    if (typeof dogs[0] !== 'object' || !dogs) return null;
+
     const filteredDogs = dogs.map((dog) => {
       if (
         this.state.gender === "all" &&
@@ -106,7 +108,7 @@ class DogIndex extends React.Component {
                   All
                 </option>
                 <option value="husky">Husky</option>
-                <option value="dalmation">Dalmatian</option>
+                <option value="dalmatian">Dalmatian</option>
                 <option value="golden retriever">Golden Retriever</option>
                 <option value="shiba inu">Shiba Inu</option>
                 <option value="german shepherd">German Shepherd</option>
