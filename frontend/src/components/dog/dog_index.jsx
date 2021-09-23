@@ -110,6 +110,7 @@ class DogIndex extends React.Component {
                 <option value="golden retriever">Golden Retriever</option>
                 <option value="shiba inu">Shiba Inu</option>
                 <option value="german shepherd">German Shepherd</option>
+                <option value="other">Other</option>
               </select>
             </label>
           </div>

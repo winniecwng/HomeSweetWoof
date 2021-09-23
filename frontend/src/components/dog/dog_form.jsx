@@ -43,7 +43,6 @@ class DogForm extends React.Component {
 
     this.props.composeDog(formData);
     this.setState({ age: "", name: "", breed: "", gender: "female", description: "", photoFile: null, photoUrl: null });
-    // this.navigateToDogIndex();
   }
 
   handleChange(e) {
@@ -62,14 +61,18 @@ class DogForm extends React.Component {
 
   render() {
     const preview = this.state.photoUrl ? <img src={this.state.photoUrl} alt="preview" /> :null
+
     return (
       <div className="create-new-dog">
         <form onSubmit={this.handleSubmit} className="create-dog-form">
           <h1>A New Dog Needs A New Home</h1>
-          <input type="file" name="photo" onChange={this.handleUpload} accept="image/jpeg, image/png"/>
-            <div>
-                {preview} 
-            </div>
+          <input 
+            type="file" 
+            name="photo" 
+            onChange={this.handleUpload} 
+            accept="image/jpeg, image/png"/>
+            <div>{preview}</div>
+
           <label>
             <div className="create-dog-label">Name:</div>
             <input
@@ -78,14 +81,28 @@ class DogForm extends React.Component {
               onChange={this.update("name")}
             />
           </label>
+
           <label>
             <div className="create-dog-label">Breed:</div>
-            <input
-              type="text"
+            <select
               value={this.state.breed}
-              onChange={this.update("breed")}
-            />
+              onChange={this.update("breed")} >
+
+              <option
+                value="other"
+                disabled >
+                Select a Breed
+              </option>
+
+              <option value="husky">Husky</option>
+              <option value="dalmatian">Dalmatian</option>
+              <option value="golden retriever">Golden Retriever</option>
+              <option value="shiba inu">Shiba Inu</option>
+              <option value="german shepherd">German Shepherd</option>
+              <option value="other">Other</option>
+            </select>
           </label>
+
           <label>
             <div className="create-dog-label">Age:</div>
             <input
@@ -94,6 +111,7 @@ class DogForm extends React.Component {
               onChange={this.update("age")}
             />
           </label>
+
           <label>
             <div className="create-dog-label">Description:</div>
             <textarea
@@ -102,20 +120,26 @@ class DogForm extends React.Component {
               onChange={this.update("description")}
             />
           </label>
+
           <label>
             <div className="create-dog-label">Gender:</div>
             <select
               className="dog-gender"
               value={this.state.gender}
-              onChange={this.handleChange}
-            >
-              <option value="Gender Preference" selected="true" disabled="true">
+              onChange={this.handleChange} >
+
+              <option 
+                value="Gender Preference" 
+                selected="true" 
+                disabled="true">
                 Gender Preference
               </option>
+
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
           </label>
+
           <input type="submit" className="add-dog-submit-button" />
         </form>
       </div>
