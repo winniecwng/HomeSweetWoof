@@ -1,7 +1,7 @@
 import React from "react";
 import AdopterAppointmentsContainer from "./adoption_appointments_container";
 import ShelterDogs from "./shelter_dogs";
-import AppointmentList from './appointment_list.jsx';
+import AppointmentList from "./appointment_list.jsx";
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -79,6 +79,22 @@ class UserShow extends React.Component {
     let userType;
     let descriptionTitle;
     let appointmentDogs;
+    let editNumber;
+    let editDescription;
+
+    if (this.props.user._id === this.props.currentUser.id) {
+      editNumber = (
+        <button id="add-phone-number-btn" onClick={this.editNumber}>
+          +
+        </button>
+      );
+
+      editDescription = (
+        <button id="user-description-edit-btn" onClick={this.editDescription}>
+          ✎ Edit
+        </button>
+      );
+    }
 
     if (this.props.user.type === "adopter") {
       userType = "adopter";
@@ -86,7 +102,7 @@ class UserShow extends React.Component {
 
       // determine which dogs (if any) adopter has booked appointment with
       if (this.props.dogs && this.props.dogs.length > 0) {
-        appointmentDogs = this.props.dogs.filter(dog => {
+        appointmentDogs = this.props.dogs.filter((dog) => {
           return (
             dog.appointments.length > 1 &&
             dog.appointments.some((appointment) => {
@@ -112,38 +128,43 @@ class UserShow extends React.Component {
 
           <div className="user-phone-number-header">
             <h3>Phone Number</h3>
-            <button id="add-phone-number-btn" onClick={this.editNumber}>+</button>
+            {editNumber}
+            {/* <button id="add-phone-number-btn" onClick={this.editNumber}>+</button> */}
           </div>
-
 
           {this.state.editingNumber ? (
             <form onSubmit={this.submitNumber}>
               <input
-                id="users-number" 
-                type="text" 
+                id="users-number"
+                type="text"
                 value={this.state.phoneNumber || ""}
                 placeholder={
-                  (this.state.phoneNumber.length > 1 && this.state.phoneNumber) || "514-228-2983" 
+                  (this.state.phoneNumber.length > 1 &&
+                    this.state.phoneNumber) ||
+                  "514-228-2983"
                 }
-                onChange={this.changeNumber} />
+                onChange={this.changeNumber}
+              />
               <input type="submit" value="Update Phone Number" />
             </form>
           ) : (
             <p>{this.props.user.phone_number || ""}</p>
           )}
 
-
           <h3>Location</h3>
-          <p><span id="user-location">{this.props.user.location}</span></p>
+          <p>
+            <span id="user-location">{this.props.user.location}</span>
+          </p>
 
           <div className="user-description-header">
             <h3 className="user-description">{descriptionTitle}</h3>
-            <button
+            {editDescription}
+            {/* <button
               id="user-description-edit-btn"
               onClick={this.editDescription}
             >
               ✎ Edit
-            </button>
+            </button> */}
           </div>
 
           {this.state.editingDescription ? (
