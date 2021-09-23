@@ -1,17 +1,20 @@
 .user-main {
-    height: 100%;
-    padding-top: 4vh;
+    min-height: 100vh;
+    overflow: hidden;
+    // padding-top: 4vh;
     display: flex;
     flex-direction: row;
     background-color: white;
 }
 
 .user-details {
-    height: 100%;
+    position: relative;
+    // z-index: 300;
+    // height: 100vh;
     width: 40%;
     min-width: 500px;
-    // overflow: hidden;
     padding: 50px;
+    padding-top: 14vh;
 
     h2 {
         @include staat;
@@ -53,13 +56,14 @@
         display: block;
         position: absolute;
         top: 0;
-        left: 38%;
-        width: 15vw;
+        left: 95%;
+        width: 10vw;
         height: 100%;
+        min-height: 100vh;
         padding: 0;
-        background-image: url('../../images/pawprints3.png');
+        background-image: url('../../images/pawprints4.png');
         background-repeat: repeat-y;
-        background-size: 40%;
+        background-size: 80%;
         content: "-";
         color: transparent;
     }
@@ -71,8 +75,6 @@
         #user-description-edit-btn, #add-phone-number-btn {
             height: 1.4rem;
             margin: -.1rem 0 0 20px;
-            // margin-left: 20px;
-            // margin-top: -.1rem;
             padding: 0 10px;
             border-radius: 2px;
             font-size: .8rem;
@@ -107,16 +109,19 @@
 .user-specific {
     width: 60%;
     height: 100vh;
+    max-height: calc(100vh + 30vh);
     min-width: 500px;
     overflow: hidden;
     background-color: $rusty-orange;
     color: $rusty-orange;
     padding-left: 8%;
+    padding-top: 14vh;
+    border-radius: 0 0 0 2rem;
 }
 
 .adopter-appointments {
     height: 100%;
-    padding: 60px 30px;
+    padding: 0 3rem 4rem 3rem;
     overflow-y: hidden;
     text-align: center;
 
@@ -140,7 +145,7 @@
     height: 90%;
     overflow-x: hidden;
     overflow-y: auto;
-    border-radius: 1rem;
+    border-radius: .2rem;
     border: 1px solid white;
 }
 
@@ -172,9 +177,12 @@
 
 .shelter-dogs {
     width: 100%;
-    height: 100%;
-    padding: 50px 30px;
+    height: 95%;
+    overflow: hidden;
+    // min-height: 100vh;
+    padding: 0 30px;
     text-align: center;
+    // border-radius: 0 0 0 1.5rem;
 
     h2 {
         @include staat;
@@ -283,3 +291,52 @@
 
 }
 
+.shelters-appointments {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    max-height: 30vh;
+    overflow: auto;
+    border-top: 1px solid $almost-orange;
+}
+
+.shelter-appointment {
+    height: 17vh;
+    width: 100%;
+    padding: .5rem .2rem;
+    border-right: 1px solid $almost-orange;
+    border-top: 1px solid $almost-orange;
+ 
+    p#shelter-appt-dog { 
+        padding-bottom: .6rem;
+        color: $almost-orange;
+
+        i { 
+            margin: -.2rem 0 0 .2rem;
+            font-size: .8rem;
+        }
+    }
+}
+
+.display-appointment-adopter {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    justify-content: space-between;
+
+    h4 {
+        width: 70%;
+        padding-top: .5rem;
+        overflow: hidden;
+        font-family: $cabin;
+        color: $almost-orange;
+    }
+
+    button.message-adopter-btn {
+        display: inline-block;
+        height: 1.3rem;
+        padding: .2rem;
+        margin-top: .3rem;
+        font-size: .8rem;
+    }
+}
