@@ -33,9 +33,7 @@ class ShelterDogs extends React.Component {
                             <p>{dog.breed} {dog.gender}</p>
                             <p>{dog.age} years old</p>
                         </Link>
-                    </div>
-
-                    {
+                        {
                         this.props.pageUser._id === this.props.currentUser.id && (
                             <button id={dog._id}
                                 onClick={this.deleteDog.bind(this)}
@@ -45,6 +43,9 @@ class ShelterDogs extends React.Component {
 
                         )
                     }
+                    </div>
+
+                    
                     </>
                 )
             });
