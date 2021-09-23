@@ -2,6 +2,7 @@ import React from "react";
 import AdopterAppointmentsContainer from "./adoption_appointments_container";
 import ShelterDogs from "./shelter_dogs";
 import AppointmentList from "./appointment_list.jsx";
+import Room from "../client_socketio/room";
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -120,8 +121,8 @@ class UserShow extends React.Component {
       <div className={`user-main ${userType}-main`}>
         <div className={`user-details ${userType}-details`}>
           <h2>{this.props.user.username}</h2>
-
-          {userType === "shelter" && <button>Message </button>}
+          <Room pageId={this.props.user._id} currentUser={this.props.currentUser}/>
+          {/* {userType === "shelter" && <button>Message </button>} */}
 
           <h3>Contact Email</h3>
           <p>{this.props.user.email}</p>
@@ -185,6 +186,7 @@ class UserShow extends React.Component {
             <AppointmentList
               dogs={this.props.dogs}
               pageUser={this.props.user}
+              currentUser={this.props.currentUser}
             />
           )}
         </div>

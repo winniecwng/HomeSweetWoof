@@ -1,38 +1,28 @@
 import React, { useState } from "react";
 import { withRouter, Link } from "react-router-dom";
 
-const RoomForm = () => {
-  const [name, setName] = useState("");
-  const [room, setRoom] = useState("");
+class RoomForm extends React.Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className="socket-room-container">
-      <div className="chat-room-form">
-        <h1 className="">Join</h1>
-        <div>
-          <input
-            placeholder="Name"
-            className=""
-            type="text"
-            onChange={(e) => setName(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <input
-            placeholder="Room"
-            className=""
-            type="text"
-            onChange={(e) => setRoom(e.target.value)}
-          ></input>
-        </div>
-        <Link to={`./chat_form?name=${name}&room=${room}`}>
-          <button className="" type="submit">
-            Sign In
-          </button>
-        </Link>
+    this.state ={
+      name: this.props.currentUser.username,
+      room: (this.props.currentUser.id + this.props.pageId).split('').sort().join('')
+    }
+  }
+
+  render() {
+    debugger
+    return (
+      <div className="socket-room-container">
+          <Link to={`/chat_form?name=${this.state.name}&room=${this.state.room}`}>
+            <button className="" type="submit">
+              Message
+            </button>
+          </Link>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default withRouter(RoomForm);
