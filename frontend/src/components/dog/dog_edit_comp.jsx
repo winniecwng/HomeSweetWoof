@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
-import ModalContainer from "../modal/modal_container";
+// import ModalContainer from "../modal/modal_container";
 
 class DogEditComp extends React.Component {
   constructor(props) {

@@ -1,26 +1,28 @@
-import React from 'react';
+import React from "react";
 
-const Message = ( {message: { user, text }, name }) => {
-    let isSentByCurrentUser = false
-    const trimmedName = name.trim().toLowerCase();
+const Message = ({ message: { user, text }, name }) => {
+  let isSentByCurrentUser = false;
+  const trimmedName = name.trim().toLowerCase();
 
-    if (user === trimmedName) {
-        isSentByCurrentUser = true;
-    }
-    
-    return (
-        isSentByCurrentUser ? 
-        (<div>
-            <p>{trimmedName}</p>
-            <div><p>{text}</p></div>
-        </div>) :
-        (<div>
-            <div>
-                <p>{text}</p>
-            </div>
-            <p>{user}</p>
-        </div>)
-    )
-}
+  if (user === trimmedName) {
+    isSentByCurrentUser = true;
+  }
+
+  return isSentByCurrentUser ? (
+    <div className="currentUser-chat-container">
+      <p className="current-user-name">{trimmedName}</p>
+      <div>
+        <p className="admin-text">{text}</p>
+      </div>
+    </div>
+  ) : (
+    <div className="responder-chat-container">
+      <p className="responder-name">{user}</p>
+      <div>
+        <p className="responder-text">{text}</p>
+      </div>
+    </div>
+  );
+};
 
 export default Message;

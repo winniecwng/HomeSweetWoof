@@ -1,0 +1,125 @@
+$splash-bg: rgb(241, 235, 231);
+$mud: rgb(139, 120, 114);
+$dark-mud: rgb(126, 110, 106);
+$almost-orange: rgb(224, 166, 127);
+$rusty-orange: rgb(187, 132, 95);
+$pale-green: #efffef;
+$green: rgb(182, 219, 182);
+$light-tan: #e8d5c4;
+$tan: #d6c3b3;
+$navy-blue: #383748;
+$grey-beige: #9f968d;
+$brick-orange: #cb9b85;
+$pale-brown: #e8d5c4;
+$matcha-green: #c0caa8;
+$brownish-orange: rgb(143, 99, 69);
+$pale-sky-blue: #83bad3;
+
+$cabin: "Cabin", sans-serif;
+$hand: "Just Another Hand", cursive;
+$staat: "Staatliches", cursive;
+$lobster: "Lobster", cursive;
+
+// need to comment out later
+.socket-room-container {
+  padding-top: 20vh;
+}
+
+.socket-chat-container {
+  background-color: $matcha-green;
+  background: linear-gradient(45deg, $matcha-green, $pale-sky-blue);
+  padding: 13vh 10vh 10vh 10vh;
+  height: 100vh;
+}
+
+.chat-room {
+  //   padding: 2vh;
+  // border: thin solid black;
+  // border-radius: 0.5rem;
+  height: 80vh;
+}
+
+// toolbar.js
+
+.chat-box-header {
+  // border: thin solid black;
+  // border-radius: 1rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-color: $navy-blue;
+  // color: $pale-brown;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 2vh 4vh;
+
+  h4 {
+    font-family: $hand;
+    font-size: 3rem;
+    letter-spacing: 2px;
+  }
+
+  .exit-chat-btn {
+    font-family: $hand;
+    font-size: 3.5rem;
+    text-decoration: none;
+    // color: $pale-brown;
+    color: white;
+  }
+}
+
+// messageS.js
+
+.chat-box-messages {
+  background-color: $pale-brown;
+  background: linear-gradient(45deg, $pale-brown, #e7aa74);
+  border-bottom: thin solid $rusty-orange;
+  padding: 2vh 4vh;
+  height: 50vh;
+}
+
+// message.js
+
+.current-user-name,
+.responder-name {
+  font-family: $hand;
+  font-size: 2rem;
+  // border: thin solid black;
+}
+
+.current-user-name,
+.admin-text {
+  color: $dark-mud;
+}
+
+.responder-name,
+.responder-text {
+  color: $navy-blue;
+}
+
+.admin-text,
+.responder-text {
+  // color: $dark-mud;
+  font-family: $lobster;
+  margin-left: 1rem;
+}
+
+.currentUser-chat-container,
+.responder-chat-container {
+  margin-top: 1rem;
+}
+
+// input.js
+
+.input-container {
+  padding: 2vh;
+  background-color: $rusty-orange;
+  border-radius: 0 0 0.5rem 0.5rem;
+
+  textarea {
+    padding-top: 1vh;
+    padding-left: 1vh;
+    // margin-left: 5px;
+    height: 10vh;
+    width: 99%;
+  }
+}
