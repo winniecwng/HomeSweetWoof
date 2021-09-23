@@ -33,6 +33,7 @@ class AppointmentList extends React.Component {
 
         return(
             <div>
+                <h3>Appointments</h3>
                 <div>
                     {filtered && filtered.length > 0 ? (
                         dog()

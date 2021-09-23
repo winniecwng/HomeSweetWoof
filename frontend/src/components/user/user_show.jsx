@@ -160,7 +160,6 @@ class UserShow extends React.Component {
             <p>{this.props.user.description}</p>
           )}
 
-          <h3>Appointments</h3>
           {userType === "shelter" && (
             <AppointmentList
               dogs={this.props.dogs}
