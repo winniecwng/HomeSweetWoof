@@ -7,7 +7,7 @@ class DogForm extends React.Component {
     this.state = {
       age: "",
       name: "",
-      breed: "",
+      breed: "other",
       gender: "female",
       description: "",
       photoFile: null,
@@ -33,16 +33,23 @@ class DogForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("age", this.state.age)
-    formData.append("name", this.state.name)
-    formData.append("breed", this.state.breed)
-    formData.append("gender", this.state.gender)
-    formData.append("photo", this.state.photoFile)
-    formData.append("description", this.state.description)
+    if (this.state.age === "" || 
+        this.state.name === "" || 
+        !this.state.photoFile || 
+        !this.state.photoUrl) {
+        window.alert("Please fill out all fields");
+    } else {
+      const formData = new FormData();
+      formData.append("age", this.state.age)
+      formData.append("name", this.state.name)
+      formData.append("breed", this.state.breed)
+      formData.append("gender", this.state.gender)
+      formData.append("photo", this.state.photoFile)
+      formData.append("description", this.state.description)
 
-    this.props.composeDog(formData);
-    this.setState({ age: "", name: "", breed: "", gender: "female", description: "", photoFile: null, photoUrl: null });
+      this.props.composeDog(formData);
+      this.setState({ age: "", name: "", breed: "", gender: "female", description: "", photoFile: null, photoUrl: null });
+    }
   }
 
   handleChange(e) {

@@ -5,15 +5,19 @@ import { Link } from "react-router-dom";
 class ShelterDogs extends React.Component {
 
     deleteDog(e){
-        this.props.destroyDog(e.currentTarget.id).then(()=> window.location.reload(false))
+        this.props.destroyDog(e.currentTarget.id)
+        .then(() => this.props.fetchDogs())
+            // .then(()=> window.location.reload(false))
     }
 
     render() {
         let dog;
-
         let filtered;
+        
         if (Array.isArray(this.props.dogs)) {
-            filtered = this.props.dogs.filter(dog => dog.user === this.props.pageUser._id)
+            filtered = this.props.dogs.filter(dog => {
+                return dog.user === this.props.pageUser._id
+            });
         }
 
         dog = () => {
