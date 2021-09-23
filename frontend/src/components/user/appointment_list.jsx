@@ -22,7 +22,7 @@ class AppointmentList extends React.Component {
                                         <div>{(new Date(appointment.date)).toDateString()}</div>
                                         <div>{(new Date(appointment.date)).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
                                     </div>
-                                    <Link to={`/users/${appointment.user._id}`}>Message {appointment.user.username}</Link>
+                                    <Link to={`/users/${appointment.user._id}`} className="message-adopter-link">Message {appointment.user.username}</Link>
                                 </div>
                             )
                         })}
@@ -33,6 +33,7 @@ class AppointmentList extends React.Component {
 
         return(
             <div>
+                <h3>Appointments</h3>
                 <div>
                     {filtered && filtered.length > 0 ? (
                         dog()
