@@ -160,7 +160,7 @@ class UserShow extends React.Component {
             <p>{this.props.user.description}</p>
           )}
 
-          {userType === "shelter" && (
+          {userType === "shelter" && this.props.currentUser.id === this.props.user._id && (
             <AppointmentList
               dogs={this.props.dogs}
               pageUser={this.props.user}
