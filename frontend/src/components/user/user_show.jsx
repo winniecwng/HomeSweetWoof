@@ -59,7 +59,6 @@ class UserShow extends React.Component {
   }
 
   submitNumber(e) {
-    console.log(this.state.phoneNumber);
     e.preventDefault();
     let user = { ...this.props.user };
     user.phone_number = this.state.phoneNumber;

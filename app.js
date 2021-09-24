@@ -48,8 +48,8 @@ app.use(
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
-server.listen(8080, () => {
-  console.log("Server is running on 8080");
+server.listen("https://homesweetwoof.herokuapp.com/", () => {
+  console.log(`Server is running on ${port}`);
 });
 
 app.use("/api/users", users);
