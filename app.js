@@ -8,6 +8,8 @@ const users = require("./routes/api/users");
 const User = require("./models/User");
 const dogs = require("./routes/api/dogs");
 const bodyParser = require("body-parser");
+const cors = require('cors')
+
 
 const server = require("http").createServer(app);
 const io = require("socket.io")(server, { cors: { origin: "*" } });
@@ -27,6 +29,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors())
 
 mongoose
   .connect(db, { useNewUrlParser: true })
