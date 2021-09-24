@@ -34,5 +34,5 @@ If they see any dogs they like, they may make appointments or live chat with the
 * Adopters can schedule appointments with shelters, which will be noted on shelters home page.
 
 ### Full CRUD for Dogs/Users
-* Users and shelters can edit the
+* Shelters can create/edit/delete dog listings and users can freely edit their profile
 
