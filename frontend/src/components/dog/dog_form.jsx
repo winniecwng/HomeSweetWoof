@@ -67,7 +67,7 @@ class DogForm extends React.Component {
   }
 
   render() {
-    const preview = this.state.photoUrl ? <img src={this.state.photoUrl} alt="preview" /> :null
+    const preview = this.state.photoUrl ? <img className = "preview" src={this.state.photoUrl} alt="preview" /> :null
 
     return (
       <div className="create-new-dog">
