@@ -9,7 +9,7 @@
 ## Overview
 
 Home Sweet Woof is a dog adoption platform that helps connect potential adopters with shelters.
-Shelters can list dogs for adoption and adopters can filter through the listings based on specific preferances.
+Shelters can list dogs for adoption and adopters can filter through the listings based on specific preferances on the home page.
 If they see any dogs they like, they may make appointments or live chat with the shelter.
 ![HOW - splash](https://user-images.githubusercontent.com/82779931/134609901-c477e222-c48e-4af6-8b03-27ebef3040ba.JPG)
 
