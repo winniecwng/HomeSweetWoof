@@ -62,7 +62,7 @@ io.on("connection", (socket) => {
 
     socket.emit("message", {
       user: "admin",
-      text: `${user.name}, welcome to the ${user.room} chat room`,
+      text: `${user.name}, welcome to the doghouse`,
     }); // send message to user
 
     socket.broadcast
