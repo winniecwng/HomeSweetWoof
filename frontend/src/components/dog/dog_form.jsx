@@ -137,7 +137,7 @@ class DogForm extends React.Component {
 
               <option 
                 value="Gender Preference" 
-                selected="true" 
+                defaultValue="female" 
                 disabled="true">
                 Gender Preference
               </option>

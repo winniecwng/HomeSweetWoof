@@ -31,8 +31,6 @@ class DogIndex extends React.Component {
     this.setState({ gender: e.target.value });
   }
 
-  // do a handle change for update field
-
   componentDidMount() {
     this.props.fetchDogs();
     this.props.closeModal();
@@ -50,7 +48,7 @@ class DogIndex extends React.Component {
                 </Link>
             </button>
          : null
-    const filteredDogs = dogs.map((dog) => {
+    const filteredDogs = dogs.map(dog => {
       if (
         this.state.gender === "all" &&
         this.state.breed === "all" &&
@@ -92,7 +90,11 @@ class DogIndex extends React.Component {
           dog.breed === this.state.breed
         ) {
           return <DogIndexItem key={dog._id} dog={dog} />;
+        } else {
+          return null; //return value required
         }
+      } else {
+        return null; //return value required
       }
     });
 

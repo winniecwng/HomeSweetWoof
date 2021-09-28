@@ -19,7 +19,7 @@ class AdopterAppointments extends React.Component {
                                 <div key={`adopter-appmt-${appointment.date}${dog._id}`}
                                     className="adopter-appointment">
                                     <Link to={`/dogs/${dog._id}`}>
-                                        <h3>{dog.name} <i class="fas fa-dog"></i></h3>
+                                        <h3>{dog.name} <i className="fas fa-dog"></i></h3>
                                     </Link>
                                     <p>
                                         {(new Date(appointment.date)).toDateString()}

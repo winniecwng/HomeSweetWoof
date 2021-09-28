@@ -23,9 +23,6 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        // const login2 = function(){
-        //     this.props.login(user)
-        // }
 
         const login3 = function() {
             if(this.props.formType==="signup" && this.props.logCheck){      
@@ -78,11 +75,11 @@ class SessionForm extends React.Component {
                     <h3>Sign Up</h3>
                     {this.renderErrors()}
                     <div className='session-form-field'>
-                        <label for='signup-account-type'>Account Type</label>
+                        <label htmlFor='signup-account-type'>Account Type</label>
                         <select 
                             id='signup-account-type'
                             onChange={this.update('type')}>
-                            <option selected="selected" disabled>
+                            <option defaultValue="adopter" disabled>
                                 -- Select Account Type --
                             </option>
                             <option value="adopter">Adopter</option>
@@ -91,7 +88,7 @@ class SessionForm extends React.Component {
                     </div>
 
                     <div className='session-form-field'>
-                        <label for='signup-username'>
+                        <label htmlFor='signup-username'>
                             {this.state.type === 'shelter' ? (
                                 <>Shelter Name</>
                             ) : (
@@ -108,7 +105,7 @@ class SessionForm extends React.Component {
                     </div>
                     
                     <div className='session-form-field'>
-                        <label for='signup-password'>Password</label>
+                        <label htmlFor='signup-password'>Password</label>
                         <input
                             id='signup-password'
                             type='password'
@@ -119,9 +116,9 @@ class SessionForm extends React.Component {
                     </div>
                     
                     <div className='session-form-field'>
-                        <label for='signup-confirm-pass'>Confirm Password</label>
+                        <label htmlFor='signup-confirm-pass'>Confirm Password</label>
                         <input
-                            for='signup-confirm-pass'
+                            htmlFor='signup-confirm-pass'
                             type='password'
                             placeholder='Confirm Password'
                             value={this.state.password2}
@@ -130,9 +127,9 @@ class SessionForm extends React.Component {
                     </div>
                     
                     <div className='session-form-field'>
-                        <label for='signup-email'>Email</label>
+                        <label htmlFor='signup-email'>Email</label>
                         <input
-                            for='signup-email'
+                            htmlFor='signup-email'
                             type='text'
                             placeholder='Email@email.com'
                             value={this.state.email}
@@ -154,7 +151,9 @@ class SessionForm extends React.Component {
                     <p>Welcome back!</p>
                     {this.renderErrors()}
                     <div className='session-form-field'>
-                        <label for='login-email' id='login-email'>Email</label>
+                        <label htmlFor='login-email' id='login-email'>
+                            Email
+                        </label>
                         <input
                             id='login-email'
                             type='text'
@@ -164,7 +163,9 @@ class SessionForm extends React.Component {
                     </div>
                     
                     <div className='session-form-field'>
-                        <label for='login-password' id='login-pass'>Password</label>
+                        <label htmlFor='login-password' id='login-pass'>
+                            Password
+                        </label>
                         <input
                             id='login-password'
                             type='password'
@@ -179,11 +180,11 @@ class SessionForm extends React.Component {
         const locationDropdown = () => {
             return(
                 <div className='session-form-field'>
-                    <label for='signup-location'>Location</label>
+                    <label htmlFor='signup-location'>Location</label>
                     <select
                         id='signup-location'
                         onChange={this.update('location')}>
-                        <option selected="selected" disabled>
+                        <option defaultValue="wyoming" disabled>
                             -- Select a State --
                             </option>
                         <option value="alabama">Alabama</option>
