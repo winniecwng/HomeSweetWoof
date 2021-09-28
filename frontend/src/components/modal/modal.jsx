@@ -3,7 +3,6 @@ import React from "react";
 import LoginFormContainer from "../session/login_form_container";
 import SignupFormContainer from "../session/signup_form_container";
 import EditFormContainer from "../dog/dog_edit_container";
-// import { closeModal } from "../../actions/modal_actions";
 
 class Modal extends React.Component {
   constructor(props) {
@@ -21,7 +20,7 @@ class Modal extends React.Component {
   }
 
   render() {
-    const { modal, closeModal } = this.props;
+    const { modal } = this.props;
     let component;
 
     if (!modal) return null;

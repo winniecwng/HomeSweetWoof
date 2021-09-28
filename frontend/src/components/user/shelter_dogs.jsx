@@ -7,7 +7,6 @@ class ShelterDogs extends React.Component {
     deleteDog(e){
         this.props.destroyDog(e.currentTarget.id)
         .then(() => this.props.fetchDogs())
-            // .then(()=> window.location.reload(false))
     }
 
     render() {
@@ -23,7 +22,7 @@ class ShelterDogs extends React.Component {
         dog = () => {
             return filtered.map(dog => {
                 return (
-                    <>
+                    // <>
                     <div className='shelter-dog-container'
                         key={`shelterdogs-${dog._id}`}>
                         <div className="shelter-dogs-pic">
@@ -51,7 +50,7 @@ class ShelterDogs extends React.Component {
                     </div>
 
                     
-                    </>
+                    // </>
                 )
             });
         }

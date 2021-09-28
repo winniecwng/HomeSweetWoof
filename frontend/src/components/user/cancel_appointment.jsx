@@ -25,7 +25,7 @@ class CancelAppointment extends React.Component {
         return (
             <button onClick={this.cancelAppointment}
                 className="cancel-appointment">
-                <i class="far fa-trash-alt"></i> Cancel Appointment
+                <i className="far fa-trash-alt"></i> Cancel Appointment
             </button>
         )
     }

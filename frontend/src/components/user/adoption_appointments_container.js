@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { fetchDogs } from "../../actions/dog_actions";
-import AdopterAppointments from "./adoption_appointments";
+import AdoptionAppointments from "./adoption_appointments";
 
 
 const mSTP = state => ({
@@ -13,4 +13,4 @@ const mDTP = dispatch => ({
 });
 
 
-export default connect(mSTP, mDTP)(AdopterAppointments);
+export default connect(mSTP, mDTP)(AdoptionAppointments);

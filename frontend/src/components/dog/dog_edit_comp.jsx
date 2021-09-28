@@ -106,7 +106,7 @@ class DogEditComp extends React.Component {
             >
               <option
                 value="Gender Preference"
-                selected="selected"
+                defaultValue="female"
                 disabled
                 className="ignore-modal-close"
               >
