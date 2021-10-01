@@ -133,7 +133,7 @@ class About extends React.Component {
                 >
                   <div className="linkedin"></div>
                 </a>
-                <a href={tempLink} target="_blank" rel="noreferrer">
+                <a href={"https://kierxin.github.io/Kira-Porter-Portfolio/"} target="_blank" rel="noreferrer">
                   <div className="portfolio"></div>
                 </a>
               </div>
