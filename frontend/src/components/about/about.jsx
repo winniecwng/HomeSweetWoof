@@ -47,7 +47,7 @@ class About extends React.Component {
               <p className="team-descriptions">
                 Hi! I'm a software engineer based in NYC. I am currently
                 looking for a fullstack or frontend developer role either remote or NYC. 
-                <br></br>
+                <br /><br />
                 Coding aside, I love to draw, read and write during my spare time while enjoying an ice cold vanilla latte.
               </p>
             </div>
