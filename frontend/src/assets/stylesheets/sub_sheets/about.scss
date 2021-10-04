@@ -94,22 +94,19 @@
 .team-descriptions::-webkit-scrollbar {
     width: .7rem;
     min-width: 10px;
-    border: 1px solid rgb(216, 184, 0);
+    background-color: white;
 }
 
 .team-descriptions::-webkit-scrollbar-track {
-    background-color: $mud;
-    border-radius: 2px;
+    background-color: rgb(228, 228, 228);
+    border-radius: .3rem;
 }
 
 .team-descriptions::-webkit-scrollbar-thumb {
-    background-color: white;
+    background-color: $rusty-orange;
     border-radius: .5rem;
-    border: 1px solid $mud;
 
-    &:hover {
-        background-color: rgb(255, 245, 233);
-    }
+    &:hover { background-color: $almost-orange; }
 }
 
 .github {
