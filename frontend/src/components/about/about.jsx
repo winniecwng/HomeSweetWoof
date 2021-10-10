@@ -106,7 +106,10 @@ class About extends React.Component {
               <h1 className="team-names">Alex</h1>
               <h2 className="team-roles team-roles-alex">Backend / Flex</h2>
               <p className="team-descriptions">
-                lkajhf ladjlhe iweu iw eauie iweuadk adkljhkjf
+                Hello! I'm a software engineer based in NYC.  I am currently
+                looking for a developer role either remote or in NYC.
+                <br/><br /> 
+                Outside of coding, I love to travel, boulder, hike, and scuba dive!
               </p>
             </div>
           </div>
