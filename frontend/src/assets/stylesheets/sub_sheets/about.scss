@@ -87,8 +87,26 @@
     height: 6vw;
     width: 24vw;
     padding: 0;
-    margin: 3.1vw 0 0 1.2vw;
+    margin: 2.5vw 0 0 1.2vw;
     overflow: auto;
+}
+
+.team-descriptions::-webkit-scrollbar {
+    width: .7rem;
+    min-width: 10px;
+    background-color: white;
+}
+
+.team-descriptions::-webkit-scrollbar-track {
+    background-color: rgb(228, 228, 228);
+    border-radius: .3rem;
+}
+
+.team-descriptions::-webkit-scrollbar-thumb {
+    background-color: $rusty-orange;
+    border-radius: .5rem;
+
+    &:hover { background-color: $almost-orange; }
 }
 
 .github {
