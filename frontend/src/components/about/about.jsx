@@ -27,7 +27,7 @@ class About extends React.Component {
                 >
                   <div className="github"></div>
                 </a>
-                <a href={tempLink} target="_blank" rel="noreferrer">
+                <a href={"https://angel.co/winnie-ng-2"} target="_blank" rel="noreferrer">
                   <div className="angellist"></div>
                 </a>
                 <a
@@ -37,7 +37,7 @@ class About extends React.Component {
                 >
                   <div className="linkedin"></div>
                 </a>
-                <a href={tempLink} target="_blank" rel="noreferrer">
+                <a href={"https://www.winnieng.dev/"} target="_blank" rel="noreferrer">
                   <div className="portfolio"></div>
                 </a>
               </div>
@@ -64,7 +64,7 @@ class About extends React.Component {
                 <a href={"https://www.linkedin.com/in/julian-kang-09b561221/"} target="_blank" rel="noreferrer">
                   <div className="linkedin"></div>
                 </a>
-                <a href={tempLink} target="_blank" rel="noreferrer">
+                <a href={"https://julian-kang.com/"} target="_blank" rel="noreferrer">
                   <div className="portfolio"></div>
                 </a>
               </div>
@@ -74,9 +74,10 @@ class About extends React.Component {
                 Team Lead / Backend
               </h2>
               <p className="team-descriptions">
-                Donec massa quam, porta non nisl vel, imperdiet faucibus arcu.
-                Proin ut tortor at neque fermentum rhoncus. Duis tellus nulla,
-                congue sed urna eu, tempus vehicula libero.
+                How's it going! I'm a software engineer based in the NYC area. Currently looking for
+                a position as a fullstack developer, frontend/backend engineer, or UI/UX designer.
+                <br /><br />
+                When I am not coding, I am either reading, hiking, or cooking.
               </p>
             </div>
           </div>

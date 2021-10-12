@@ -9,12 +9,15 @@ class AppointmentList extends React.Component {
         if (Array.isArray(this.props.dogs)) {
             filtered = this.props.dogs.filter(dog => dog.user === this.props.pageUser._id && dog.appointments.length > 0)
         }
-
         dog = () => {
             return filtered.map(dog => {
                 return (
                     <>
                         {dog.appointments.map(appointment => {
+                            //we need to filter again to only show appointments that are after date.now()
+                            let d1 = new Date(appointment.date);
+                            let d2 = new Date(Date.now());
+                            if(d2<d1){
                             return (      
                                 <div className="shelter-appointment">
                                     <div>
@@ -31,6 +34,10 @@ class AppointmentList extends React.Component {
                                     </div>
                                 </div>
                             )
+                            }
+                            else{
+                                return null;
+                            }
                         })}
                     </>
                 )

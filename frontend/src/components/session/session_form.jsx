@@ -9,7 +9,7 @@ class SessionForm extends React.Component {
             password2: '',
             email: '',
             location: 'none',
-            type: ''
+            type: 'adopter'
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -54,6 +54,10 @@ class SessionForm extends React.Component {
         this.props.processForm(demoUser).then(this.props.closeModal())
     }
 
+    componentWillUnmount(){
+        this.props.clearErrors();
+    }
+
     render() {
         let submitText;
         
@@ -73,13 +77,13 @@ class SessionForm extends React.Component {
             return (
                 <div className='session-form signup-form'>
                     <h3>Sign Up</h3>
-                    {this.renderErrors()}
+                    
                     <div className='session-form-field'>
                         <label htmlFor='signup-account-type'>Account Type</label>
                         <select 
                             id='signup-account-type'
                             onChange={this.update('type')}>
-                            <option defaultValue="adopter" disabled>
+                            <option value="adopter" disabled>
                                 -- Select Account Type --
                             </option>
                             <option value="adopter">Adopter</option>
@@ -140,6 +144,7 @@ class SessionForm extends React.Component {
                     {this.state.type === 'shelter' && (
                         locationDropdown()
                     )}
+                    {this.renderErrors()}
                 </div>
             )
         }
@@ -149,7 +154,7 @@ class SessionForm extends React.Component {
                 <div className='session-form login-form'>
                     <h3>Log In</h3>
                     <p>Welcome back!</p>
-                    {this.renderErrors()}
+                    
                     <div className='session-form-field'>
                         <label htmlFor='login-email' id='login-email'>
                             Email
@@ -173,6 +178,7 @@ class SessionForm extends React.Component {
                             onChange={this.update('password')}
                         />
                     </div>
+                    {this.renderErrors()}
                 </div>
             )
         }

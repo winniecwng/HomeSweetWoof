@@ -7,7 +7,7 @@ class DogForm extends React.Component {
     this.state = {
       age: "",
       name: "",
-      breed: "other",
+      breed: "",
       gender: "female",
       description: "",
       photoFile: null,
@@ -35,6 +35,7 @@ class DogForm extends React.Component {
     e.preventDefault();
     if (this.state.age === "" || 
         this.state.name === "" || 
+        this.state.breed === "" || 
         !this.state.photoFile || 
         !this.state.photoUrl) {
         window.alert("Please fill out all fields");
@@ -50,6 +51,8 @@ class DogForm extends React.Component {
       this.props.composeDog(formData);
       this.setState({ age: "", name: "", breed: "", gender: "female", description: "", photoFile: null, photoUrl: null });
     }
+    window.location.replace(`#/users/${this.props.currentUser.id}`)
+    
   }
 
   handleChange(e) {
@@ -72,13 +75,9 @@ class DogForm extends React.Component {
     return (
       <div className="create-new-dog">
         <form onSubmit={this.handleSubmit} className="create-dog-form">
-          <h1>A New Dog Needs A New Home</h1>
-          <input 
-            type="file" 
-            name="photo" 
-            onChange={this.handleUpload} 
-            accept="image/jpeg, image/png"/>
-            <div>{preview}</div>
+          <h1 style={{marginBottom: "1rem"}}>A New Dog Needs A New Home</h1>
+          
+            
 
           <label>
             <div className="create-dog-label">Name:</div>
@@ -96,7 +95,7 @@ class DogForm extends React.Component {
               onChange={this.update("breed")} >
 
               <option
-                value="other"
+                value = ""
                 disabled >
                 Select a Breed
               </option>
@@ -146,7 +145,12 @@ class DogForm extends React.Component {
               <option value="female">Female</option>
             </select>
           </label>
-
+          <input 
+            type="file" 
+            name="photo" 
+            onChange={this.handleUpload} 
+            accept="image/jpeg, image/png"/>
+          <div>{preview}</div>
           <input type="submit" className="add-dog-submit-button" />
         </form>
       </div>

@@ -38,6 +38,7 @@ class UserShow extends React.Component {
     }
   }
 
+
   editNumber(e) {
     e.preventDefault();
     this.setState({ editingNumber: !this.state.editingNumber });
