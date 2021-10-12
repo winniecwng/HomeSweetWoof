@@ -15,25 +15,31 @@ class AdopterAppointments extends React.Component {
                     return dog.appointments.map(appointment => {
                         if (appointment.user && (
                             appointment.user._id === user.id)) {
-                            return(
-                                <div key={`adopter-appmt-${appointment.date}${dog._id}`}
-                                    className="adopter-appointment">
-                                    <Link to={`/dogs/${dog._id}`}>
-                                        <h3>{dog.name} <i className="fas fa-dog"></i></h3>
-                                    </Link>
-                                    <p>
-                                        {(new Date(appointment.date)).toDateString()}
-                                    </p>
-                                    <p>
-                                        {(new Date(appointment.date)).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                                    </p>
+                            let d1 = new Date(appointment.date);
+                            let d2 = new Date(Date.now());
+                            if (d2<d1){
+                                return(
+                                    <div key={`adopter-appmt-${appointment.date}${dog._id}`}
+                                        className="adopter-appointment">
+                                        <Link to={`/dogs/${dog._id}`}>
+                                            <h3>{dog.name} <i className="fas fa-dog"></i></h3>
+                                        </Link>
+                                        <p>
+                                            {(new Date(appointment.date)).toDateString()}
+                                        </p>
+                                        <p>
+                                            {(new Date(appointment.date)).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                        </p>
 
-                                    <CancelAppointmentContainer 
-                                        dog={dog} 
-                                        date={appointment.date}
-                                        fetchDogs={this.props.fetchDogs} />
-                                </div>
-                            )
+                                        <CancelAppointmentContainer 
+                                            dog={dog} 
+                                            date={appointment.date}
+                                            fetchDogs={this.props.fetchDogs} />
+                                    </div>
+                                )
+                            }else{
+                                return null;
+                            }
                         } else {
                             return null;
                         }

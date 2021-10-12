@@ -48,10 +48,13 @@ class DogForm extends React.Component {
       formData.append("photo", this.state.photoFile)
       formData.append("description", this.state.description)
 
-      this.props.composeDog(formData);
+      this.props.composeDog(formData)
+        .then(()=>{
+            this.props.history.push(`/users/${this.props.currentUser.id}`)
+        });
       this.setState({ age: "", name: "", breed: "", gender: "female", description: "", photoFile: null, photoUrl: null });
     }
-    window.location.replace(`#/users/${this.props.currentUser.id}`)
+  
     
   }
 
