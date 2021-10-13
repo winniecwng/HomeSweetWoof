@@ -9,34 +9,101 @@
 
 ## Overview
 
-Home Sweet Woof is a dog adoption platform that helps connect potential adopters with shelters.
-Shelters can list dogs for adoption and adopters can filter through the listings based on specific preferances on the home page.
-If they see any dogs they like, they may make appointments or live chat with the shelter.
 ![HOW - splash](https://user-images.githubusercontent.com/82779931/134609901-c477e222-c48e-4af6-8b03-27ebef3040ba.JPG)
 
-## Technologies
+Home Sweet Woof is a fullstack MERN application that connects adopters to dog shelter organizations. Users can sign up as either an adopter or a shelter organization. Depending on the login credentials, the user has access to different types of functionality. Adopters can look through dog listings and make an appointment with dog shelters. Shelter organizations can add adoptable dogs to the list and update the dog's information. Both users can communicate with each other in real-time through a chat box.
 
-* MongoDB
-* Express
-* React/Redux
-* Node.js
-* Socket.IO
+## Main Features
 
-## Features
+Home Sweet Woof has an appointment booking feature that utilizes DatePicker from the React library. DatePicker is a reusable React component to display dates using a calendar dialog. The local state in the calendar class is set to conditionally render appointments for both shelters and adopters. 
 
-### Live chatting
+```...javascript
+class Calendar extends React.Component {
 
-* Adopters and shelters can live chat with each other and ask any questions they may have.
-![HOW - live chat](https://user-images.githubusercontent.com/82779931/134609904-d41059c1-5153-4f27-9449-6ca7347d7884.JPG)
+    constructor(props) {
+        super(props);
 
-### Filtering
-* Adopters can sort through the dog listings to narrow down their search based upon their preferences
-![HOW - home](https://user-images.githubusercontent.com/82779931/134609903-95b70f2b-1d93-471a-9405-f9b902baba58.JPG)
+        this.state = {
+            appointment: {
+                user: null,
+                date: null
+            },
+            lastBooked: null,
+            booked: false
+        }
 
-### Appointments
-* Adopters can schedule appointments with shelters, which will be noted on shelters home page.
-![HOW - shelter profile](https://user-images.githubusercontent.com/82779931/134609902-02bacea0-e946-4988-af22-2aa72516bd80.JPG)
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-### Full CRUD for Dogs/Users
-* Shelters can create/edit/delete dog listings and users can freely edit their profile
-![HOW - adopter profile](https://user-images.githubusercontent.com/82779931/134609900-39986994-ee23-4879-a698-d2b388d9d414.JPG)
+    handleSubmit(e) {
+        e.preventDefault();
+        const dog = {...this.props.dog};
+        let appointment = ({
+            date: this.state.appointment.date,
+            user: this.props.user
+        })
+        dog.appointments.push(appointment);
+        this.props.editDog(dog)
+            .then(() => this.setState({ 
+                appointment: {
+                    user: this.props.user,
+                    date: new Date()
+                },
+                lastBooked: this.state.appointment.date
+            }));
+        this.setState({ booked: true }, () => {
+            setTimeout(() => {
+                this.setState({ booked: false });
+                this.setState({ lastBooked: null });
+            }, 3000);
+        });
+    }
+
+    render() {
+        let booked;
+        this.state.booked ? booked = 'booked-appt' : booked = 'not-booked-appt';
+        const startDate = setHours(setMinutes(new Date(), 0), 9);
+        const endDate = setHours(setMinutes(new Date(), 0), 17);
+
+        return(
+            <> 
+                {this.props.user.type === 'adopter' && (
+                    <div className='calendar'>
+                        <div className='datepicker'>
+                            <DatePicker
+                                selected={this.state.appointment.date}
+                                showTimeSelect
+                                inline
+                                minDate={new Date()}
+                                maxDate={addDays(new Date(), 180)}
+                                timeIntervals={60}
+                                minTime={startDate}
+                                maxTime={endDate}
+                                onChange={date => {
+                                    let appointment = { ...this.state.appointment };
+                                    appointment.date = date;
+                                    this.setState({ appointment: appointment });
+                                }}
+                            />
+                        </div>
+                        <div className="book-it-container">
+                            <button onClick={this.handleSubmit} id="book-it">
+                                Book Appointment
+                            </button>
+                            {this.state.lastBooked && (
+                                <p id={booked}>Booked: <br /> {`
+                                    ${(this.state.lastBooked).toDateString()} 
+                                    ${(this.state.lastBooked).toLocaleTimeString(
+                                        [], { hour: '2-digit', minute: '2-digit' }
+                                    )}
+                                `}</p>
+                            )}
+                        </div>
+                    </div>
+                )} 
+            </>
+        )
+    }
+}
+
+```
