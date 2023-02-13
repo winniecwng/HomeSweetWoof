@@ -69,7 +69,83 @@ As one of the key features of the website is the conditional rendering of what i
 
 ### Code Refactoring
 If we were to refactor the project, React hooks and functions that handles multiple variables of the same scenario will produce cleaner code
-Example: we can turn the current file: 
+Example: we can turn the current file: [Current Code](https://github.com/winniecwng/HomeSweetWoof/blob/main/frontend/src/components/dog/dog_form.jsx)
+
+from:
+```...javascript
+
+class DogForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      age: "",
+      name: "",
+      breed: "",
+      gender: "female",
+      description: "",
+      photoFile: null,
+      photoUrl: null,
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.navigateToDogIndex = this.navigateToDogIndex.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
+  }
+
+  handleUpload(e){
+    const file = e.currentTarget.files[0]
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+        this.setState({photoFile: file, photoUrl: fileReader.result})
+    }
+    if (file){
+        fileReader.readAsDataURL(file)
+    }
+    
+}
+
+  handleSubmit(e) {
+    e.preventDefault();
+    if (this.state.age === "" || 
+        this.state.name === "" || 
+        this.state.breed === "" || 
+        !this.state.photoFile || 
+        !this.state.photoUrl) {
+        window.alert("Please fill out all fields");
+    } else {
+      const formData = new FormData();
+      formData.append("age", this.state.age)
+      formData.append("name", this.state.name)
+      formData.append("breed", this.state.breed)
+      formData.append("gender", this.state.gender)
+      formData.append("photo", this.state.photoFile)
+      formData.append("description", this.state.description)
+
+      this.props.composeDog(formData)
+        .then(()=>{
+            this.props.history.push(`/users/${this.props.currentUser.id}`)
+        });
+      this.setState({ age: "", name: "", breed: "", gender: "female", description: "", photoFile: null, photoUrl: null });
+    }
+  
+    
+  }
+
+  handleChange(e) {
+    e.preventDefault();
+    this.setState({ gender: e.target.value });
+  }
+
+  update(field) {
+    return (e) => this.setState({ [field]: e.currentTarget.value });
+  }
+
+  navigateToDogIndex() {
+    const url = `/dogs`;
+    this.props.history.push(url);
+  }
+
+```
 
 into:
 
