@@ -66,3 +66,90 @@ Home Sweet Woof has an appointment booking feature that utilizes DatePicker from
 As one of the key features of the website is the conditional rendering of what is displayed based upon the user's priviledge. One of the common themes throughout the code is what is and what is not displayed based upon the type of user logged in.
 
 
+
+### Code Refactoring
+If we were to refactor the project, React hooks and functions that handles multiple variables of the same scenario will produce cleaner code
+Example: we can turn the current file: 
+
+into:
+
+```...javascript
+const initialState = {
+  age: "",
+  name: "",
+  breed: "",
+  gender: "female",
+  description: "",
+  photoFile: null,
+  photoUrl: null,
+};
+
+const DogForm = (props) => {
+  const history = useHistory();
+  const { composeDog, currentUser } = props;
+  const [form, setForm] = useState(initialState);
+
+  const handleUpload = (e) => {
+    e.preventDefault();
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      setForm({ ...form, photoFile: file, photoUrl: fileReader.result });
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  };
+
+  // adding data to form
+  const appendFormData = () => {
+    const formData = new FormData();
+
+    // for every key in initial state, we want to populate the form except
+    // for photoUrl and photoFile:
+    let intialData = Object.keys(initialState);
+
+    intialData.forEach((data) => {
+      if (data !== "photoFile" || data !== "photoUrl")
+        formData.append(data, form[data]);
+    });
+
+    return formData;
+  };
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const clearForm = () => {
+    setForm(initialState);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      this.state.age === "" ||
+      this.state.name === "" ||
+      this.state.breed === "" ||
+      !this.state.photoFile ||
+      !this.state.photoUrl
+    ) {
+      window.alert("Please fill out all fields");
+    } else {
+      const formData = appendFormData();
+      composeDog(formData).then(() => {
+        history.push(`/users/${currentUser.id}`);
+      });
+
+      clearForm();
+    }
+  };
+
+  const preview = form.photoUrl ? (
+    <img className="preview" src={form.photoUrl} alt="preview" />
+  ) : null;
+```
+One example of refactoring here is:
+Instead of creating multiple different handler functions for each state, we create one handler function called handleChange that can be used dynamically to listen to the changes of the input based on the target event value.
