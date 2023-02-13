@@ -67,11 +67,11 @@ As one of the key features of the website is the conditional rendering of what i
 
 
 
-### Code Refactoring
+### Code Refactoring - February 13, 2023
 If we were to refactor the project, React hooks and functions that handles multiple variables of the same scenario will produce cleaner code
-Example: we can turn the current file: [Current Code](https://github.com/winniecwng/HomeSweetWoof/blob/main/frontend/src/components/dog/dog_form.jsx)
+Example: we can turn the current code: [For full page](https://github.com/winniecwng/HomeSweetWoof/blob/main/frontend/src/components/dog/dog_form.jsx)
 
-from:
+
 ```...javascript
 
 class DogForm extends React.Component {
@@ -147,7 +147,12 @@ class DogForm extends React.Component {
 
 ```
 
-into:
+there are a couple things:
+
+* create one handler function that can be used dynamically change the values of multiple inputs based on the targeted event. This way, we don't need to create a handler function that affects each state of the form.
+* create function to handle one specific event. For example, after we submit a form, we want to clear all the inputs from the form. In this case, instead of creating the function inside of a handleSubmit form, I'd create a separate function that resets the state of the form and use it inside the handleSubmit. In this way, code is much cleaner to read and easier to scale.
+
+like so:
 
 ```...javascript
 const initialState = {
@@ -227,5 +232,4 @@ const DogForm = (props) => {
     <img className="preview" src={form.photoUrl} alt="preview" />
   ) : null;
 ```
-One example of refactoring here is:
-Instead of creating multiple different handler functions for each state, we create one handler function called handleChange that can be used dynamically to listen to the changes of the input based on the target event value.
+
