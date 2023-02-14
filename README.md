@@ -68,7 +68,7 @@ As one of the key features of the website is the conditional rendering of what i
 
 
 ### Code Refactoring - February 13, 2023
-If we were to refactor the project, React hooks and functions that handles multiple variables of the same scenario will produce cleaner code
+If we were to refactor the project, I'd use React hooks and functions that handles multiple variables of the same scenario to produce cleaner code
 Example: we can turn the current code: [For full page](https://github.com/winniecwng/HomeSweetWoof/blob/main/frontend/src/components/dog/dog_form.jsx)
 
 
